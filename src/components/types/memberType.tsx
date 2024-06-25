@@ -1,0 +1,22 @@
+export type memberType = {
+  nama: string;
+  generasi: number;
+  asal: string;
+  nama_panggilan: string;
+  umur: number;
+  salam_perkenalan: string;
+  tanggal_bergabung: string;
+  fanbase: string;
+  kota_lahir: string;
+  tanggal_lahir: string;
+  nama_lengkap: string;
+  universitas: string;
+  jurusan: string;
+  foto: string;
+  member_regular: boolean;
+  username_idn: string;
+  username_ig: string;
+  username_sr: string;
+  username_tiktok: string;
+  username_x: string;
+};
