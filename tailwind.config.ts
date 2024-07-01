@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config: Config = {
   content: [
@@ -20,11 +21,36 @@ const config: Config = {
         "custom-hover": "2px 2px 4px #88CFAF",
       },
       borderRadius: {
-        'tl-10rem': '10rem',
-        'tr-10rem': '10rem', 
+        "tl-10rem": "10rem",
+        "tr-10rem": "10rem",
+      },
+      boxShadow: {
+        xl: "5px 5px 0px 1px",
+        sm: "1px 1px 0px 1px",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        ".rotate-y-0": {
+          transform: "rotateY(0deg)",
+        },
+        ".rotate-y-180": {
+          transform: "rotateY(180deg)",
+        },
+        ".-rotate-y-180": {
+          transform: "rotateY(-180deg)",
+        },
+        ".backface-visible": {
+          "backface-visibility": "visible",
+        },
+        ".backface-hidden": {
+          "backface-visibility": "hidden",
+        },
+      });
+    },
+  ],
 };
+
 export default config;

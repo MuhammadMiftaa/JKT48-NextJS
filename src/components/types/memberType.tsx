@@ -1,4 +1,5 @@
 export type memberType = {
+  id: string;
   nama: string;
   generasi: number;
   asal: string;

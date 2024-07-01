@@ -4,6 +4,7 @@ import {
   StarIcon,
   ArrowUpIcon,
 } from "@heroicons/react/outline/index.js";
+import Link from "next/link";
 
 export default function Diskografi() {
   return (
@@ -30,9 +31,12 @@ export default function Diskografi() {
               Discover the magic of JKT48's ongoing performances. Here’s a look
               at the setlists currently captivating audiences
             </h2>
-            <div className="p-1.5 bg-zinc-800 rounded-full absolute bottom-9 right-11 group-hover:bg-white hover:cursor-pointer">
+            <Link
+              href={"/discography/setlist"}
+              className="p-1.5 bg-zinc-800 rounded-full absolute bottom-9 right-11 group-hover:bg-white hover:cursor-pointer"
+            >
               <ArrowUpIcon className="h-6 w-6 rotate-45" />
-            </div>
+            </Link>
           </div>
           <div className="flex flex-col items-left py-12 px-12 bg-zinc-900 h-64 relative hover:bg-custom-green hover:text-black group">
             <PuzzleIcon className="h-12 w-12" />
@@ -41,9 +45,12 @@ export default function Diskografi() {
               Stay updated with the hottest tracks from JKT48 that are trending
               right now
             </h2>
-            <div className="p-1.5 bg-zinc-800 rounded-full absolute bottom-9 right-11 group-hover:bg-white hover:cursor-pointer">
+            <Link
+              href={"/songs"}
+              className="p-1.5 bg-zinc-800 rounded-full absolute bottom-9 right-11 group-hover:bg-white hover:cursor-pointer"
+            >
               <ArrowUpIcon className="h-6 w-6 rotate-45" />
-            </div>
+            </Link>
           </div>
           <div className="flex flex-col items-left py-12 px-12 bg-zinc-900 h-64 relative hover:bg-custom-green hover:text-black group">
             <StarIcon className="h-12 w-12" />
@@ -52,9 +59,12 @@ export default function Diskografi() {
               Explore the unique sound and creative vision of JKT48 through our
               original singles
             </h2>
-            <div className="p-1.5 bg-zinc-800 rounded-full absolute bottom-9 right-11 group-hover:bg-white hover:cursor-pointer">
+            <Link
+              href={"/original-singles"}
+              className="p-1.5 bg-zinc-800 rounded-full absolute bottom-9 right-11 group-hover:bg-white hover:cursor-pointer"
+            >
               <ArrowUpIcon className="h-6 w-6 rotate-45" />
-            </div>
+            </Link>
           </div>
         </div>
       </div>

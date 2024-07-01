@@ -1,0 +1,3 @@
+export default function discographyPage() {
+  return <h1>Hello World</h1>
+}
