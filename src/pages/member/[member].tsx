@@ -268,14 +268,14 @@ export default function MemberDetailPage() {
                 </li>
               </div>
             </div>
-            <label className="basis-2/5">
+            <label className="basis-2/5 overflow-hidden">
               <input type="checkbox" className="absolute scale-0" />
               <div
-                className="card relative h-screen w-full"
+                className="card relative h-screen w-full overflow-hidden"
                 style={{ backfaceVisibility: "hidden", transition: "0.6s" }}
               >
                 <img
-                  className="front absolute right-0 h-full overflow-hidden hover:opacity-40 hover:cursor-pointer duration-700 backface-hidden"
+                  className="front absolute right-0 h-full cursor-pointer duration-700 backface-hidden hover:scale-110 hover:rotate-[2deg]"
                   src={
                     "/member/big/" +
                     (dataMember.nama

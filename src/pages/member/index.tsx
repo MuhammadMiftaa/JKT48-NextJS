@@ -3,6 +3,7 @@ import Loading from "@/components/fragments/Loading";
 import { memberType } from "@/components/types/memberType";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { IoSearchSharp } from "react-icons/io5";
 import useSWR from "swr";
 
 export default function MemberPage() {
@@ -21,12 +22,18 @@ export default function MemberPage() {
   const memberRegular = dataMember.filter((member) => member.member_regular);
   const memberTrainee = dataMember.filter((member) => !member.member_regular);
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="flex flex-col w-full">
-      <h1 className="font-light text-2xl mt-12 mb-20 w-full text-center ">
-        <span className="text-custom-green text-4xl font-bold">JKT48</span>{" "}
-        Active Member
-      </h1>
+      <div className="flex justify-between px-24 items-center mt-12 mb-20">
+        <h1 className="font-light text-2xl">
+          <span className="text-custom-green text-4xl font-bold">JKT48</span>{" "}
+          Active Member
+        </h1>
+      </div>
       {dataMember.length > 0 ? (
         <div className="flex flex-col">
           <div className="px-24 relative">
@@ -41,7 +48,10 @@ export default function MemberPage() {
             {memberRegular.map((member: memberType, i: number) => (
               <label key={i}>
                 <input type="checkbox" className="absolute scale-0 peer" />
-                <div className="card w-60 my-5 mx-5 relative" style={{ height: "16.9rem" }} >
+                <div
+                  className="card w-60 my-5 mx-5 relative"
+                  style={{ height: "16.9rem" }}
+                >
                   <div className="front peer-checked:rotate-y-180 border-custom-green border rounded-2xl absolute top-0 bottom-0 left-0 right-0 overflow-hidden bg-zinc-950 hover:cursor-pointer shadow-xl shadow-custom-green duration-700 backface-hidden">
                     <img
                       className="w-4/5 border-r h-full border-custom-green"

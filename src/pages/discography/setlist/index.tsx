@@ -77,8 +77,8 @@ export default function setlistPage() {
                       onClick={() => goToSlide(i)}
                       className={`cursor-pointer hover:text-custom-green focus:text-custom-green duration-300 ${
                         current === i
-                          ? "text-2xl text-white"
-                          : "text-1xl text-black"
+                          ? "scale-150 text-white"
+                          : "text-black"
                       }`}
                     >
                       <RxDotFilled className="cursor-pointer" />
