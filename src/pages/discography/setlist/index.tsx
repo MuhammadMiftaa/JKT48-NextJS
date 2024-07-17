@@ -41,19 +41,19 @@ export default function setlistPage() {
       {!isLoading ? (
         <>
           <div className="container">
-            <h1 className="text-slate-300 font-light text-4xl text-center mt-16">
+            <h1 className="text-slate-300 font-thin text-xl tracking-wider text-center mt-20 font-poppins">
               On-going{" "}
-              <span className="text-5xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-500">
+              <span className="text-5xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-l from-custom-green to-blue-500 from-30% block ">
                 Setlist
               </span>
             </h1>
-            <div className="relative max-w-[750px] h-[500px] py-16 px-12 mx-auto">
+            <div className="relative max-w-[750px] h-[500px] py-16 px-12 mx-auto" data-aos="zoom-in" data-aos-duration="1000">
               <div
                 className="w-full h-full bg-cover bg-center duration-500 group relative flex items-center justify-center border border-custom-green shadow-2xl shadow-custom-green"
                 style={{
                   backgroundImage: `url("/setlistPoster/${dataSetlist[
                     current
-                  ].nama_setlist.replace(/ /g, "_")}.jpg")`,
+                  ].nama_setlist.replace(/ /g, "_")}.webp")`,
                 }}
               >
                 <div
@@ -87,7 +87,7 @@ export default function setlistPage() {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 top-0 bg-gradient-to-t from-black to-transparent">
                   <div className="flex justify-between items-end absolute bottom-1 py-1.5 px-4 w-full">
-                    <h1 className="text-md rounded-full border-zinc-300 font-light w-fit capitalize  text-zinc-300 duration-500 italic">
+                    <h1 className="text-md rounded-full border-zinc-300 font-light w-fit capitalize  text-zinc-300 duration-500 italic font-urbanist">
                       {dataSetlist[current].nama_setlist}
                     </h1>
                     <Link

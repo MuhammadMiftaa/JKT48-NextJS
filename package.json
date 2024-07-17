@@ -11,10 +11,14 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^1.0.6",
     "@mui/material": "^5.15.21",
+    "animate.css": "^4.1.1",
+    "aos": "^3.0.0-beta.6",
     "firebase": "^10.12.2",
     "flowbite": "^2.4.1",
+    "flowbite-react": "^0.10.1",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
@@ -24,6 +28,7 @@
     "swr": "^2.2.5"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
