@@ -13,8 +13,10 @@ import { HiChevronUpDown } from "react-icons/hi2";
 import useSWR from "swr";
 import { memberType } from "@/components/types/memberType";
 import Loading from "@/components/fragments/Loading";
-import { GiTravelDress } from "react-icons/gi";
 import Link from "next/link";
+import { useForm, Controller } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function registerPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -23,10 +25,11 @@ export default function registerPage() {
 
   const [page, setPage] = useState(1);
   const [selected, setSelected] = useState<memberType | null>(null);
+  const { control, handleSubmit } = useForm();
 
   useEffect(() => {
     if (member.length > 0) {
-      setSelected(member[0]); // Atur nilai awal selected ke anggota pertama
+      setSelected(member[0]);
     }
   }, [member]);
 
@@ -36,6 +39,56 @@ export default function registerPage() {
   const prevPage = () => {
     setPage(page - 1);
   };
+
+  const registerFormSchema = z.object({
+    email: z.string(),
+    number: z.string(),
+    password: z.string().min(8, "Password must be at least 8 characters"),
+    confirmPassword: z.string(),
+    fullname: z.string(),
+    nickname: z.string(),
+    oshimen: z.object({
+      id: z.string(),
+      nama: z.string(),
+      generasi: z.number(),
+      asal: z.string(),
+      nama_panggilan: z.string(),
+      umur: z.number(),
+      salam_perkenalan: z.string(),
+      tanggal_bergabung: z.string(),
+      fanbase: z.string(),
+      kota_lahir: z.string(),
+      tanggal_lahir: z.string(),
+      nama_lengkap: z.string(),
+      universitas: z.string(),
+      jurusan: z.string(),
+      foto: z.string(),
+      member_regular: z.boolean(),
+      username_idn: z.string(),
+      username_ig: z.string(),
+      username_sr: z.string(),
+      username_tiktok: z.string(),
+      username_x: z.string(),
+    }),
+    birthday: z.string(),
+    gender: z.enum(["man", "woman"]),
+    ID: z.string(),
+    address: z.string(),
+    postal: z.string(),
+    city: z.string(),
+    nonjabodetabek: z.boolean(),
+  });
+
+  type RegisterFormSchema = z.infer<typeof registerFormSchema>;
+
+  const form = useForm<RegisterFormSchema>({
+    resolver: zodResolver(registerFormSchema),
+  });
+
+  const onSubmit = form.handleSubmit((values) => {
+    alert("Register Success");
+    console.log(values);
+  });
 
   return (
     <>
@@ -51,7 +104,7 @@ export default function registerPage() {
                 exclusive content, and special events.{" "}
               </p>
             </div>
-            <form action="">
+            <form action="" onSubmit={onSubmit}>
               {page === 1 && (
                 <div className="flex flex-col mb-10">
                   <div className="mt-8">
@@ -61,8 +114,10 @@ export default function registerPage() {
                     >
                       Email
                       <input
+                        required
                         type="email"
                         className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                        {...form.register("email")}
                       />
                     </label>
                     <span className="font-light text-xs italic font-urbanist text-red-600 hidden">
@@ -75,38 +130,45 @@ export default function registerPage() {
                       htmlFor="number"
                       className="font-urbanist text-sm font-light"
                     >
-                      Handphone Number
+                      Phone Number
                       <input
+                        required
                         type="text"
                         className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                        {...form.register("number")}
                       />
                     </label>
-                    <span className="font-light text-xs italic font-urbanist text-red-600 hidden">
-                      Your phone number doesn't look quite right. Please check
-                      and enter a valid one.
-                    </span>
                   </div>
                   <div className="mt-2">
                     <label
                       htmlFor="password"
-                      className="font-urbanist text-sm font-light"
+                      className="font-poppins text-sm font-light"
                     >
                       Password
                       <input
+                        required
                         type="password"
                         className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                        {...form.register("password")}
                       />
                     </label>
+                    {form.formState.errors.password && (
+                      <span className="font-light text-xs italic font-urbanist text-red-600 hidden">
+                        {form.formState.errors.password.message}
+                      </span>
+                    )}
                   </div>
                   <div className="mt-2">
                     <label
                       htmlFor="confirmPassword"
-                      className="font-urbanist text-sm font-light"
+                      className="font-poppins text-sm font-light"
                     >
                       Confirm Password
                       <input
+                        required
                         type="password"
                         className="w-full  text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                        {...form.register("confirmPassword")}
                       />
                     </label>
                     <span className="font-light text-xs italic font-urbanist text-red-600 hidden">
@@ -125,8 +187,10 @@ export default function registerPage() {
                       >
                         Full Name
                         <input
+                          required
                           type="text"
                           className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                          {...form.register("fullname")}
                         />
                       </label>
                     </div>
@@ -137,75 +201,85 @@ export default function registerPage() {
                       >
                         Nickname
                         <input
+                          required
                           type="text"
                           className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                          {...form.register("nickname")}
                         />
                       </label>
                     </div>
                   </div>
-                  <Listbox value={selected} onChange={setSelected}>
-                    <Label
-                      htmlFor="oshimen"
-                      className="font-urbanist text-sm font-light"
-                    >
-                      Oshimen
-                    </Label>
-                    <div className="relative">
-                      <ListboxButton className="relative w-full cursor-default bg-black py-1.5 pl-3 pr-10 text-left text-white border-2 border-zinc-900 rounded-lg">
-                        {selected && selected.nama && (
-                          <span className="flex items-center">
-                            <img
-                              alt=""
-                              src={
-                                "/member/webp/" +
-                                selected.nama.toLowerCase().replace(/ /g, "_") +
-                                ".webp"
-                              }
-                              className="h-5 w-5 flex-shrink-0 rounded-full object-cover object-center"
-                            />
-                            <span className="ml-3 block truncate font-urbanist text-sm font-light">
-                              {selected.nama}
-                            </span>
-                          </span>
-                        )}
-                        <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
-                          <HiChevronUpDown className="h-5 w-5 text-gray-400" />
-                        </span>
-                      </ListboxButton>
-
-                      <ListboxOptions
-                        transition
-                        className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
+                  <Controller
+                    name="oshimen"
+                    control={form.control}
+                    render={({ field }) => (
+                      <Listbox
+                        value={field.value}
+                        onChange={(value) => {
+                          field.onChange(value);
+                          setSelected(value);
+                        }}
                       >
-                        {member.map((member) => (
-                          <ListboxOption
-                            key={member.id}
-                            value={member}
-                            className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-pink-600 data-[focus]:text-white"
-                          >
-                            <div className="flex items-center">
-                              <img
-                                alt=""
-                                src={
-                                  "/member/webp/" +
-                                  member.nama.toLowerCase().replace(/ /g, "_") +
-                                  ".webp"
-                                }
-                                className="h-5 w-5 flex-shrink-0 rounded-full object-cover object-center"
-                              />
-                              <span className="ml-3 block truncate font-urbanist text-sm font-light group-data-[selected]:font-bold">
-                                {member.nama}
+                        <Label className="block text-sm leading-6 text-white font-urbanist font-light">
+                          Oshimen
+                        </Label>
+                        <div className="relative">
+                          <ListboxButton className="relative w-full cursor-default rounded-md bg-black py-1.5 pl-3 pr-10 text-left text-white border-2 border-zinc-900 focus:outline-none sm:text-sm sm:leading-6">
+                            {selected && selected.nama && (
+                              <span className="flex items-center">
+                                <img
+                                  alt={selected.nama}
+                                  src={`/member/webp/${selected.nama
+                                    .toLowerCase()
+                                    .replace(/ /g, "_")}.webp`}
+                                  className="h-5 w-5 flex-shrink-0 rounded-full object-cover object-center"
+                                />
+                                <span className="ml-3 block truncate font-urbanist">
+                                  {selected.nama}
+                                </span>
                               </span>
-                            </div>
-
-                            <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-pink-600 group-data-[focus]:text-white [.group:not([data-selected])_&]">
-                              <GiTravelDress className="h-5 w-5" />
+                            )}
+                            <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+                              <HiChevronUpDown
+                                aria-hidden="true"
+                                className="h-5 w-5 text-gray-400"
+                              />
                             </span>
-                          </ListboxOption>
-                        ))}
-                      </ListboxOptions>
-                    </div>
-                  </Listbox>
+                          </ListboxButton>
+
+                          <ListboxOptions className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-zinc-950 text-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                            {member.map((m) => (
+                              <ListboxOption
+                                key={m.id}
+                                value={m}
+                                className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 focus:bg-pink-600 focus:text-white"
+                              >
+                                <div className="flex items-center">
+                                  <img
+                                    alt=""
+                                    src={`/member/webp/${m.nama
+                                      .toLowerCase()
+                                      .replace(/ /g, "_")}.webp`}
+                                    className="h-5 w-5 flex-shrink-0 rounded-full object-cover object-center"
+                                  />
+                                  <span className="ml-3 block truncate font-normal group-focus:font-bold group-focus:text-white font-urbanist text-zinc-300">
+                                    {m.nama}
+                                  </span>
+                                </div>
+                                <span className="absolute inset-y-0 right-0 items-center pr-4 text-pink-600 group-focus:text-white hidden group-focus:block">
+                                  <CheckIcon
+                                    aria-hidden="true"
+                                    className="h-5 w-5"
+                                  />
+                                </span>
+                              </ListboxOption>
+                            ))}
+                          </ListboxOptions>
+                        </div>
+                      </Listbox>
+                    )}
+                  />
+
                   <div className="mt-4">
                     <label
                       htmlFor="birthday"
@@ -214,32 +288,42 @@ export default function registerPage() {
                       Birthday
                     </label>
                     <input
+                      required
                       type="date"
                       className="w-full font-urbanist font-light text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                      {...form.register("birthday")}
                     />
                   </div>
                   <div className="mt-4 font-urbanist text-sm h-10 font-light">
-                    <label htmlFor="gender" className="">
-                      Gender
-                    </label>
+                    <h1 className="">Gender</h1>
                     <div className="flex justify-start items-center mt-2">
-                      <label className="custom-radio w-1/6 cursor-pointer relative">
+                      <label
+                        className="custom-radio w-1/6 cursor-pointer relative"
+                        htmlFor="man"
+                      >
                         <input
+                          required
                           type="radio"
                           className="absolute peer scale-0"
-                          name="gender"
-                          value={1}
+                          value="man"
+                          id="man"
+                          {...form.register("gender")}
                         />
                         <span className="radio-mark shadow-sm border border-blue-600 shadow-blue-600 py-1 px-2 rounded absolute peer-checked:translate-x-0.5 peer-checked:translate-y-0.5 peer-checked:shadow-none">
                           Man
                         </span>
                       </label>
-                      <label className="custom-radio w-1/6 cursor-pointer relative">
+                      <label
+                        className="custom-radio w-1/6 cursor-pointer relative"
+                        htmlFor="woman"
+                      >
                         <input
+                          required
                           type="radio"
                           className="absolute peer scale-0"
-                          name="gender"
-                          value={2}
+                          value="woman"
+                          id="woman"
+                          {...form.register("gender")}
                         />
                         <span className="radio-mark shadow-sm border border-pink-600 shadow-pink-600 py-1 px-2 rounded absolute peer-checked:translate-x-0.5 peer-checked:translate-y-0.5 peer-checked:shadow-none">
                           Woman
@@ -258,8 +342,10 @@ export default function registerPage() {
                     >
                       ID
                       <input
+                        required
                         type="text"
                         className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                        {...form.register("ID")}
                       />
                     </label>
                   </div>
@@ -271,8 +357,10 @@ export default function registerPage() {
                       Address
                     </label>
                     <input
+                      required
                       type="text"
                       className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                      {...form.register("address")}
                     />
                   </div>
                   <div className="mt-2 flex gap-3">
@@ -284,8 +372,10 @@ export default function registerPage() {
                         Postal Code
                       </label>
                       <input
+                        required
                         type="text"
                         className="w-full  text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                        {...form.register("postal")}
                       />
                     </div>
                     <div className="basis-3/4">
@@ -296,18 +386,20 @@ export default function registerPage() {
                         City
                       </label>
                       <input
+                        required
                         type="text"
                         className="w-full  text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+                        {...form.register("city")}
                       />
                     </div>
                   </div>
                   <div className="mt-2 mb-8 flex relative">
-                    <label htmlFor="jabodetabek" className="">
+                    <label htmlFor="nonjabodetabek" className="">
                       <input
                         className="absolute scale-0 peer"
                         type="checkbox"
-                        name="jabodetabek"
-                        id="jabodetabek"
+                        id="nonjabodetabek"
+                        {...form.register("nonjabodetabek")}
                       />
                       <span className="py-1 w-full text-center cursor-pointer rounded capitalize font-urbanist text-sm font-light shadow-sm border border-slate-600 shadow-slate-600 absolute peer-checked:translate-x-0.5 peer-checked:translate-y-0.5 peer-checked:shadow-none">
                         {" "}
@@ -326,13 +418,18 @@ export default function registerPage() {
                     >
                       <MdOutlineExitToApp className="text-black text-xl mx-auto my-auto rotate-180" />
                     </div>
-                    <button className=" w-full bg-gradient-to-r from-custom-green to-blue-600 text-black font-poppins font-bold rounded p-2 focus:ring-2 focus:ring-custom-green focus:outline-none uppercase">
-                      Create Account  
+                    <button
+                      type="submit"
+                      className=" w-full bg-gradient-to-r from-custom-green to-blue-600 text-black font-poppins font-bold rounded p-2 focus:ring-2 focus:ring-custom-green focus:outline-none uppercase"
+                    >
+                      Create Account
                     </button>
                   </div>
                 ) : (
                   <div
-                    className={"flex gap-2" + " " + (page === 1 && "flex-col")}
+                    className={
+                      "flex gap-2" + " " + (page === 1 && "flex-col-reverse")
+                    }
                   >
                     {page !== 1 ? (
                       <div

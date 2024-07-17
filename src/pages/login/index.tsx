@@ -1,7 +1,25 @@
 import Link from "next/link";
 import React from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function loginPage() {
+  const loginFormSchema = z.object({
+    email: z.string(),
+    password: z.string(),
+  });
+
+  type LoginFormSchema = z.infer<typeof loginFormSchema>;
+
+  const form = useForm<LoginFormSchema>({
+    resolver: zodResolver(loginFormSchema),
+  });
+
+  const onSubmit = form.handleSubmit((values) => {
+    console.log(values);
+  });
+
   return (
     <div className="mt-20 h-[75vh] flex flex-col w-1/3 mx-auto my-auto justify-center">
       <div className="">
@@ -13,18 +31,21 @@ export default function loginPage() {
           latest.
         </p>
       </div>
-      <form action="" className="flex flex-col mb-10">
+      <form action="" onSubmit={onSubmit} className="flex flex-col mb-10">
         <div className="mt-8">
           <label htmlFor="email" className="font-urbanist text-sm font-light">
             Email
             <input
               type="email"
               className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+              {...form.register("email")}
             />
           </label>
-          <span className="font-light text-xs italic font-urbanist text-red-600 hidden">
-            Oops! We couldn't find an account with that email.
-          </span>
+          {form.formState.errors.email && (
+            <span className="font-light text-xs italic font-urbanist text-red-600">
+              {form.formState.errors.email.message}
+            </span>
+          )}
         </div>
         <div className="mt-4">
           <label
@@ -34,14 +55,23 @@ export default function loginPage() {
             Password
             <input
               type="password"
-              className="w-full text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+              className="w-full text-xl font-poppins text-white border-2 border-zinc-900 bg-black rounded-lg p-1 focus:ring-0 focus:outline-none focus:border-zinc-400"
+              {...form.register("password")}
             />
           </label>
-          <span className="font-light text-xs italic font-urbanist text-red-600 hidden">
-            Hmm, that password doesn't seem right. Give it another try.
-          </span>
+          {form.formState.errors.password && (
+            <span className="font-light capitalize text-xs font-poppins text-red-600">
+              {form.formState.errors.password.message}
+            </span>
+          )}
         </div>
         <div className="flex gap-3 flex-col mt-10">
+          <button
+            type="submit"
+            className="w-full text-sm bg-gradient-to-r from-custom-green to-blue-600 text-black font-poppins font-bold rounded p-2 focus:ring-2 focus:ring-custom-green focus:outline-none uppercase"
+          >
+            Login
+          </button>
           <Link
             href={"/register"}
             className="bg-gradient-to-r from-custom-green to-blue-600 rounded p-0.5"
@@ -50,9 +80,6 @@ export default function loginPage() {
               Don't have an account yet?
             </h1>
           </Link>
-          <button className="w-full text-sm bg-gradient-to-r from-custom-green to-blue-600 text-black font-poppins font-bold rounded p-2 focus:ring-2 focus:ring-custom-green focus:outline-none uppercase">
-            Login
-          </button>
         </div>
       </form>
     </div>
