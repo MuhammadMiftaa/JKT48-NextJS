@@ -1,8 +1,11 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import Loading from "@/components/fragments/Loading";
 
 export default function loginPage() {
   const loginFormSchema = z.object({
@@ -16,8 +19,34 @@ export default function loginPage() {
     resolver: zodResolver(loginFormSchema),
   });
 
-  const onSubmit = form.handleSubmit((values) => {
-    console.log(values);
+  const [loading, setLoading] = useState(false);
+  const [isError, setIsError] = useState("");
+
+  const { push, query } = useRouter();
+
+  const callbackUrl: any = query.callbackUrl || "/";
+
+  const onSubmit = form.handleSubmit(async (values) => {
+    setLoading(true);
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: values.email,
+        password: values.password,
+        callbackUrl,
+      });
+
+      if (res?.error) {
+        setIsError("Email or password is incorrect");
+        setLoading(false);
+      } else {
+        push(callbackUrl);
+        setLoading(false);
+      }
+    } catch (error: any) {
+      setIsError("Email or password is incorrect");
+      setLoading(false);
+    }
   });
 
   return (
@@ -42,7 +71,7 @@ export default function loginPage() {
             />
           </label>
           {form.formState.errors.email && (
-            <span className="font-light text-xs italic font-urbanist text-red-600">
+            <span className="font-light text-md italic font-urbanist text-red-600">
               {form.formState.errors.email.message}
             </span>
           )}
@@ -64,22 +93,29 @@ export default function loginPage() {
               {form.formState.errors.password.message}
             </span>
           )}
+          {isError && (<p className="font-poppins font-light text-sm text-red-600 text-center mt-4 -mb-4">{isError}</p>)}
         </div>
-        <div className="flex gap-3 flex-col mt-10">
-          <button
-            type="submit"
-            className="w-full text-sm bg-gradient-to-r from-custom-green to-blue-600 text-black font-poppins font-bold rounded p-2 focus:ring-2 focus:ring-custom-green focus:outline-none uppercase"
-          >
-            Login
-          </button>
-          <Link
-            href={"/register"}
-            className="bg-gradient-to-r from-custom-green to-blue-600 rounded p-0.5"
-          >
-            <h1 className="bg-black rounded p-2 m-0 w-full text-center font-urbanist text-xs">
-              Don't have an account yet?
-            </h1>
-          </Link>
+        <div className="flex gap-3 flex-col mt-10 items-center">
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              <button
+                type="submit"
+                className="w-full text-sm bg-gradient-to-r from-custom-green to-blue-600 text-black font-poppins font-bold rounded p-2 focus:ring-2 focus:ring-custom-green focus:outline-none uppercase"
+              >
+                Login
+              </button>
+              <Link
+                href={"/register"}
+                className="bg-gradient-to-r w-full from-custom-green to-blue-600 rounded p-0.5"
+              >
+                <h1 className="bg-black rounded p-2 m-0 w-full text-center font-urbanist text-xs">
+                  Don't have an account yet?
+                </h1>
+              </Link>
+            </>
+          )}
         </div>
       </form>
     </div>

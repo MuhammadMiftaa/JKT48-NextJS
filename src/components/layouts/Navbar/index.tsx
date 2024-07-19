@@ -3,20 +3,21 @@ import { Navbar } from "flowbite-react";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { BiSolidExit } from "react-icons/bi";
+import { BsPersonCircle } from "react-icons/bs";
 
 export default function NavbarLayout() {
   const [dropdownOpen, setDropdownHover] = useState(false);
   const menu = ["Theater", "Shop", "News", "Member"];
 
+  const { data }: any = useSession();
+
   const router = useRouter();
 
   const goToDiscography = () => {
     router.push("/discography");
-  }
-
-  const login = () => {
-    router.push("/login")
-  }
+  };
 
   const handleMouseEnter = () => {
     setDropdownHover(true);
@@ -37,13 +38,23 @@ export default function NavbarLayout() {
             JKT48
           </span>
         </Link>
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <button
-            type="button" onClick={login}
-            className="text-black bg-gradient-to-r from-custom-green to-blue-600 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-lg px-3 py-1 text-center font-urbanist animate__animated animate__fadeInRight"
-          >
-            Login
-          </button>
+        <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          {data ? (
+            <div className="flex items-center gap-2 rounded-xl border-[0.5px] border-zinc-600 py-1 px-3 sm:border-none">
+              <h1 className="font-poppins font-bold bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-500">
+                {data.user.nickname}
+              </h1>
+              <BsPersonCircle className="text-blue-500 text-lg" />
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => signIn()}
+              className="text-black bg-gradient-to-r from-custom-green to-blue-600 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-lg px-3 py-1 text-center font-urbanist animate__animated animate__fadeInRight"
+            >
+              Login
+            </button>
+          )}
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -61,9 +72,9 @@ export default function NavbarLayout() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 1h15M1 7h15M1 13h15"
               />
             </svg>
@@ -135,9 +146,9 @@ export default function NavbarLayout() {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="m1 1 4 4 4-4"
                   />
                 </svg>
@@ -145,7 +156,7 @@ export default function NavbarLayout() {
               {dropdownOpen && (
                 <div
                   id="dropdownNavbar"
-                  className="absolute md:top-6 z-10 font-normal divide-y rounded-lg shadow w-44 bg-gray-700 divide-gray-600"
+                  className="absolute md:top-6 z-10 font-normal divide-y rounded-lg shadow w-44 bg-black divide-gray-600 border border-custom-green"
                 >
                   <ul
                     className="py-2 text-sm text-gray-400"
@@ -154,7 +165,7 @@ export default function NavbarLayout() {
                     <li>
                       <Link
                         href="/discography/setlist"
-                        className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+                        className="block px-4 py-2 hover:text-custom-green"
                       >
                         Ongoing Setlist
                       </Link>
@@ -162,28 +173,32 @@ export default function NavbarLayout() {
                     <li>
                       <Link
                         href="/discography/songs"
-                        className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+                        className="block px-4 py-2 hover:text-custom-green"
                       >
                         New Release
                       </Link>
                     </li>
                     <li>
                       <Link
-                        href="/discography/original-singles"
-                        className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+                        href="/discography/single-original"
+                        className="block px-4 py-2 hover:text-custom-green"
                       >
                         Original Singles
                       </Link>
                     </li>
                   </ul>
-                  <div className="py-1">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 dark:hover:text-white"
+                  {data && (
+                    <button
+                      className="py-2  pl-4 flex items-center gap-1 group"
+                      type="button"
+                      onClick={() => signOut()}
                     >
-                      Sign out
-                    </a>
-                  </div>
+                      <h1 className="font-urbanist text-md  duration-500  text-zinc-400 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-custom-green group-hover:to-blue-600 font-bold">
+                        Logout
+                      </h1>
+                      <BiSolidExit className="text-zinc-400 group-hover:text-blue-600 duration-500" />
+                    </button>
+                  )}
                 </div>
               )}
             </li>

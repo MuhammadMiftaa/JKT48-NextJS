@@ -17,6 +17,7 @@ import Link from "next/link";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/router";
 
 export default function registerPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -85,9 +86,32 @@ export default function registerPage() {
     resolver: zodResolver(registerFormSchema),
   });
 
-  const onSubmit = form.handleSubmit((values) => {
-    alert("Register Success");
-    console.log(values);
+  const [loading, setLoading] = useState(false);
+  const [isError, setIsError] = useState("");
+
+  const { push } = useRouter();
+
+  const onSubmit = form.handleSubmit(async (values) => {
+    setLoading(true);
+    const result = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+
+    if (result.status === 200) {
+      setLoading(false);
+      push("/login");
+    } else {
+      setIsError(
+        result.status === 400
+          ? "Email already registered"
+          : "Something went wrong"
+      );
+      setLoading(false);
+    }
   });
 
   return (
@@ -252,7 +276,7 @@ export default function registerPage() {
                               <ListboxOption
                                 key={m.id}
                                 value={m}
-                                className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 focus:bg-pink-600 focus:text-white"
+                                className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-pink-600 data-[focus]:text-white"
                               >
                                 <div className="flex items-center">
                                   <img
@@ -262,11 +286,11 @@ export default function registerPage() {
                                       .replace(/ /g, "_")}.webp`}
                                     className="h-5 w-5 flex-shrink-0 rounded-full object-cover object-center"
                                   />
-                                  <span className="ml-3 block truncate font-normal group-focus:font-bold group-focus:text-white font-urbanist text-zinc-300">
+                                  <span className="ml-3 block truncate font-normal group-data-[selected]:font-bold font-urbanist text-white">
                                     {m.nama}
                                   </span>
                                 </div>
-                                <span className="absolute inset-y-0 right-0 items-center pr-4 text-pink-600 group-focus:text-white hidden group-focus:block">
+                                <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-pink-600 group-data-[focus]:text-white [.group:not([data-selected])_&]:hidden">
                                   <CheckIcon
                                     aria-hidden="true"
                                     className="h-5 w-5"
@@ -407,23 +431,34 @@ export default function registerPage() {
                       </span>
                     </label>
                   </div>
+                  {isError && (
+                    <h1 className="mt-3 -mb-5 font-urbanist font-light text-sm text-red-600 text-center">
+                      {isError}
+                    </h1>
+                  )}
                 </div>
               )}
               <div className="mt-10">
                 {page === 3 ? (
-                  <div className="flex gap-2">
-                    <div
-                      onClick={prevPage}
-                      className="cursor-pointer flex font-poppins text-lg uppercase w-12 bg-gradient-to-r from-custom-green to-blue-600 rounded py-1"
-                    >
-                      <MdOutlineExitToApp className="text-black text-xl mx-auto my-auto rotate-180" />
-                    </div>
-                    <button
-                      type="submit"
-                      className=" w-full bg-gradient-to-r from-custom-green to-blue-600 text-black font-poppins font-bold rounded p-2 focus:ring-2 focus:ring-custom-green focus:outline-none uppercase"
-                    >
-                      Create Account
-                    </button>
+                  <div className="flex gap-2 justify-center">
+                    {loading ? (
+                      <Loading />
+                    ) : (
+                      <>
+                        <div
+                          onClick={prevPage}
+                          className="cursor-pointer flex font-poppins text-lg uppercase w-12 bg-gradient-to-r from-custom-green to-blue-600 rounded py-1"
+                        >
+                          <MdOutlineExitToApp className="text-black text-xl mx-auto my-auto rotate-180" />
+                        </div>
+                        <button
+                          type="submit"
+                          className=" w-full bg-gradient-to-r from-custom-green to-blue-600 text-black font-poppins font-bold rounded p-2 focus:ring-2 focus:ring-custom-green focus:outline-none uppercase"
+                        >
+                          Create Account
+                        </button>
+                      </>
+                    )}
                   </div>
                 ) : (
                   <div
@@ -448,12 +483,13 @@ export default function registerPage() {
                         </h1>
                       </Link>
                     )}
-                    <h1
+                    <button
                       onClick={nextPage}
+                      type="button"
                       className="text-center cursor-pointer font-bold  text-black font-urbanist text-lg uppercase w-full bg-gradient-to-r from-custom-green to-blue-600 rounded py-1"
                     >
                       Next
-                    </h1>
+                    </button>
                   </div>
                 )}
               </div>

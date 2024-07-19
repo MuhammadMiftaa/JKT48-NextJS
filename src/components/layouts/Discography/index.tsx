@@ -88,7 +88,7 @@ export default function Diskografi() {
               original singles
             </h2>
             <Link
-              href={"/original-singles"}
+              href={"/discography/single-original"}
               className="p-1.5 bg-zinc-800 rounded-full absolute bottom-9 right-11 group-hover:bg-white hover:cursor-pointer"
             >
               <ArrowUpIcon className="h-6 w-6 rotate-45" />
