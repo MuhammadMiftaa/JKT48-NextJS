@@ -38,7 +38,7 @@ export default function NavbarLayout() {
             JKT48
           </span>
         </Link>
-        <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <Link href={"/profile"} className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {data ? (
             <div className="flex items-center gap-2 rounded-xl border-[0.5px] border-zinc-600 py-1 px-3 sm:border-none">
               <h1 className="font-poppins font-bold bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-500">
@@ -79,7 +79,7 @@ export default function NavbarLayout() {
               />
             </svg>
           </button>
-        </div>
+        </Link>
         <div
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-sticky"
@@ -156,7 +156,7 @@ export default function NavbarLayout() {
               {dropdownOpen && (
                 <div
                   id="dropdownNavbar"
-                  className="absolute md:top-6 z-10 font-normal divide-y rounded-lg shadow w-44 bg-black divide-gray-600 border border-custom-green"
+                  className="absolute md:top-6 z-10 font-normal divide-y rounded-lg shadow-[0_0_7px_0_rgba(0,0,0,0.3)] w-44 bg-black divide-gray-600 border border-custom-green shadow-custom-green"
                 >
                   <ul
                     className="py-2 text-sm text-gray-400"

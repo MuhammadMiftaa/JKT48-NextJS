@@ -49,7 +49,7 @@ export default function setlistPage() {
             </h1>
             <div className="relative max-w-[750px] h-[500px] py-16 px-12 mx-auto" data-aos="zoom-in" data-aos-duration="1000">
               <div
-                className="w-full h-full bg-cover bg-center duration-500 group relative flex items-center justify-center border border-custom-green shadow-2xl shadow-custom-green"
+                className="w-full h-full bg-cover bg-center duration-500 group relative flex items-center justify-center border border-custom-green shadow-[0_0_30px_0] shadow-custom-green"
                 style={{
                   backgroundImage: `url("/setlistPoster/${dataSetlist[
                     current

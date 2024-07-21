@@ -7,9 +7,9 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // console.log(req.query);
-  if (req.query.setlist?.[1]) {
-    const data = await retrieveDataById("theater", req.query.setlist[1]);
+  console.log(req.query);
+  if (req.query.name?.[1]) {
+    const data = await retrieveDataById("users", req.query.name[1]);
     res.status(200).json({
       status: true,
       statusCode: 200,
@@ -17,7 +17,7 @@ export default async function handler(
       data,
     });
   } else {
-    const data = await retrieveData("theater");
+    const data = await retrieveData("users");
     res.status(200).json({
       status: true,
       statusCode: 200,
