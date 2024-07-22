@@ -71,7 +71,7 @@ export default function SetlistDetailPage() {
       {!isLoading ? (
         <div className="container">
           <div className="relative w-fit h-fit mx-auto">
-            <h1 className="text-5xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-custom-green to-blue-600 uppercase mt-12 font-poppins">
+            <h1 className="text-5xl text-center title-gradient-bold uppercase mt-12 font-poppins">
               {dataSetlist.nama_setlist}
             </h1>
           </div>

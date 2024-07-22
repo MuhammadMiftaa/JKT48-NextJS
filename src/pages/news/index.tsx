@@ -119,7 +119,7 @@ export default function NewsPage() {
                 alt="meet and greet"
                 className="h-full aspect-video object-cover object-center mr-2"
               />
-              <p className="font-urbanist text-sm group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-custom-green group-hover:to-blue-600">
+              <p className="font-urbanist text-sm text-gradient-group-hover">
                 Pengumuman Mengenai TEATER SEMENTARA JKT48 2024
               </p>
             </div>
@@ -206,7 +206,7 @@ export default function NewsPage() {
         </div>
       </div>
       <div className="my-10">
-        <h1 className="px-20 w-fit mx-auto font-poppins font-semibold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-600 md:before:content-['——————————————————'] md:before:mr-3 md:before:tracking-[-4px] md:after:content-['——————————————————————————————'] md:after:tracking-[-10px] md:after:ml-3">
+        <h1 className="px-20 w-fit mx-auto font-poppins font-semibold text-2xl text-gradient md:before:content-['——————————————————'] md:before:mr-3 md:before:tracking-[-4px] md:after:content-['——————————————————————————————'] md:after:tracking-[-10px] md:after:ml-3">
           Latest News
         </h1>
         <div className="flex mt-4 gap-8 items-center">
@@ -228,7 +228,7 @@ export default function NewsPage() {
             ))}
           </div>
           <div className="basis-2/5 h-fit font-poppins">
-            <h1 className="text-3xl mb-4 text-center font-semibold  bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-600">
+            <h1 className="text-3xl mb-4 text-center font-semibold text-gradient">
               Chekicha
             </h1>
             <img

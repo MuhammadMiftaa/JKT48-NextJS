@@ -47,7 +47,7 @@ export default function theaterPage() {
         <div className="container mt-32 pb-12 relative">
           <h1 className="uppercase text-center font-extrabold text-2xl block mb-16 font-poppins">
             Upcoming Theater{" "}
-            <span className="block text-5xl bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-500 font-extralight">
+            <span className="block text-5xl title-gradient-thin w-fit text-center mx-auto">
               This Week!
             </span>
           </h1>

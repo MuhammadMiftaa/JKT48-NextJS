@@ -41,9 +41,9 @@ export default function setlistPage() {
       {!isLoading ? (
         <>
           <div className="container">
-            <h1 className="text-slate-300 font-thin text-xl tracking-wider text-center mt-20 font-poppins">
+            <h1 className="text-zinc-500 font-light text-xl tracking-wider text-center mt-20 font-poppins">
               On-going{" "}
-              <span className="text-5xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-l from-custom-green to-blue-500 from-30% block ">
+              <span className="text-5xl uppercase title-gradient-bold block w-fit mx-auto">
                 Setlist
               </span>
             </h1>
@@ -57,14 +57,14 @@ export default function setlistPage() {
                 }}
               >
                 <div
-                  className="p-2 shadow rounded-full shadow-custom-green absolute top-1/2 -translate-x-0 translate-y-[-50%] -left-12 cursor-pointer active:-translate-x-[1px]"
+                  className="p-2 border rounded-full border-white absolute top-1/2 -translate-x-0 translate-y-[-50%] -left-12 cursor-pointer active:-translate-x-[1px]"
                   style={{ backgroundColor: "rgb(0,0,0,0.7)" }}
                   onClick={() => prevSetCurrent()}
                 >
                   <CgChevronLeft className="text-xl text-custom-green" />
                 </div>
                 <div
-                  className="p-2 shadow rounded-full shadow-custom-green absolute top-1/2 -translate-x-0 translate-y-[-50%] -right-12 cursor-pointer active:translate-x-[1px]"
+                  className="p-2 border rounded-full border-white absolute top-1/2 -translate-x-0 translate-y-[-50%] -right-12 cursor-pointer active:translate-x-[1px]"
                   style={{ backgroundColor: "rgb(0,0,0,0.7)" }}
                   onClick={nextSetCurrent}
                 >

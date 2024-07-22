@@ -16,7 +16,7 @@ export default function Diskografi() {
           </h1>
           <h2 className="font-semibold text-2xl md:text-3xl mb-2 font-montserrat">
             Welcome to the JKT48{" "}
-            <span className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-600">
+            <span className="title-gradient-thick">
               Discography
             </span>
           </h2>
@@ -26,7 +26,7 @@ export default function Diskografi() {
           </h3>
           <Link
             href={"/"}
-            className="border font-urbanist w-fit border-slate-400 py-1 px-3 rounded-lg text-zinc-200 italic hover:cursor-pointer shadow-sm shadow-slate-400 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
+            className="button font-urbanist w-fit border-slate-400 py-1 px-3 rounded-lg text-zinc-200 italic shadow-slate-400"
           >
             Explore our music{" "}
           </Link>

@@ -85,7 +85,7 @@ export default function MemberDetailPage() {
                   {dataMember.member_regular ? "Regular" : "Trainee"}
                 </h2>
                 <div className="flex items-end">
-                  <h1 className="text-6xl font-bold text-custom-green uppercase font-poppins">
+                  <h1 className="text-6xl title-gradient-bold uppercase font-poppins">
                     {dataMember.nama
                       ? nameSpliter(dataMember.nama).firstWord
                       : ""}
@@ -295,10 +295,10 @@ export default function MemberDetailPage() {
                       dataMember.username_ig +
                       "/"
                     }
-                    className="border border-zinc-800 h-full w-full flex justify-start items-center p-8 bg-cover bg-center bg-no-repeat group duration-1000 hover:bg-gradient-to-r hover:from-blue-500 hover:to-custom-green hover:scale-[.95]"
+                    className="button-medsoc group"
                   >
                     <FaInstagram className="text-6xl opacity-60 group-hover:opacity-100" />
-                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r from-[#f09433] via-[#bc1888] to-[#405de6] duration-200 group-hover:text-white font-urbanist">
+                    <h1 className="link-medsoc from-[#f09433] via-[#bc1888] to-[#405de6] ">
                       {dataMember.username_ig}
                     </h1>
                   </Link>
@@ -312,7 +312,7 @@ export default function MemberDetailPage() {
                     className="border border-zinc-800 h-full w-full flex justify-start items-center p-8 group duration-1000 hover:bg-gradient-to-r hover:from-blue-500 hover:to-custom-green hover:scale-[.95]"
                   >
                     <img className="h-14 rounded-lg" src="/IDN.png" alt="" />
-                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r from-red-200 via-red-600 to-red-800 duration-200 group-hover:text-white font-urbanist">
+                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r duration-200 group-hover:text-white font-urbanist from-red-200 via-red-600 to-red-800 ">
                       {dataMember.username_idn}
                     </h1>
                   </Link>
@@ -325,7 +325,7 @@ export default function MemberDetailPage() {
                     className="border border-zinc-800 h-full w-full flex justify-start items-center p-8 group duration-1000 hover:bg-gradient-to-r hover:from-blue-500 hover:to-custom-green hover:scale-[.95]"
                   >
                     <FaTiktok className="text-5xl opacity-60 group-hover:opacity-100" />
-                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-500 to-zinc-900 duration-200 group-hover:text-white font-urbanist">
+                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r duration-200 group-hover:text-white font-urbanist from-white via-zinc-500 to-zinc-900 ">
                       {dataMember.username_tiktok}
                     </h1>
                   </Link>
@@ -339,7 +339,7 @@ export default function MemberDetailPage() {
                     className="border border-zinc-800 h-full w-full flex justify-start items-center p-8 group duration-1000 hover:bg-gradient-to-r hover:from-blue-500 hover:to-custom-green hover:scale-[.95]"
                   >
                     <img className="h-14 rounded-lg" src="/SR.png" alt="" />
-                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r from-[#F29600] via-[#54C2F0] via-70% to-[#E8528D] duration-200 group-hover:text-white font-urbanist text-nowrap">
+                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r duration-200 group-hover:text-white font-urbanist from-[#F29600] via-[#54C2F0] via-70% to-[#E8528D]  text-nowrap">
                       {dataMember.username_sr}
                     </h1>
                   </Link>
@@ -350,7 +350,7 @@ export default function MemberDetailPage() {
                     className="border border-zinc-800 h-full w-full flex justify-start items-center p-8 group duration-1000 hover:bg-gradient-to-r hover:from-blue-500 hover:to-custom-green hover:scale-[.95]"
                   >
                     <RiTwitterXFill className="text-5xl opacity-60 group-hover:opacity-100" />
-                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r from-slate-950 to-white duration-200 group-hover:text-white font-urbanist">
+                    <h1 className="w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r duration-200 group-hover:text-white font-urbanist from-slate-950 to-white ">
                       {dataMember.username_x}
                     </h1>
                   </Link>

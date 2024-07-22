@@ -30,7 +30,7 @@ export default function MemberPage() {
       <div className="flex flex-col w-full pb-32 mt-12">
         <div className="flex justify-between px-24 items-center mt-12 mb-20">
           <h1 className="font-extralight text-2xl font-urbanist">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-600 text-4xl font-bold font-poppins">
+            <span className="title-gradient-bold text-4xl font-poppins">
               JKT48
             </span>{" "}
             Active Member

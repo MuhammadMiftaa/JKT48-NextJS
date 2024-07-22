@@ -9,7 +9,7 @@ export default function Member() {
 
   return (
     <>
-      <h1 className="text-4xl mt-24 mb-4 mr-4 font-light text-right font-urbanist bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-600 from-80%">
+      <h1 className="title-gradient-light text-4xl mt-24 mb-4 mr-4 text-right font-urbanist from-80%">
         JKT48 Newera —
       </h1>
       <div className="flex gap-24 pb-32 px-32 relative overflow-x-hidden font-poppins">
@@ -87,7 +87,7 @@ export default function Member() {
           <div className="flex justify-center">
             <button
               onClick={() => handlerSeeAll()}
-              className="border border-slate-400 py-2 px-3 rounded-lg text-sm text-zinc-200 italic hover:cursor-pointer shadow-sm shadow-slate-400 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
+              className="border-slate-400 py-2 px-3 rounded-lg text-sm text-zinc-200 italic shadow-slate-400 button"
             >
               View All Members
             </button>

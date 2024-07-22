@@ -41,7 +41,7 @@ export default function NavbarLayout() {
         <Link href={"/profile"} className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {data ? (
             <div className="flex items-center gap-2 rounded-xl border-[0.5px] border-zinc-600 py-1 px-3 sm:border-none">
-              <h1 className="font-poppins font-bold bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-500">
+              <h1 className="font-poppins title-gradient-bold">
                 {data.user.nickname}
               </h1>
               <BsPersonCircle className="text-blue-500 text-lg" />
