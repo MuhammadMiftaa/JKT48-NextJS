@@ -1,5 +1,6 @@
 import TheaterCardButton from "@/components/elements/TheaterCardButton";
 import { theaterType } from "@/components/types/theaterType";
+import Image from "next/image";
 import React from "react";
 
 type BigCardProps = {
@@ -26,12 +27,12 @@ export default function BigCard(props: BigCardProps) {
       data-aos="fade-up"
       data-aos-duration="500"
     >
-      <img
+      <Image width={900} height={500}
         className="md:w-5/12 rounded-md aspect-video object-cover"
         src={"/setlistPoster/" + theater.setlist.replace(/ /g, "_") + ".jpg"}
         alt={theater.setlist}
       />
-      <div className="flex flex-col justify-start relative">
+      <div className="w-7/12 flex flex-col justify-start relative">
         <h1
           className={
             "font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r font-poppins" +

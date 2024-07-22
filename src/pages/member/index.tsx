@@ -1,5 +1,5 @@
 // import "../member/index.module.scss"
-import Card from "@/components/fragments/Card";
+import Card from "@/components/fragments/MemberCard";
 import Loading from "@/components/elements/Loading";
 import Footer from "@/components/layouts/Footer";
 import { memberType } from "@/components/types/memberType";
