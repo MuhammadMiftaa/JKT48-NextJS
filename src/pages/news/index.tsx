@@ -212,29 +212,24 @@ export default function NewsPage() {
         <div className="flex mt-4 gap-8 items-center">
           <div className="flex flex-col mb-5 font-poppins basis-3/5">
             {theater.map((theater, i) => (
-              <>
-                <div
-                  key={i}
-                  className="h-24 flex flex-col justify-center group border-b border-zinc-500"
-                >
-                  <h1 className="text-slate-300 text-xs group-hover:text-custom-green cursor-pointer">
-                    {theater.tanggal}
-                  </h1>
-                  <h2 className="text-md group-hover:text-custom-green cursor-pointer">
-                    {theater.judul}
-                  </h2>
-                </div>
-              </>
+              <div
+                key={i}
+                className="h-24 flex flex-col justify-center group border-b border-zinc-500"
+              >
+                <h1 className="text-slate-300 text-xs group-hover:text-custom-green cursor-pointer">
+                  {theater.tanggal}
+                </h1>
+                <h2 className="text-md group-hover:text-custom-green cursor-pointer">
+                  {theater.judul}
+                </h2>
+              </div>
             ))}
           </div>
           <div className="basis-2/5 h-fit font-poppins">
             <h1 className="text-3xl mb-4 text-center font-semibold text-gradient">
               Chekicha
             </h1>
-            <img
-              src="/birthdayMember.jpg"
-              alt="birthday member this month"
-            />
+            <img src="/birthdayMember.jpg" alt="birthday member this month" />
             <h1 className="text-zinc-500 mt-5 italic text-sm md:before:content-['——————————————————'] md:before:mr-3 md:before:tracking-[-4px] md:after:content-['——————————————————————————————————————————————————————————————————'] md:after:tracking-[-10px] md:after:ml-2">
               10 Juli 2024
             </h1>

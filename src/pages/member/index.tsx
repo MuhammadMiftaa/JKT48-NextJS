@@ -1,6 +1,6 @@
 // import "../member/index.module.scss"
-import Card from "@/components/elements/Card";
-import Loading from "@/components/fragments/Loading";
+import Card from "@/components/fragments/Card";
+import Loading from "@/components/elements/Loading";
 import Footer from "@/components/layouts/Footer";
 import { memberType } from "@/components/types/memberType";
 import Image from "next/image";

@@ -8,7 +8,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 import Link from "next/link";
 import { IoArrowUndoOutline } from "react-icons/io5";
 import { GoArrowSwitch } from "react-icons/go";
-import Loading from "@/components/fragments/Loading";
+import Loading from "@/components/elements/Loading";
 import Image from "next/image";
 
 export default function MemberDetailPage() {
@@ -275,7 +275,10 @@ export default function MemberDetailPage() {
                 className="card relative h-screen w-full overflow-hidden"
                 style={{ backfaceVisibility: "hidden", transition: "0.6s" }}
               >
-                <Image priority width={512} height={768}
+                <Image
+                  priority
+                  width={512}
+                  height={768}
                   className="front absolute right-0 h-full w-fit cursor-pointer duration-700 backface-hidden hover:scale-110 hover:rotate-[2deg]"
                   src={
                     "/member/big/webp/" +
@@ -286,9 +289,7 @@ export default function MemberDetailPage() {
                   }
                   alt={dataMember.nama}
                 />
-                <div
-                  className="back flex flex-col justify-center items-center bg-black h-full w-full basis-1/3 absolute top-0 bottom-0 left-0 right-0 overflow-hidden duration-700 gap-2 py-2 pr-16 backface-hidden rotate-y-180"
-                >
+                <div className="back flex flex-col justify-center items-center bg-black h-full w-full basis-1/3 absolute top-0 bottom-0 left-0 right-0 overflow-hidden duration-700 gap-2 py-2 pr-16 backface-hidden rotate-y-180">
                   <Link
                     href={
                       "https://www.instagram.com/" +

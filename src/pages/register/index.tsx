@@ -12,7 +12,7 @@ import { CheckIcon } from "@heroicons/react/outline";
 import { HiChevronUpDown } from "react-icons/hi2";
 import useSWR from "swr";
 import { memberType } from "@/components/types/memberType";
-import Loading from "@/components/fragments/Loading";
+import Loading from "@/components/elements/Loading";
 import Link from "next/link";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";

@@ -1,4 +1,4 @@
-import Loading from "@/components/fragments/Loading";
+import Loading from "@/components/elements/Loading";
 import Footer from "@/components/layouts/Footer";
 import { setlistType } from "@/components/types/setlistType";
 import Link from "next/link";

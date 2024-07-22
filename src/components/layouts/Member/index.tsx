@@ -1,4 +1,4 @@
-import PageSeparator from "@/components/elements/PageSeparator/PageSeparator2";
+import PageSeparator from "@/components/fragments/PageSeparator/PageSeparator2";
 import { useRouter } from "next/router";
 
 export default function Member() {

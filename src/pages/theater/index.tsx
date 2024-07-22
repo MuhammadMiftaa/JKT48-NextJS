@@ -1,4 +1,4 @@
-import Loading from "@/components/fragments/Loading";
+import Loading from "@/components/elements/Loading";
 import Footer from "@/components/layouts/Footer";
 import { theaterType } from "@/components/types/theaterType";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export default function theaterPage() {
         return "bg-gradient-to-r from-orange-500 to-orange-900";
     }
   };
-  
+
   const borderColor = (setlist: string) => {
     switch (setlist) {
       case "Pajama Drive":
@@ -55,10 +55,12 @@ export default function theaterPage() {
             {dataTheater.map((theater, index) => (
               <div
                 className={
-                  "h-fit w-full p-2 rounded-xl flex flex-col md:flex-row gap-4 relative " + borderColor(theater.setlist)
+                  "h-fit w-full p-2 rounded-xl flex flex-col md:flex-row gap-4 relative " +
+                  borderColor(theater.setlist)
                 }
                 key={index}
-                data-aos="fade-up" data-aos-duration="500"
+                data-aos="fade-up"
+                data-aos-duration="500"
               >
                 <img
                   className="md:w-5/12 rounded-md aspect-video object-cover"

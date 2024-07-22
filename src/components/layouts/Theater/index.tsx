@@ -1,4 +1,4 @@
-import PageSeparator from "@/components/elements/PageSeparator/PageSeparator";
+import PageSeparator from "@/components/fragments/PageSeparator/PageSeparator";
 import Link from "next/link";
 
 export default function Theater() {

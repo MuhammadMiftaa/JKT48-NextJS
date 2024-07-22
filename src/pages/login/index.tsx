@@ -5,7 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import Loading from "@/components/fragments/Loading";
+import Loading from "@/components/elements/Loading";
 
 export default function loginPage() {
   const loginFormSchema = z.object({
@@ -93,7 +93,11 @@ export default function loginPage() {
               {form.formState.errors.password.message}
             </span>
           )}
-          {isError && (<p className="font-poppins font-light text-sm text-red-600 text-center mt-4 -mb-4">{isError}</p>)}
+          {isError && (
+            <p className="font-poppins font-light text-sm text-red-600 text-center mt-4 -mb-4">
+              {isError}
+            </p>
+          )}
         </div>
         <div className="flex gap-3 flex-col mt-10 items-center">
           {loading ? (

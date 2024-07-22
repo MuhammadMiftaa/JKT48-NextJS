@@ -1,4 +1,4 @@
-import Loading from "@/components/fragments/Loading";
+import Loading from "@/components/elements/Loading";
 import { setlistType } from "@/components/types/setlistType";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -17,7 +17,6 @@ export default function setlistPage() {
   );
   const dataSetlist: setlistType[] = isLoading ? [] : data.data;
   console.log(dataSetlist);
-  
 
   const [current, setCurrent] = useState(0);
   const prevSetCurrent = () => {
@@ -47,7 +46,11 @@ export default function setlistPage() {
                 Setlist
               </span>
             </h1>
-            <div className="relative max-w-[750px] h-[500px] py-16 px-12 mx-auto" data-aos="zoom-in" data-aos-duration="1000">
+            <div
+              className="relative max-w-[750px] h-[500px] py-16 px-12 mx-auto"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
               <div
                 className="w-full h-full bg-cover bg-center duration-500 group relative flex items-center justify-center border border-custom-green shadow-[0_0_30px_0] shadow-custom-green"
                 style={{
@@ -76,9 +79,7 @@ export default function setlistPage() {
                       key={i}
                       onClick={() => goToSlide(i)}
                       className={`cursor-pointer hover:text-custom-green focus:text-custom-green duration-300 ${
-                        current === i
-                          ? "scale-150 text-white"
-                          : "text-black"
+                        current === i ? "scale-150 text-white" : "text-black"
                       }`}
                     >
                       <RxDotFilled className="cursor-pointer" />
@@ -91,10 +92,8 @@ export default function setlistPage() {
                       {dataSetlist[current].nama_setlist}
                     </h1>
                     <Link
-                      href={
-                        "/discography/setlist/" +
-                        dataSetlist[current].id
-                      } className="text-4xl text-white hover:text-custom-green py-1"
+                      href={"/discography/setlist/" + dataSetlist[current].id}
+                      className="text-4xl text-white hover:text-custom-green py-1"
                     >
                       <MdOutlineLyrics />
                     </Link>
