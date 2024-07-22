@@ -1,9 +1,7 @@
 import Loading from "@/components/elements/Loading";
-import Footer from "@/components/layouts/Footer";
+import BigCard from "@/components/fragments/TheaterCard/BigCard";
 import { theaterType } from "@/components/types/theaterType";
-import Link from "next/link";
 import React from "react";
-import { FaCalendarAlt } from "react-icons/fa";
 import useSWR from "swr";
 
 export default function theaterPage() {
@@ -23,6 +21,8 @@ export default function theaterPage() {
         return "bg-gradient-to-r from-teal-500 to-teal-900";
       case "Aitakatta":
         return "bg-gradient-to-r from-orange-500 to-orange-900";
+      default:
+        return "";
     }
   };
 
@@ -38,6 +38,8 @@ export default function theaterPage() {
         return "border border-teal-500";
       case "Aitakatta":
         return "border border-orange-500";
+      default:
+        return "";
     }
   };
 
@@ -52,75 +54,16 @@ export default function theaterPage() {
             </span>
           </h1>
           <div className="grid gap-12 px-6 md:px-16 grid-cols-1">
-            {dataTheater.map((theater, index) => (
-              <div
-                className={
-                  "h-fit w-full p-2 rounded-xl flex flex-col md:flex-row gap-4 relative " +
-                  borderColor(theater.setlist)
-                }
-                key={index}
-                data-aos="fade-up"
-                data-aos-duration="500"
-              >
-                <img
-                  className="md:w-5/12 rounded-md aspect-video object-cover"
-                  src={
-                    "/setlistPoster/" +
-                    theater.setlist.replace(/ /g, "_") +
-                    ".jpg"
-                  }
-                  alt={theater.setlist}
+            {dataTheater.map((theater, index) => {
+              return (
+                <BigCard
+                  theater={theater}
+                  key={index}
+                  color={color}
+                  borderColor={borderColor}
                 />
-                <div className="flex flex-col justify-start relative">
-                  <h1
-                    className={
-                      "font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r font-poppins" +
-                      color(theater.setlist)
-                    }
-                  >
-                    {theater.setlist + " "}
-                    <span className="font-light italic text-sm text-zinc-400 font-urbanist block">
-                      by Member {theater.member_regular ? "Regular" : "Trainee"}{" "}
-                      JKT48
-                    </span>
-                  </h1>
-                  <h2 className="text-3xl mt-3 mb-5 font-bold text-zinc-200 font-poppins">
-                    {theater.tanggal}
-                  </h2>
-                  <h3 className="block text-2xl font-semibold font-poppins">
-                    <span className="block text-sm text-zinc-400 italic font-light font-urbanist">
-                      Perfomed by
-                    </span>
-                    {theater.member}
-                  </h3>
-                  <h4 className="block font-light italic text-lg text-white absolute bottom-4 font-urbanist">
-                    {theater.venue}
-                  </h4>
-                  <div className="flex w-full justify-end mt-14 mb-1 md:mt-7 md:gap-2">
-                    <Link href={""}>
-                      <h4
-                        className={
-                          "self-end py-2 px-4 bg-clip-text text-transparent bg-gradient-to-r rounded-xl md:mr-2 text-xl font-extrabold scale-90 md:scale-100 border border-white -mr-1 font-poppins" +
-                          color(theater.setlist)
-                        }
-                      >
-                        Streaming
-                      </h4>
-                    </Link>
-                    <Link href={""}>
-                      <h4
-                        className={
-                          "self-end py-2 px-8 bg-gradient-to-r rounded-xl mr-2 text-xl font-extrabold scale-90 md:scale-100 font-poppins" +
-                          color(theater.setlist)
-                        }
-                      >
-                        Apply
-                      </h4>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       ) : (

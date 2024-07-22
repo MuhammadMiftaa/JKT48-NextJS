@@ -6,6 +6,7 @@ type MenuProps = {
   pathname: string;
   item: string;
   index: number;
+  children?: React.ReactNode;
 };
 
 function Menu(props: MenuProps) {

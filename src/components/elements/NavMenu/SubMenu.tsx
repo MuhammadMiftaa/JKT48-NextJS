@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 type SubMenuProps = {
   pathname: string;
   submenu: string[];
+  children?: React.ReactNode;
 };
 
 function SubMenu(props: SubMenuProps) {
@@ -71,9 +72,8 @@ function SubMenu(props: SubMenuProps) {
             aria-labelledby="dropdownLargeButton"
           >
             {submenu.map((item, index) => (
-              <li>
+              <li key={index}>
                 <Link
-                  key={index}
                   href={"/discography/" + item.replace(/ /g, "-")}
                   className="block px-4 py-2 hover:text-custom-green capitalize"
                 >

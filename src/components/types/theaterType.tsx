@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 export type theaterType = {
     id: string;
     setlist: string;
@@ -5,4 +7,5 @@ export type theaterType = {
     member_regular: boolean;
     member: string;
     venue: string;
+    time: Timestamp;
 }
