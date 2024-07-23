@@ -37,6 +37,7 @@ export default function Theater() {
               theater={theater}
               hours={hours}
               minutes={minutes}
+              key={index}
             ></TheaterCard>
           );
         })}

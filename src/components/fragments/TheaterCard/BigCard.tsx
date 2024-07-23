@@ -26,8 +26,11 @@ export default function BigCard(props: BigCardProps) {
       }
       data-aos="fade-up"
       data-aos-duration="500"
+      key={theater.id}
     >
-      <Image width={900} height={500}
+      <Image
+        width={900}
+        height={500}
         className="md:w-5/12 rounded-md aspect-video object-cover"
         src={"/setlistPoster/" + theater.setlist.replace(/ /g, "_") + ".jpg"}
         alt={theater.setlist}

@@ -13,9 +13,9 @@ export default function SmallCard(props: {
           (index === 0 ? "" : " mt-3")
         }
         data-aos="zoom-in"
-        data-aos-duration={500 + (index + 1 * 100)}
+        data-aos-duration="500"
         data-aos-easing="ease-out-cubic"
-        data-aos-delay="50"
+        data-aos-delay={index * 100}
       >
         <img
           src={item.image}

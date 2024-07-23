@@ -2,12 +2,7 @@ import NewsCatPill from "@/components/elements/NewsCatPill";
 import NewsHighlight from "@/components/fragments/NewsHighlight";
 import NewsPaging from "@/components/fragments/NewsPaging";
 import NewsSide from "@/components/fragments/NewsSide";
-import Footer from "@/components/layouts/Footer";
-import News from "@/components/layouts/News";
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-import { TbChevronsLeft, TbChevronsRight } from "react-icons/tb";
 
 export default function NewsPage() {
   const category = [

@@ -14,6 +14,7 @@ export default function TheaterCard(props: TheaterCardProps) {
       className="flex gap-x-8 items-center font-urbanist"
       data-aos="zoom-in-up"
       data-aos-duration="1000"
+      key={theater.id}
     >
       <img
         className="w-1/3 rounded-3xl"
