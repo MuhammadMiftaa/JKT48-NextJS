@@ -181,6 +181,9 @@ body {
   .link-medsoc {
     @apply w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r duration-200 group-hover:text-white font-urbanist;
   }
+  .button-nav {
+    @apply w-full flex py-2 justify-center border border-zinc-700 p-1 hover:cursor-pointer z-30 hover:shadow-black hover:shadow-xl;
+  }
 }
 
 .cards-member-container input:checked ~ .card .back,
