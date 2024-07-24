@@ -33,7 +33,7 @@ export default function Member() {
             })}
           </div>
           <div className="flex justify-center">
-            <Button handlerSeeAll={handlerSeeAll} />
+            <Button onClick={handlerSeeAll}>View All Member</Button>
           </div>
         </div>
       </div>

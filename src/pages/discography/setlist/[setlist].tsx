@@ -1,4 +1,6 @@
 import Loading from "@/components/elements/Loading";
+import SetlistSong from "@/components/fragments/SetlistSong";
+import SetlistTitle from "@/components/fragments/SetlistTitle";
 import Footer from "@/components/layouts/Footer";
 import { setlistType } from "@/components/types/setlistType";
 import Link from "next/link";
@@ -70,44 +72,13 @@ export default function SetlistDetailPage() {
     <>
       {!isLoading ? (
         <div className="container">
-          <div className="relative w-fit h-fit mx-auto">
-            <h1 className="text-5xl text-center title-gradient-bold uppercase mt-12 font-poppins">
-              {dataSetlist.nama_setlist}
-            </h1>
-          </div>
-          <h2 className="text-white text-xs font-light text-center italic capitalize mb-20 font-urbanist">
-            Performed <span className="lowercase">by</span>{" "}
-            {dataSetlist.dibawakan_oleh.split("_").join(" ")}
-          </h2>
+          <SetlistTitle
+            nama_setlist={dataSetlist.nama_setlist}
+            dibawakan_oleh={dataSetlist.dibawakan_oleh}
+          />
           <div className="content px-16 mb-32">
             {dataSetlist.lagu.map((lagu, index) => (
-              <li
-                id={lagu.judul_lagu.toLowerCase().replace(/ /g, "_")}
-                key={index}
-                className="list-none my-8"
-              >
-                <button
-                  type="button"
-                  className="w-full flex items-center gap-1"
-                >
-                  <p className="font-light text-2xl text-zinc-400 text-left hover:text-white capitalize active:text-custom-green font-urbanist">
-                    {lagu.judul_lagu}
-                  </p>
-                  <HiChevronDown className="text-zinc-400 text-xl mt-1" />
-                </button>
-                <div className="subMenu list-none overflow-hidden h-0 duration-500">
-                  <ul className="mt-5 h-fit px-2 pb-14 pt-8 bg-zinc-950 rounded-3xl">
-                    {lagu.lirik.map((larik, index) => (
-                      <p
-                        className="font-light text-white text-lg text-center py-1 selection:bg-blue-300 selection:text-black font-urbanist tracking-[.2px]"
-                        key={index}
-                      >
-                        {larik}
-                      </p>
-                    ))}
-                  </ul>
-                </div>
-              </li>
+              <SetlistSong lagu={lagu} index={index} key={index} />
             ))}
             <Link
               href={"/discography/setlist"}

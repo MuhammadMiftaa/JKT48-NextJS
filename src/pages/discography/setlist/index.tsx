@@ -1,4 +1,5 @@
 import Loading from "@/components/elements/Loading";
+import SetlistArrowButton from "@/components/elements/SetlistArrowButton";
 import { setlistType } from "@/components/types/setlistType";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -59,20 +60,12 @@ export default function setlistPage() {
                   ].nama_setlist.replace(/ /g, "_")}.webp")`,
                 }}
               >
-                <div
-                  className="p-2 border rounded-full border-white absolute top-1/2 -translate-x-0 translate-y-[-50%] -left-12 cursor-pointer active:-translate-x-[1px]"
-                  style={{ backgroundColor: "rgb(0,0,0,0.7)" }}
-                  onClick={() => prevSetCurrent()}
-                >
-                  <CgChevronLeft className="text-xl text-custom-green" />
-                </div>
-                <div
-                  className="p-2 border rounded-full border-white absolute top-1/2 -translate-x-0 translate-y-[-50%] -right-12 cursor-pointer active:translate-x-[1px]"
-                  style={{ backgroundColor: "rgb(0,0,0,0.7)" }}
-                  onClick={nextSetCurrent}
-                >
-                  <CgChevronRight className="text-xl text-custom-green" />
-                </div>
+                <SetlistArrowButton position="left" onClick={prevSetCurrent}>
+                  <BsChevronCompactLeft />
+                </SetlistArrowButton>
+                <SetlistArrowButton position="right" onClick={nextSetCurrent}>
+                  <BsChevronCompactRight />
+                </SetlistArrowButton>
                 <div className="flex py-2 absolute -bottom-10 justify-between items-center">
                   {dataSetlist.map((setlist, i) => (
                     <div

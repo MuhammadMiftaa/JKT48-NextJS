@@ -29,7 +29,7 @@ export default function MemberCards(props: {
               delay={delay}
               member={member}
               baseColor={
-                props.category === "Regular" ? "custom-green" : "pink-500"
+                props.category === "Regular" ? "custom-green" : "pink-600"
               }
             />
           );
