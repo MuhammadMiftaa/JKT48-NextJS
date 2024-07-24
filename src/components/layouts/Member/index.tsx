@@ -24,17 +24,18 @@ export default function Member() {
       <h1 className="title-gradient-light text-4xl mt-24 mb-4 mr-4 text-right font-urbanist from-80%">
         JKT48 Newera —
       </h1>
-      <div className="flex gap-24 pb-32 px-32 relative overflow-x-hidden font-poppins">
+      <div className="flex gap-24 pb-32 pl-32 relative font-poppins">
         <MainCard />
-        <div className="flex flex-col gap-6 basis-2/3 relative">
+        <div className="flex flex-col gap-6 basis-2/3 overflow-x-scroll relative scrollbar-none">
           <div className="flex gap-6">
-            {memberRegular.slice(0, 4).map((member, i) => {
+            {memberRegular.map((member, i) => {
+              if (member.id == "Shania-Gracia") return;
               return <SmallCard member={member} key={i} index={i}></SmallCard>;
             })}
           </div>
-          <div className="flex justify-center">
-            <Button onClick={handlerSeeAll}>View All Member</Button>
-          </div>
+        </div>
+        <div className="flex justify-center absolute bottom-64 right-1/4">
+          <Button onClick={handlerSeeAll}>View All Member</Button>
         </div>
       </div>
       <PageSeparator />

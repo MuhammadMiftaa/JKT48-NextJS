@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
+import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
 import { MdOutlineLyrics } from "react-icons/md";
 import { RxDotFilled } from "react-icons/rx";
 import useSWR from "swr";
@@ -61,10 +62,10 @@ export default function setlistPage() {
                 }}
               >
                 <SetlistArrowButton position="left" onClick={prevSetCurrent}>
-                  <BsChevronCompactLeft />
+                  <IoArrowBackOutline className="text-4xl" />
                 </SetlistArrowButton>
                 <SetlistArrowButton position="right" onClick={nextSetCurrent}>
-                  <BsChevronCompactRight />
+                  <IoArrowForwardOutline className="text-4xl" />
                 </SetlistArrowButton>
                 <div className="flex py-2 absolute -bottom-10 justify-between items-center">
                   {dataSetlist.map((setlist, i) => (

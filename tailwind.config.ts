@@ -41,6 +41,7 @@ const config: Config = {
   },
   plugins: [
     require("flowbite/plugin"),
+    require('tailwind-scrollbar'),
     function ({ addUtilities }: PluginAPI) {
       addUtilities({
         ".rotate-y-0": {
