@@ -29,7 +29,7 @@ export default function BigCard(props: BigCardProps) {
       key={theater.id}
     >
       <img
-        className="md:w-5/12 rounded-md aspect-video object-cover"
+        className="md:w-5/12 rounded-md"
         src={"/setlistPoster/" + theater.setlist.replace(/ /g, "_") + ".jpg"}
         alt={theater.setlist}
       />
