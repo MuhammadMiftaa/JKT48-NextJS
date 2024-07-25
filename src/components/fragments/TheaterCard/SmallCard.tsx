@@ -7,7 +7,7 @@ type TheaterCardProps = {
   minutes: string;
 };
 
-export default function TheaterCard(props: TheaterCardProps) {
+export default function SmallCard(props: TheaterCardProps) {
   const { theater, hours, minutes } = props;
   return (
     <div

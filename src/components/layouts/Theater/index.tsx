@@ -1,5 +1,5 @@
 import PageSeparator from "@/components/fragments/PageSeparator/PageSeparator";
-import TheaterCard from "@/components/fragments/TheaterCard/SmallCard";
+import SmallCard from "@/components/fragments/TheaterCard/SmallCard";
 import { theaterType } from "@/components/types/theaterType";
 import Link from "next/link";
 import useSWR from "swr";
@@ -166,12 +166,12 @@ export default function Theater() {
             return null;
           }
           return (
-            <TheaterCard
+            <SmallCard
               theater={theater}
               hours={hours}
               minutes={minutes}
               key={index}
-            ></TheaterCard>
+            ></SmallCard>
           );
         })}
       </div>
