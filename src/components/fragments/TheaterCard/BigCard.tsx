@@ -30,7 +30,7 @@ export default function BigCard(props: BigCardProps) {
     >
       <img
         className="md:w-5/12 rounded-md"
-        src={"/setlistPoster/" + theater.setlist.replace(/ /g, "_") + ".jpg"}
+        src={"/setlistPoster/" + theater.setlist.replace(/ /g, "_") + ".webp"}
         alt={theater.setlist}
       />
       <div className="w-7/12 flex flex-col justify-start relative">
