@@ -8,7 +8,7 @@ export default function DiscographySidebar() {
     push("/discography");
   };
   return (
-    <div className="flex flex-col basis-1/2">
+    <div className="flex flex-col md:basis-1/2">
       <h1 className="mb-3 font-bold text-custom-green font-poppins text-sm md:text-base">
         Discography
       </h1>

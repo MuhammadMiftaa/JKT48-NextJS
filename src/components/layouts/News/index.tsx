@@ -34,18 +34,18 @@ export default function News() {
 
   return (
     <>
-      <div className="py-20 px-32 bg-custom-green font-urbanist">
+      <div className="py-20 px-8 md:px-32 bg-custom-green font-urbanist">
         <div className="flex justify-between text-black mb-2 items-center cursor-pointer">
-          <h1 className="text-xl font-medium">– Latest News and Updates</h1>
+          <h1 className="text-md md:text-xl font-medium">– Latest News and Updates</h1>
           <Link
             href={"/news"}
-            className="block font-medium text-sm hover:cursor-pointer py-0.5 px-1.5 hover:bg-black hover:text-custom-green"
+            className="block font-medium text-xs md:text-sm hover:cursor-pointer py-0.5 px-1.5 hover:bg-black hover:text-custom-green"
           >
             See all
           </Link>
         </div>
         <hr className="h-0.5 bg-black border-0" />
-        <div className="flex gap-6 mt-16">
+        <div className="flex flex-col md:flex-row gap-6 mt-16">
           <div
             className="flex flex-col basis-2/5 w-full overflow-auto"
             data-aos="zoom-in"
@@ -64,11 +64,11 @@ export default function News() {
             <h1 className="text-black font-semibold text-xl mt-1 font-poppins text-ellipsis w-full whitespace-nowrap overflow-hidden">
               {news[3].judul}
             </h1>
-            <h2 className="text-black font-medium text-sm mt-1">
+            <h2 className="text-slate-900 font-medium text-sm mt-1">
               {news[3].desc}
             </h2>
           </div>
-          <div className="flex flex-col basis-3/5 overflow-auto">
+          <div className="flex flex-col md:basis-3/5 overflow-auto">
             {news.map((item, index) => {
               if (index === 3) return;
               return <SmallCard key={index} item={item} index={index} />;

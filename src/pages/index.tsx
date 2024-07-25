@@ -11,12 +11,12 @@ export default function Home() {
     <>
       <Hero />
        {/* <About /> */}
-      <Theater />
+       <Theater />
       <Product />
       <News />
       <Member />
       <Diskografi />
-      <Footer />
+      <Footer /> 
     </>
   );
 }

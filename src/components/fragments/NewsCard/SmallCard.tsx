@@ -9,7 +9,7 @@ export default function SmallCard(props: {
     <div key={index}>
       <div
         className={
-          "flex mb-3 cursor-pointer" +
+          "flex flex-col md:flex-row mb-3 cursor-pointer" +
           (index === 0 ? "" : " mt-3")
         }
         data-aos="zoom-in"
@@ -19,25 +19,25 @@ export default function SmallCard(props: {
       >
         <img
           src={item.image}
-          className="rounded-lg w-1/3 h-fit"
+          className="rounded-lg md:w-1/3 h-fit"
           alt=""
         />
-        <div className="flex flex-col ml-4 overflow-auto">
-          <div className="flex justify-between items-center">
-            <h1 className="text-xs font-medium text-custom-green bg-black px-1 py-0.5">
+        <div className="flex flex-col md:ml-4 overflow-auto">
+          <div className="flex justify-between items-center mt-3 md:mt-0">
+            <h1 className="md:text-xs text-sm ml-1 md:ml-0 font-urbanist font-medium text-custom-green bg-black md:px-1 md:py-0.5 px-2 py-1">
               Event
             </h1>
-            <h2 className="text-xs font-poppins text-slate-800">
+            <h2 className="md:text-xs text-sm font-poppins text-slate-800">
               {item.tanggal}
             </h2>
           </div>
-          <h1 className="text-black font-bold text-lg text-ellipsis w-full whitespace-nowrap overflow-hidden">
+          <h1 className="text-black my-1 md:my-0 font-semibold font-poppins md:font-bold text-xl md:text-lg text-ellipsis w-full whitespace-nowrap overflow-hidden">
             {item.judul}
           </h1>
-          <h2 className="text-xs text-slate-900 text-light">{item.desc}</h2>
+          <h2 className="md:text-xs text-sm text-slate-900 text-light">{item.desc}</h2>
         </div>
       </div>
-      {index !== 3 && <hr className="h-0.5 bg-black" />}
+      {index !== 3 && <hr className="h-0.5 bg-black hidden md:block" />}
     </div>
   );
 }

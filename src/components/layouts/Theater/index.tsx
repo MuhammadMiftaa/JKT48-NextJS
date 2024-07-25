@@ -153,7 +153,7 @@ export default function Theater() {
       >
         Upcoming Theater
       </h1>
-      <div className="py-5 px-32 flex flex-col gap-y-12">
+      <div className="py-5 md:px-32 px-8 flex flex-col gap-y-12">
         {dataTheater.map((theater, index) => {
           let timestamp =
             (theater.time.seconds + theater.time.nanoseconds / 1000000000) *
