@@ -11,7 +11,7 @@ export default function FrontSide(props: { nama: string; baseColor: string }) {
         width={256}
         height={361}
         className={`w-4/5 border-r h-full border-${baseColor}`}
-        src={"/member/webp/" + nama.toLowerCase().replace(/ /g, "_") + ".webp"}
+        src={"/member/" + nama.toLowerCase().replace(/ /g, "_") + ".png"}
         alt={nama}
       />
       <div className="absolute top-1/2 left-24 transform -translate-y-1/2 bg-transparent w-60 h-60 flex items-center justify-center rotate-90">

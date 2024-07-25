@@ -9,9 +9,9 @@ export default function FrontSide(props: { nama: string }) {
       height={768}
       className="front absolute right-0 h-full w-fit cursor-pointer duration-700 backface-hidden hover:scale-110 hover:rotate-[2deg]"
       src={
-        "/member/big/webp/" +
+        "/member/big/" +
         (props.nama ? props.nama.toLowerCase().replace(/ /g, "_") : "") +
-        ".webp"
+        ".png"
       }
       alt={props.nama}
     />

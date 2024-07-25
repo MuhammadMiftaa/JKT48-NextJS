@@ -3986,7 +3986,7 @@ export default function setlistPage() {
                 style={{
                   backgroundImage: `url("/setlistPoster/${dataSetlist[
                     current
-                  ].nama_setlist.replace(/ /g, "_")}.webp")`,
+                  ].nama_setlist.replace(/ /g, "_")}.jpg")`,
                 }}
               >
                 <SetlistArrowButton position="left" onClick={prevSetCurrent}>

@@ -39,9 +39,9 @@ export default function profilePage() {
             {userData.oshimen && (
               <Image
                 src={
-                  "/member/webp/" +
+                  "/member/" +
                   userData.oshimen.nama.toLowerCase().replace(/ /g, "_") +
-                  ".webp"
+                  ".png"
                 }
                 width={100}
                 height={100}

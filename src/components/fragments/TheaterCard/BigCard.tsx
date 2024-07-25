@@ -33,7 +33,7 @@ export default function BigCard(props: BigCardProps) {
         src={
           "/setlistPoster/" +
           theater.setlist.toLowerCase().replace(/ /g, "_") +
-          ".webp"
+          ".jpg"
         }
         alt={theater.setlist}
       />
