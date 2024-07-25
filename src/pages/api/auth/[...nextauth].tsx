@@ -4,7 +4,6 @@ import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { loginUser } from "../../../../utils/db/services";
 import { compare } from "bcrypt";
-import { userType } from "@/components/types/userType";
 
 const options: NextAuthOptions = {
   session: {

@@ -7,8 +7,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { GoMoveToStart } from "react-icons/go";
-import { HiChevronDown } from "react-icons/hi";
-import { IoArrowUndoOutline } from "react-icons/io5";
 import useSWR from "swr";
 
 export default function SetlistDetailPage() {
