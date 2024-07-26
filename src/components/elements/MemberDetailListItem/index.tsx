@@ -8,10 +8,10 @@ export default function MemberDetailListIItem(props: {
   const { label, value, index } = props;
   return (
     <li key={index}>
-      <p className="font-light text-xs text-white -mb-1 font-urbanist">
+      <p className="font-light text-[.6rem] md:text-xs text-white -mb-1 font-urbanist">
         {label}
       </p>
-      <h1 className="text-xl font-bold text-custom-green font-poppins">
+      <h1 className="md:text-xl font-bold text-custom-green font-poppins">
         {value}
       </h1>
     </li>

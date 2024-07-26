@@ -176,10 +176,10 @@ body {
     @apply border shadow-sm cursor-pointer active:shadow-none active:translate-x-0.5 active:translate-y-0.5;
   }
   .button-medsoc {
-    @apply border border-zinc-800 h-full w-full flex justify-start items-center p-8 duration-1000 hover:bg-gradient-to-r hover:from-blue-500 hover:to-custom-green hover:scale-[.95];
+    @apply border border-zinc-800 w-5/6 md:w-full gap-2 md:gap-0 flex flex-col md:flex-row justify-start items-center p-4 md:p-8 duration-1000 hover:bg-gradient-to-r hover:from-blue-500 hover:to-custom-green hover:scale-[.95];
   }
   .link-medsoc {
-    @apply w-full text-center font-light group-hover:font-black text-2xl italic bg-clip-text text-transparent bg-gradient-to-r duration-200 group-hover:text-white font-urbanist;
+    @apply w-full text-center font-light group-hover:font-black md:text-2xl italic bg-clip-text text-transparent bg-gradient-to-r duration-200 group-hover:text-white font-urbanist;
   }
   .button-nav {
     @apply w-full flex py-2 justify-center border border-zinc-700 p-1 hover:cursor-pointer z-30 hover:shadow-black hover:shadow-xl;

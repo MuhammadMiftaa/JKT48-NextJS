@@ -6,6 +6,7 @@ import Loading from "@/components/elements/Loading";
 import MemberDetailName from "@/components/fragments/MemberDetailName";
 import MemberDetailList from "@/components/fragments/MemberDetailList";
 import MemberDetailMedia from "@/components/fragments/MemberDetailMedia";
+import BackSide from "@/components/elements/MemberDetailMediaSide/BackSide";
 
 export default function MemberDetailPage() {
   const { query } = useRouter();
@@ -1416,15 +1417,15 @@ export default function MemberDetailPage() {
     <>
       {!isLoading && dataMember !== undefined ? (
         <>
-          <div className="flex h-screen relative member-container">
-            <div className="content w-full py-8 px-16 basis-3/5">
+          <div className="flex flex-col md:flex-row relative member-container">
+            <div className="content w-full py-8 px-4 md:px-16 md:basis-3/5">
               <MemberDetailName
                 name={dataMember.nama}
                 isMemberRegular={dataMember.member_regular}
                 nameSpliter={nameSpliter}
               ></MemberDetailName>
 
-              <div className="flex flex-col gap-7 overflow-hidden">
+              <div className="flex flex-col gap-5 md:gap-7 overflow-hidden">
                 {detailMemberData.map((data, i) => (
                   <MemberDetailList
                     index={i}
@@ -1437,7 +1438,7 @@ export default function MemberDetailPage() {
                 ))}
               </div>
             </div>
-            <label className="basis-2/5 overflow-hidden">
+            <label className="md:basis-2/5 overflow-hidden hidden md:block">
               <input type="checkbox" className="absolute scale-0" />
               <MemberDetailMedia
                 nama={dataMember.nama}
@@ -1448,6 +1449,16 @@ export default function MemberDetailPage() {
                 username_x={dataMember.username_x}
               />
             </label>
+            <div className="flex flex-col md:hidden items-center my-10">
+              <h1 className="title-gradient-bold w-fit font-poppins">Media Social</h1>
+              <BackSide
+                username_ig={dataMember.username_ig}
+                username_sr={dataMember.username_sr}
+                username_tiktok={dataMember.username_tiktok}
+                username_idn={dataMember.username_idn}
+                username_x={dataMember.username_x}
+              />
+            </div>
           </div>
         </>
       ) : (

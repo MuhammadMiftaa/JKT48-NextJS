@@ -16,13 +16,13 @@ export default function MemberDetailList(props: MemberDetailListProps) {
   return (
     <li key={index} className="list-none">
       <button type="button" className="w-full flex items-center gap-1 mb-2">
-        <p className="font-light italic text-lg text-zinc-400 text-left hover:text-white font-urbanist">
+        <p className="font-light italic md:text-lg text-zinc-400 text-left hover:text-white font-urbanist">
           {category}
         </p>
         <HiChevronDown className="text-zinc-400 text-xl mt-1" />
       </button>
       <div className="subMenu list-none overflow-hidden h-0 duration-500 ">
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col md:gap-2">
           {dataMember.label.map((label, index) => (
             <MemberDetailListIItem
               label={label}
