@@ -173,7 +173,7 @@ export default function NewsPage() {
           </div>
           <NewsSide />
         </div>
-        <div className="w-fit mx-auto hidden md:flex items-center gap-4 font-poppins border rounded-xl border-zinc-800 px-2 py-1 text-slate-200">
+        <div className="w-fit mx-auto hidden md:flex items-center md:gap-4 font-poppins border rounded-xl border-zinc-800 px-2 py-1 text-slate-200">
           <NewsPaging />
         </div>
       </div>

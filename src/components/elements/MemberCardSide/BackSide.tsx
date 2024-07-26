@@ -20,20 +20,22 @@ export default function BackSide(props: {
         className={`absolute top-0 right-0 left-0 border-b border-${baseColor}`}
       >
         <h1
-          className={`text-center text-${baseColor} py-1.5 text-xl uppercase text-nowrap font-bold font-poppins`}
+          className={`text-center md:text-lg text-[.8rem] text-${baseColor} md:py-1.5 py-0.5 text-xl uppercase text-nowrap font-bold font-poppins`}
         >
           {nama}
         </h1>
       </div>
-      <Label>Gen:</Label>
-      <Value>{generasi}th Generation</Value>
-      <Label>Birthday:</Label>
-      <Value>{tanggal_lahir}</Value>
-      <Label>Age:</Label>
-      <Value>{umur} years old</Value>
+      <div className="w-full flex flex-col items-center">
+        <Label>Gen:</Label>
+        <Value>{generasi}th Generation</Value>
+        <Label>Birthday:</Label>
+        <Value>{tanggal_lahir}</Value>
+        <Label>Age:</Label>
+        <Value>{umur} years old</Value>
+      </div>
       <Link
         href={"/member/" + id}
-        className="text-sm text-zinc-600 italic font-light mt-5 hover:text-white font-urbanist"
+        className="md:text-sm text-[.6rem] text-zinc-600 italic font-light mt-2 md:mt-5 hover:text-white font-urbanist"
       >
         More Information
       </Link>

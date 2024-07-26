@@ -10,13 +10,13 @@ export default function MemberCards(props: {
     <div className="mb-20">
       <div
         className={
-          "px-24 relative font-urbanist" +
+          "px-8 md:px-24 relative font-urbanist" +
           " " +
           (props.category === "Regular" ? "text-custom-green" : "text-pink-500")
         }
       >
-        <h1 className={"text-2xl absolute"}>— {props.category} Member</h1>
-        <h2 className={"text-2xl absolute right-24"}>
+        <h1 className={"text-lg md:text-2xl absolute"}>— {props.category} Member</h1>
+        <h2 className={"text-lg md:text-2xl absolute right-8 md:right-24"}>
           {props.memberRegular.length} active member
         </h2>
       </div>

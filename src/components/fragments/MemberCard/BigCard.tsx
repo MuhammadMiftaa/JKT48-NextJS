@@ -16,10 +16,7 @@ export default function Card(props: CardProps) {
   return (
     <label data-aos="fade-up" data-aos-delay={delay}>
       <input type="checkbox" className="absolute scale-0 peer" />
-      <div
-        className="card w-60 my-5 mx-5 relative"
-        style={{ height: "16.9rem" }}
-      >
+      <div className="card w-40 h-[11.24rem] md:h-[16.9rem] md:w-60 my-5 mx-5 relative">
         <FrontSide nama={member.nama} baseColor={baseColor} />
         <BackSide
           nama={member.nama}

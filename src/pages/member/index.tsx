@@ -1318,7 +1318,7 @@ export default function MemberPage() {
   return (
     <>
       <div className="flex flex-col w-full pb-32 mt-12">
-        <div className="flex justify-between px-24 items-center mt-12 mb-20">
+        <div className="flex justify-between px-8 md:px-24 items-center mt-12 mb-20">
           <h1 className="font-extralight text-2xl font-urbanist">
             <span className="title-gradient-bold text-4xl font-poppins">
               JKT48
