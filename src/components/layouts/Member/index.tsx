@@ -1316,7 +1316,7 @@ export default function Member() {
 
   return (
     <>
-      <h1 className="title-gradient-light text-2xl md:text-4x mt-14 md:mt-24 mb-4 mr-4 text-right font-urbanist from-80%">
+      <h1 className="title-gradient-light text-2xl md:text-4xl mt-14 md:mt-24 mb-4 mr-4 text-right font-urbanist from-80%">
         JKT48 Newera —
       </h1>
       <div className="flex md:gap-24 gap-6 pb-20 md:pb-32 pl-8 md:pl-32 relative font-poppins">

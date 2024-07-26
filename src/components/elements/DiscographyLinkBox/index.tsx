@@ -9,7 +9,9 @@ export default function DiscographyLink(
   return (
     <div
       className="flex flex-col items-left p-6 md:p-12 bg-zinc-900 md:h-64 h-48 relative hover:bg-custom-green hover:text-black group"
-      
+      data-aos="flip-up"
+      data-aos-duration="1000"
+      data-aos-delay="200"
     >
       {props.children}
       <h1 className="md:mt-3 mt-5 md:mb-2 text-lg md:text-2xl font-bold font-poppins">{title}</h1>

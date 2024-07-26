@@ -62,7 +62,7 @@ export default function Footer() {
 
   return (
     <div
-      className="bg-custom-green mt-10 pt-24 pb-4 px-8"
+      className="bg-custom-green mt-10 pt-24 pb-[5.5rem] px-8"
       style={{ borderRadius: "4rem 4rem 0 0" }}
     >
       <FooterNav button={button} />
