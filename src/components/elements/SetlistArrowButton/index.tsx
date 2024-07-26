@@ -8,7 +8,7 @@ export default function SetlistArrowButton(props: {
   return (
     <>
       <div
-        className={`p-2 rounded-full absolute top-1/2 -translate-x-0 translate-y-[-50%] -${props.position}-32 text-zinc-500 cursor-pointer active:-translate-x-[1px]`}
+        className={`p-2 rounded-full absolute top-1/2 translate-y-[-50%] ${props.position} text-zinc-500 cursor-pointer active:-translate-x-[1px]`}
         onClick={props.onClick}
       >
         {props.children}

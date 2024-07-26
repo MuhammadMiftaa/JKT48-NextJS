@@ -3970,30 +3970,36 @@ export default function setlistPage() {
       {!isLoading ? (
         <>
           <div className="container">
-            <h1 className="text-zinc-500 font-light text-xl tracking-wider text-center mt-20 font-poppins">
+            <h1 className="text-zinc-500 font-light text-sm md:text-xl tracking-wider text-center mt-28 md:mt-20 font-poppins">
               On-going{" "}
-              <span className="text-5xl uppercase title-gradient-bold block w-fit mx-auto">
+              <span className="text-3xl md:text-5xl uppercase title-gradient-bold block w-fit mx-auto">
                 Setlist
               </span>
             </h1>
             <div
-              className="relative max-w-[750px] h-[500px] py-16 px-12 mx-auto"
+              className="relative md:w-[750px] md:h-[560px] w-[400px] h-[320px] py-12 md:py-16 px-8 md:px-12 mx-auto overflow-hidden md:overflow-visible"
               data-aos="zoom-in"
               data-aos-duration="1000"
             >
               <div
-                className="w-full h-full bg-cover bg-center duration-500 group relative flex items-center justify-center border border-custom-green shadow-[0_0_30px_0] shadow-custom-green"
+                className="w-full h-full bg-cover bg-center duration-500 group relative flex items-center justify-center border border-custom-green shadow-[0_0_10px_0] md:shadow-[0_0_30px_0] shadow-custom-green md:shadow-custom-green"
                 style={{
                   backgroundImage: `url("/setlistPoster/${dataSetlist[
                     current
                   ].nama_setlist.replace(/ /g, "_")}.jpg")`,
                 }}
               >
-                <SetlistArrowButton position="left" onClick={prevSetCurrent}>
-                  <IoArrowBackOutline className="text-4xl" />
+                <SetlistArrowButton
+                  position="-left-10 md:-left-32"
+                  onClick={prevSetCurrent}
+                >
+                  <IoArrowBackOutline className="tex2xl md:text-4xl" />
                 </SetlistArrowButton>
-                <SetlistArrowButton position="right" onClick={nextSetCurrent}>
-                  <IoArrowForwardOutline className="text-4xl" />
+                <SetlistArrowButton
+                  position="-right-10 md:-right-32"
+                  onClick={nextSetCurrent}
+                >
+                  <IoArrowForwardOutline className="tex2xl md:text-4xl" />
                 </SetlistArrowButton>
                 <div className="flex py-2 absolute -bottom-10 justify-between items-center">
                   {dataSetlist.map((setlist, i) => (
@@ -4010,7 +4016,7 @@ export default function setlistPage() {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 top-0 bg-gradient-to-t from-black to-transparent">
                   <div className="flex justify-between items-end absolute bottom-1 py-1.5 px-4 w-full">
-                    <h1 className="text-md rounded-full border-zinc-300 font-light w-fit capitalize  text-zinc-300 duration-500 italic font-urbanist">
+                    <h1 className="text-md md:text-xl rounded-full border-zinc-300 font-light w-fit capitalize  text-zinc-300 duration-500 italic font-urbanist">
                       {dataSetlist[current].nama_setlist}
                     </h1>
                     <Link
