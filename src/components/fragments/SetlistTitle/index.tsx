@@ -6,7 +6,7 @@ export default function SetlistTitle(props: {
 }) {
   return (
     <div className="relative w-fit h-fit mx-auto">
-      <h1 className="text-5xl text-center title-gradient-bold uppercase mt-12 font-poppins">
+      <h1 className="text-3xl md:text-5xl text-center title-gradient-bold uppercase mt-16 md:mt-12 font-poppins">
         {props.nama_setlist}
       </h1>
       <h2 className="text-white text-xs font-light text-center italic capitalize mb-20 font-urbanist">

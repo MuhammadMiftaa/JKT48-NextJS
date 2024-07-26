@@ -4006,13 +4006,13 @@ export default function SetlistDetailPage() {
             nama_setlist={dataSetlist.nama_setlist}
             dibawakan_oleh={dataSetlist.dibawakan_oleh}
           />
-          <div className="content px-16 mb-32">
+          <div className="content px-8 md:px-16 mb-32">
             {dataSetlist.lagu.map((lagu, index) => (
               <SetlistSong lagu={lagu} index={index} key={index} />
             ))}
             <Link
               href={"/discography/setlist"}
-              className="absolute top-14 left-6 text-zinc-500 text-2xl py-1 px-2 rounded-sm border border-zinc-500 cursor-pointer hover:text-white hover:border-white active:border-black active:bg-custom-green active:text-black"
+              className="absolute top-6 md:top-14 left-6 text-zinc-500 text-lg md:text-2xl py-1 px-2 rounded-sm border border-zinc-500 cursor-pointer hover:text-white hover:border-white active:border-black active:bg-custom-green active:text-black"
             >
               <GoMoveToStart />
             </Link>

@@ -3977,7 +3977,7 @@ export default function setlistPage() {
               </span>
             </h1>
             <div
-              className="relative md:w-[750px] md:h-[560px] w-[400px] h-[320px] py-12 md:py-16 px-8 md:px-12 mx-auto overflow-hidden md:overflow-visible"
+              className="relative md:w-[750px] md:h-[560px] w-[390px] h-[260px] py-6 md:py-16 px-8 md:px-12 mx-auto overflow-hidden md:overflow-visible"
               data-aos="zoom-in"
               data-aos-duration="1000"
             >

@@ -19,7 +19,7 @@ export default function SetlistSong(props: {
         <HiChevronDown className="text-zinc-400 text-xl mt-1" />
       </button>
       <div className="subMenu list-none overflow-hidden h-0 duration-500">
-        <ul className="mt-5 h-fit px-2 pb-14 pt-8 bg-zinc-950 rounded-3xl">
+        <ul className="mt-5 h-fit px-2 pb-8 md:pb-14 pt-4 md:pt-8 bg-zinc-950 rounded-3xl">
           {lagu.lirik.map((larik, index) => (
             <SetlistSongLyric key={index} index={index}>
               {larik}
