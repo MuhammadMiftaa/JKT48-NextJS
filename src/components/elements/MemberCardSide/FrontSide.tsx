@@ -14,9 +14,9 @@ export default function FrontSide(props: { nama: string; baseColor: string }) {
         src={"/member/" + nama.toLowerCase().replace(/ /g, "_") + ".png"}
         alt={nama}
       />
-      <div className="absolute top-1/2 left-[1.38rem] md:left-24 transform -translate-y-1/2 bg-transparent w-60 h-60 flex items-center justify-center rotate-90">
+      <div className="absolute top-1/2 left-[.55rem] md:left-24 transform -translate-y-1/2 bg-transparent w-60 h-60 flex items-center justify-center rotate-90">
         <h1
-          className={`md:text-xl text-sm font-bold text-${baseColor} uppercase text-nowrap font-poppins`}
+          className={`md:text-xl text-xs font-bold text-${baseColor} uppercase text-nowrap font-poppins`}
         >
           {nama}
         </h1>
