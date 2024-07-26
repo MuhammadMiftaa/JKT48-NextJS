@@ -8,7 +8,7 @@ export default function NewsHighlight(props: {
 }) {
   const { image, category, description } = props;
   return (
-    <div className="relative h-full w-full basis-3/5">
+    <div className="relative hidden md:block h-full w-full basis-3/5">
       <Image
         width={750}
         height={650}

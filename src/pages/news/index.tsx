@@ -102,11 +102,11 @@ export default function NewsPage() {
   );
 
   return (
-    <div className="px-20">
+    <div className="px-8 md:px-20">
       <div className="container justify-stretch overflow-hidden pt-12 pb-4 mt-12">
         <div className="pb-12 text-white font-urbanist">
           <div className="flex flex-col">
-            <h1 className="text-6xl font-light">Latest News</h1>
+            <h1 className="text-4xl md:text-6xl font-light">Latest News</h1>
             <div className="flex mt-4 gap-2 flex-wrap">
               {category.map((cat, i) => {
                 return (
@@ -124,7 +124,7 @@ export default function NewsPage() {
             category={selectedCategory}
             description={selectedDescription}
           />
-          <div className="flex flex-col basis-2/5 px-4 justify-between">
+          <div className="flex flex-col md:basis-2/5 md:px-4 justify-between">
             {hotNews.map((news, i) => (
               <div
                 className="flex h-16 w-full border-b-slate-500 border-b group cursor-pointer"
@@ -140,7 +140,7 @@ export default function NewsPage() {
                   alt="meet and greet"
                   className="h-full aspect-video object-cover object-center mr-2"
                 />
-                <p className="font-urbanist text-sm text-gradient-group-hover">
+                <p className="font-urbanist text-xs md:text-sm text-gradient-group-hover">
                   {news.judul}
                 </p>
               </div>
@@ -152,8 +152,8 @@ export default function NewsPage() {
         <h1 className="px-20 w-fit mx-auto font-poppins font-semibold text-2xl text-gradient md:before:content-['——————————————————'] md:before:mr-3 md:before:tracking-[-4px] md:after:content-['——————————————————————————————'] md:after:tracking-[-10px] md:after:ml-3">
           Latest News
         </h1>
-        <div className="flex mt-4 gap-8 items-center">
-          <div className="flex flex-col mb-5 font-poppins basis-3/5">
+        <div className="flex flex-col md:flex-row mt-4 gap-6 md:gap-8 items-center">
+          <div className="flex flex-col mb-5 font-poppins md:basis-3/5">
             {news.map((theater, i) => (
               <div
                 key={i}
@@ -162,15 +162,18 @@ export default function NewsPage() {
                 <h1 className="text-slate-300 text-xs group-hover:text-custom-green cursor-pointer">
                   {theater.tanggal}
                 </h1>
-                <h2 className="text-md group-hover:text-custom-green cursor-pointer">
+                <h2 className="text-sm md:text-md group-hover:text-custom-green cursor-pointer">
                   {theater.judul}
                 </h2>
               </div>
             ))}
+            <div className="w-fit mx-auto mt-10 flex md:hidden items-center gap-4 font-poppins border rounded-xl border-zinc-800 px-2 py-1 text-slate-200">
+              <NewsPaging />
+            </div>
           </div>
           <NewsSide />
         </div>
-        <div className="w-fit mx-auto flex items-center gap-4 font-poppins border rounded-xl border-zinc-800 px-2 py-1 text-slate-200">
+        <div className="w-fit mx-auto hidden md:flex items-center gap-4 font-poppins border rounded-xl border-zinc-800 px-2 py-1 text-slate-200">
           <NewsPaging />
         </div>
       </div>

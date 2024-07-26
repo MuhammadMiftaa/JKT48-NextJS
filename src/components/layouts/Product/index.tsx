@@ -59,19 +59,19 @@ export default function Product() {
             Marsha's Birthday T-shirt
           </h1>
           <h2 className="md:text-2xl text-lg my-5 font-urbanist" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">Rp. 195.000</h2>
-          <h3 className="text-xs md:text-sm text-slate-300 font-light font-urbanist tracking-[.5px]" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
+          <h3 className="text-xs md:text-sm text-slate-300 font-light font-urbanist tracking-[.5px]" data-aos="fade-left" data-aos-duration="500">
             Mari rayakan ulang tahun oshi kamu dengan memakai T-Shirt yang
             didesain sendiri oleh membernya! Periode pemesanan akan dimulai 02
             Desember 2023 pukul 15:00 WIB. Kamu bisa order produk ini di
             official Tokopedia JKT48. Pasti seru bisa kembaran baju dengan
             Marsha!
           </h3>
-          <h4 className="text-xs md:text-sm text-slate-300 font-light my-3 mb-4 md:mb-0 font-urbanist" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
+          <h4 className="text-xs md:text-sm text-slate-300 font-light my-3 mb-4 md:mb-0 font-urbanist" data-aos="fade-left" data-aos-duration="500">
             Pemesanan hanya berlaku sampai tanggal 11 Desember 2023 pukul 17:00
             WIB
           </h4>
           <hr />
-          <div className="flex gap-2 my-2 md:my-10 font-urbanist" data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
+          <div className="flex gap-2 my-2 md:my-10 font-urbanist" data-aos="fade-left" data-aos-duration="500">
             <h5 className="p-1.5 mr-10">Size</h5>
             <button className="p-1.5 text-sm md:text-base text-center hover:text-custom-green active:text-custom-green focus:text-custom-green hover:cursor-pointer hover:text-shadow-custom-hver transition-shadow">
               S
