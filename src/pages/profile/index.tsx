@@ -35,7 +35,7 @@ export default function profilePage() {
               <h1>...</h1>
             )}
           </div>
-<div className="flex" >
+<div className="flex flex-col items-center gap-2" >
           <div className="p-1 outline outline-white shadow-[0_0_20px_0] shadow-white rounded-xl">
             {userData.oshimen && (
               <Image
@@ -54,17 +54,17 @@ export default function profilePage() {
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-xs md:text-sm -mb-1">Email`</h1>
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Email`</h1>
               {userData && (
                 <h2 className="text-sm md:text-lg font-semibold">{userData.email}</h2>
               )}
             </div>
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-xs md:text-sm -mb-1">Membership Type</h1>
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Membership Type</h1>
               <h2 className="text-sm md:text-lg font-semibold">Official Fans Club</h2>
             </div>
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-xs md:text-sm -mb-1">
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">
                 Most favorite member
                 {/* <span className="block">(Oshimen)</span> */}
               </h1>
@@ -81,32 +81,32 @@ export default function profilePage() {
 <div className="flex" >
           <div className="flex flex-col gap-2">
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">Member Number</h1>
-              <h2 className="text-lg font-semibold">389236</h2>
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Member Number</h1>
+              <h2 className="text-sm md:text-lg font-semibold">389236</h2>
             </div>
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">OFC Number</h1>
-              <h2 className="text-lg font-semibold">OFC 23-271203</h2>
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">OFC Number</h1>
+              <h2 className="text-sm md:text-lg font-semibold">OFC 23-271203</h2>
             </div>
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">
                 Membership Expires
               </h1>
-              <h2 className="text-lg font-semibold">31-12-2024</h2>
+              <h2 className="text-sm md:text-lg font-semibold">31-12-2024</h2>
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">JKT48 Point</h1>
-              <h2 className="text-lg font-semibold">1.200.000 P</h2>
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">JKT48 Point</h1>
+              <h2 className="text-sm md:text-lg font-semibold">1.200.000 P</h2>
             </div>
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">Bonus Point</h1>
-              <h2 className="text-lg font-semibold">200.000 P</h2>
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Bonus Point</h1>
+              <h2 className="text-sm md:text-lg font-semibold">200.000 P</h2>
             </div>
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">Theater Arrivals</h1>
-              <h2 className="text-lg font-semibold">11 times</h2>
+              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Theater Arrivals</h1>
+              <h2 className="text-sm md:text-lg font-semibold">11 times</h2>
             </div>
           </div>
 </div>
