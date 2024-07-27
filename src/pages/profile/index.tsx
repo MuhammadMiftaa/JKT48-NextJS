@@ -44,34 +44,35 @@ export default function profilePage() {
                   userData.oshimen.nama.toLowerCase().replace(/ /g, "_") +
                   ".png"
                 }
-                width={100}
-                height={100}
+                width={50}
+                height={50}
                 className="rounded-xl bg-gradient-to-br from-custom-green to-blue-600"
-                alt="abigail-rachel"
+                alt={userData.oshimen.nama}
+
               />
             )}
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">Email`</h1>
+              <h1 className="text-zinc-600 text-xs md:text-sm -mb-1">Email`</h1>
               {userData && (
-                <h2 className="text-lg font-semibold">{userData.email}</h2>
+                <h2 className="text-sm md:text-lg font-semibold">{userData.email}</h2>
               )}
             </div>
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">Membership Type</h1>
-              <h2 className="text-lg font-semibold">Official Fans Club</h2>
+              <h1 className="text-zinc-600 text-xs md:text-sm -mb-1">Membership Type</h1>
+              <h2 className="text-sm md:text-lg font-semibold">Official Fans Club</h2>
             </div>
             <div className="flex flex-col font-poppins">
-              <h1 className="text-zinc-600 text-sm -mb-1">
+              <h1 className="text-zinc-600 text-xs md:text-sm -mb-1">
                 Most favorite member
                 {/* <span className="block">(Oshimen)</span> */}
               </h1>
               {userData.oshimen && (
                 <Link href={"/member/" + userData.oshimen.id} className="">
-                  <h1 className="text-lg font-semibold hover:text-pink-600 duration-300">
+                  <h2 className="text-sm md:text-lg font-semibold hover:text-pink-600 duration-300">
                     {userData.oshimen.nama}
-                  </h1>
+                  </h2>
                 </Link>
               )}
             </div>
