@@ -35,7 +35,7 @@ export default function profilePage() {
               <h1>...</h1>
             )}
           </div>
-<div className="flex flex-col items-center gap-2" >
+<div className="flex flex-col items-center gap-4" >
           <div className="p-1 outline outline-white shadow-[0_0_20px_0] shadow-white rounded-xl">
             {userData.oshimen && (
               <Image
@@ -53,17 +53,17 @@ export default function profilePage() {
             )}
           </div>
           <div className="flex flex-col items-center md:items-start gap-2">
-            <div className="flex flex-col font-poppins">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Email`</h1>
               {userData && (
                 <h2 className="text-sm md:text-lg font-semibold">{userData.email}</h2>
               )}
             </div>
-            <div className="flex flex-col font-poppins">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Membership Type</h1>
               <h2 className="text-sm md:text-lg font-semibold">Official Fans Club</h2>
             </div>
-            <div className="flex flex-col font-poppins">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">
                 Most favorite member
                 {/* <span className="block">(Oshimen)</span> */}
@@ -79,45 +79,45 @@ export default function profilePage() {
           </div>
 </div>
 <div className="flex justify-between" >
-          <div className="flex w-fit flex-col items-center md:items-start gap-2">
-            <div className="flex flex-col font-poppins">
+          <div className="flex w-fit flex-col gap-2">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Member Number</h1>
               <h2 className="text-sm md:text-lg font-semibold">389236</h2>
             </div>
-            <div className="flex flex-col font-poppins">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">OFC Number</h1>
               <h2 className="text-sm md:text-lg font-semibold">OFC 23-271203</h2>
             </div>
-            <div className="flex flex-col font-poppins">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">
                 Membership Expires
               </h1>
               <h2 className="text-sm md:text-lg font-semibold">31-12-2024</h2>
             </div>
           </div>
-          <div className="flex w-fit flex-col items-center md:items-start gap-2">
-            <div className="flex flex-col font-poppins">
+          <div className="flex w-fit flex-col gap-2">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">JKT48 Point</h1>
               <h2 className="text-sm md:text-lg font-semibold">1.200.000 P</h2>
             </div>
-            <div className="flex flex-col font-poppins">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Bonus Point</h1>
               <h2 className="text-sm md:text-lg font-semibold">200.000 P</h2>
             </div>
-            <div className="flex flex-col font-poppins">
+            <div className="flex flex-col items-center md:items-start font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Theater Arrivals</h1>
               <h2 className="text-sm md:text-lg font-semibold">11 times</h2>
             </div>
           </div>
 </div>
           <div className="pb-5 flex flex-col items-center">
-            <h1 className="text-zinc-400 text-lg text-center font-bold">
+            <h1 className="text-zinc-400 text-sm md:text-lg text-center font-bold">
               Barcode
             </h1>
             {userData.ID && <Barcode classname={"h-16"} value={userData.ID} />}
           </div>
         </div>
-        <div className="flex justify-around py-3 mt-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 text-sm md:text-lg justify-around py-3 mt-20">
           <button
             type="button"
             className=" py-1.5 px-4 shadow-sm shadow-custom-green border border-custom-green rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
