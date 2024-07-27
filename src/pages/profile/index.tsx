@@ -28,7 +28,7 @@ export default function profilePage() {
         <div className="flex flex-col md:flex-row md:justify-around gap-4 md:gap-0 md:items-center w-full pb-8">
           <div className="bg-black -top-5 rounded-xl w-fit absolute border-2 border-custom-green shadow-[0_0_15px_0] shadow-custom-green">
             {userData ? (
-              <h1 className="py-1 px-4 top-0 text-white font-urbanist text-xl w-fit rounded-xl font-light">
+              <h1 className="py-1 px-4 top-0 text-white font-urbanist text-lg md:text-xl w-fit rounded-xl font-light">
                 {userData.fullname}
               </h1>
             ) : (
@@ -117,28 +117,28 @@ export default function profilePage() {
             {userData.ID && <Barcode classname={"h-16"} value={userData.ID} />}
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 text-sm md:text-lg justify-around py-3 mt-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 justify-items-center text-xs md:text-lg justify-around py-3 mt-8 md:mt-20">
           <button
             type="button"
-            className=" py-1.5 px-4 shadow-sm shadow-custom-green border border-custom-green rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-custom-green border border-custom-green rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           >
             Print Member Card
           </button>
           <button
             type="button"
-            className=" py-1.5 px-4 shadow-sm shadow-[#69D1C2] border border-zinc-700 rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-[#69D1C2] border border-zinc-700 rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           >
             Print OFC Card
           </button>
           <button
             type="button"
-            className=" py-1.5 px-4 shadow-sm shadow-[#4097DB] border border-[#4097DB] rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-[#4097DB] border border-[#4097DB] rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           >
             Leave Membership
           </button>
           <button
             type="button"
-            className=" py-1.5 px-4 shadow-sm shadow-blue-600 border border-zinc-700 rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-blue-600 border border-zinc-700 rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           >
             Buy JKT48 Point
           </button>
