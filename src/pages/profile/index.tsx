@@ -52,7 +52,7 @@ export default function profilePage() {
               />
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-center md:items-start gap-2">
             <div className="flex flex-col font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Email`</h1>
               {userData && (
@@ -78,8 +78,8 @@ export default function profilePage() {
             </div>
           </div>
 </div>
-<div className="flex" >
-          <div className="flex flex-col gap-2">
+<div className="flex justify-between" >
+          <div className="flex w-fit flex-col items-center md:items-start gap-2">
             <div className="flex flex-col font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Member Number</h1>
               <h2 className="text-sm md:text-lg font-semibold">389236</h2>
@@ -95,7 +95,7 @@ export default function profilePage() {
               <h2 className="text-sm md:text-lg font-semibold">31-12-2024</h2>
             </div>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex w-fit flex-col items-center md:items-start gap-2">
             <div className="flex flex-col font-poppins">
               <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">JKT48 Point</h1>
               <h2 className="text-sm md:text-lg font-semibold">1.200.000 P</h2>
@@ -110,7 +110,7 @@ export default function profilePage() {
             </div>
           </div>
 </div>
-          <div className="pb-5">
+          <div className="pb-5 flex flex-col items-center">
             <h1 className="text-zinc-400 text-lg text-center font-bold">
               Barcode
             </h1>
