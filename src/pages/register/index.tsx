@@ -117,7 +117,7 @@ export default function registerPage() {
   return (
     <>
       {!isLoading ? (
-        <div className="mt-20 flex h-[75vh] w-2/5 mx-auto my-auto justify-center">
+        <div className="mt-20 flex h-[75vh] w-5/6 md:w-2/5 mx-auto my-auto justify-center">
           <div className="my-auto mx-auto flex flex-col justify-between">
             <div className="">
               <h1 className="font-poppins text-3xl py-1 w-fit font-bold bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-600">
