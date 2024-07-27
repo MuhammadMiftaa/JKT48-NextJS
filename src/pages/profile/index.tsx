@@ -25,7 +25,7 @@ export default function profilePage() {
   return (
     <div className="grid gap-6 grid-cols-4 p-8 pt-48 bg-zinc-950 w-full">
       <div className="flex flex-col col-span-4 rounded-xl pt-12 pb-6 px-12 bg-black relative outline outline-custom-green shadow-[0_0_15px_0] shadow-custom-green">
-        <div className="flex justify-around items-center w-full pb-8">
+        <div className="flex flex-col md:flex-row md:justify-around gap-4 md:gap-0 md:items-center w-full pb-8">
           <div className="bg-black -top-5 rounded-xl w-fit absolute border-2 border-custom-green shadow-[0_0_15px_0] shadow-custom-green">
             {userData ? (
               <h1 className="py-1 px-4 top-0 text-white font-urbanist text-xl w-fit rounded-xl font-light">
@@ -35,6 +35,7 @@ export default function profilePage() {
               <h1>...</h1>
             )}
           </div>
+<div className="flex" >
           <div className="p-1 outline outline-white shadow-[0_0_20px_0] shadow-white rounded-xl">
             {userData.oshimen && (
               <Image
@@ -75,6 +76,8 @@ export default function profilePage() {
               )}
             </div>
           </div>
+</div>
+<div className="flex" >
           <div className="flex flex-col gap-2">
             <div className="flex flex-col font-poppins">
               <h1 className="text-zinc-600 text-sm -mb-1">Member Number</h1>
@@ -105,6 +108,7 @@ export default function profilePage() {
               <h2 className="text-lg font-semibold">11 times</h2>
             </div>
           </div>
+</div>
           <div className="pb-5">
             <h1 className="text-zinc-400 text-lg text-center font-bold">
               Barcode
