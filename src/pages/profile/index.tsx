@@ -23,9 +23,9 @@ export default function profilePage() {
   const iterations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
-    <div className="grid gap-6 grid-cols-4 p-8 pt-48 bg-zinc-950 w-full">
+    <div className="grid gap-6 grid-cols-4 p-8 pt-48 bg-zinc-950 w-full overflow-hidden">
       <div className="flex flex-col col-span-4 rounded-xl pt-12 pb-6 px-12 bg-black relative outline outline-custom-green shadow-[0_0_15px_0] shadow-custom-green">
-        <div className="flex flex-col md:flex-row md:justify-around gap-4 md:gap-0 md:items-center w-full pb-8">
+        <div className="flex flex-col md:flex-row md:justify-around gap-4 md:gap-0 items-center w-full pb-8">
           <div className="bg-black -top-5 rounded-xl w-fit absolute border-2 border-custom-green shadow-[0_0_15px_0] shadow-custom-green">
             {userData ? (
               <h1 className="py-1 px-4 top-0 text-white font-urbanist text-lg md:text-xl w-fit rounded-xl font-light">
@@ -117,7 +117,7 @@ export default function profilePage() {
             {userData.ID && <Barcode classname={"h-16"} value={userData.ID} />}
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 justify-items-center text-xs md:text-lg justify-around py-3 mt-8 md:mt-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 justify-items-center text-xs md:text-lg justify-around py-3 mt-5 md:mt-20">
           <button
             type="button"
             className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-custom-green border border-custom-green rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
