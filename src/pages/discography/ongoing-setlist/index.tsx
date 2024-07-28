@@ -4019,7 +4019,7 @@ export default function setlistPage() {
                       {dataSetlist[current].nama_setlist}
                     </h1>
                     <Link
-                      href={"/discography/setlist/" + dataSetlist[current].id}
+                      href={"/discography/ongoing-setlist/" + dataSetlist[current].id}
                       className="text-4xl text-white hover:text-custom-green py-1"
                     >
                       <MdOutlineLyrics />
