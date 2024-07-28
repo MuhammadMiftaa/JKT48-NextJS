@@ -16,7 +16,7 @@ export default function Hero() {
 
   return (
     <div
-      className="h-screen bg-no-repeat bg-center bg-cover flex items-end px-2 pb-8 animate__animated animate__fadeIn animate__slow after:content-[''] after:absolute after:bottom-0 after:top-1/4 md:after:top-1/2 after:left-0 after:right-0 after:bg-gradient-to-b after:from-transparent after:to-black duration-1000"
+      className="h-screen overflow-hidden bg-no-repeat bg-center bg-cover flex items-end px-2 pb-8 animate__animated animate__fadeIn animate__slow after:content-[''] after:absolute after:bottom-0 after:top-1/4 md:after:top-1/2 after:left-0 after:right-0 after:bg-gradient-to-b after:from-transparent after:to-black duration-1000"
       style={{ backgroundImage: `url("/image/hero/${heroImage}.jpg")` }}
     >
       <div className="w-full z-10">

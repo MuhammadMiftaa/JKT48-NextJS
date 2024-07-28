@@ -3946,7 +3946,6 @@ export default function setlistPage() {
         },
       ]
     : data.data;
-  console.log(dataSetlist);
 
   const [current, setCurrent] = useState(0);
   const prevSetCurrent = () => {

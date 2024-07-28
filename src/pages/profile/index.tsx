@@ -35,82 +35,103 @@ export default function profilePage() {
               <h1>...</h1>
             )}
           </div>
-<div className="flex flex-col items-center gap-4" >
-          <div className="p-1 outline outline-white shadow-[0_0_20px_0] shadow-white rounded-xl">
-            {userData.oshimen && (
-              <Image
-                src={
-                  "/member/" +
-                  userData.oshimen.nama.toLowerCase().replace(/ /g, "_") +
-                  ".png"
-                }
-                width={50}
-                height={50}
-                className="rounded-xl bg-gradient-to-br from-custom-green to-blue-600"
-                alt={userData.oshimen.nama}
-
-              />
-            )}
-          </div>
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Email`</h1>
-              {userData && (
-                <h2 className="text-sm md:text-lg font-semibold">{userData.email}</h2>
-              )}
-            </div>
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Membership Type</h1>
-              <h2 className="text-sm md:text-lg font-semibold">Official Fans Club</h2>
-            </div>
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">
-                Most favorite member
-                {/* <span className="block">(Oshimen)</span> */}
-              </h1>
+          <div className="basis-2/5 md:basis-3/6 md:justify-between md:w-full flex flex-row items-center gap-8 md:gap-16 md:pl-9">
+            <div className="p-1 outline outline-white shadow-[0_0_20px_0] shadow-white rounded-lg md:rounded-xl">
               {userData.oshimen && (
-                <Link href={"/member/" + userData.oshimen.id} className="">
-                  <h2 className="text-sm md:text-lg font-semibold hover:text-pink-600 duration-300">
-                    {userData.oshimen.nama}
-                  </h2>
-                </Link>
+                <Image
+                  src={
+                    "/member/" +
+                    userData.oshimen.nama.toLowerCase().replace(/ /g, "_") +
+                    ".png"
+                  }
+                  width={100}
+                  height={100}
+                  className="rounded-lg md:rounded-xl w-full bg-gradient-to-br from-custom-green to-blue-600"
+                  alt={userData.oshimen.nama}
+                />
               )}
             </div>
+            <div className="flex flex-col items-end md:w-full md:items-start gap-2">
+              <div className="flex flex-col items-end md:items-start font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  Email`
+                </h1>
+                {userData && (
+                  <h2 className="text-xs md:text-lg font-semibold">
+                    {userData.email}
+                  </h2>
+                )}
+              </div>
+              <div className="flex flex-col items-end md:items-start font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  Membership Type
+                </h1>
+                <h2 className="text-xs md:text-lg font-semibold">
+                  Official Fans Club
+                </h2>
+              </div>
+              <div className="flex flex-col items-end md:items-start font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  Most favorite member
+                  {/* <span className="block">(Oshimen)</span> */}
+                </h1>
+                {userData.oshimen && (
+                  <Link href={"/member/" + userData.oshimen.id} className="">
+                    <h2 className="text-xs md:text-lg font-semibold hover:text-pink-600 duration-300">
+                      {userData.oshimen.nama}
+                    </h2>
+                  </Link>
+                )}
+              </div>
+            </div>
           </div>
-</div>
-<div className="flex justify-between" >
-          <div className="flex w-fit flex-col gap-2">
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Member Number</h1>
-              <h2 className="text-sm md:text-lg font-semibold">389236</h2>
+          <div className="basis-2/5 md:basis-2/6 flex justify-between w-full">
+            <div className="flex w-fit flex-col items-start gap-2">
+              <div className="flex flex-col items-start font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  Member Number
+                </h1>
+                <h2 className="text-xs md:text-lg font-semibold">389236</h2>
+              </div>
+              <div className="flex flex-col items-start font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  OFC Number
+                </h1>
+                <h2 className="text-xs md:text-lg font-semibold">
+                  OFC 23-271203
+                </h2>
+              </div>
+              <div className="flex flex-col items-start font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  Membership Expires
+                </h1>
+                <h2 className="text-xs md:text-lg font-semibold">31-12-2024</h2>
+              </div>
             </div>
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">OFC Number</h1>
-              <h2 className="text-sm md:text-lg font-semibold">OFC 23-271203</h2>
-            </div>
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">
-                Membership Expires
-              </h1>
-              <h2 className="text-sm md:text-lg font-semibold">31-12-2024</h2>
+            <div className="flex w-fit flex-col md:items-start items-end gap-2">
+              <div className="flex flex-col md:items-start items-end font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  JKT48 Point
+                </h1>
+                <h2 className="text-xs md:text-lg font-semibold">
+                  1.200.000 P
+                </h2>
+              </div>
+              <div className="flex flex-col md:items-start items-end font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  Bonus Point
+                </h1>
+                <h2 className="text-xs md:text-lg font-semibold">200.000 P</h2>
+              </div>
+              <div className="flex flex-col md:items-start items-end font-poppins">
+                <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
+                  Theater Arrivals
+                </h1>
+                <h2 className="text-xs md:text-lg font-semibold">11 times</h2>
+              </div>
             </div>
           </div>
-          <div className="flex w-fit flex-col gap-2">
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">JKT48 Point</h1>
-              <h2 className="text-sm md:text-lg font-semibold">1.200.000 P</h2>
-            </div>
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Bonus Point</h1>
-              <h2 className="text-sm md:text-lg font-semibold">200.000 P</h2>
-            </div>
-            <div className="flex flex-col items-center md:items-start font-poppins">
-              <h1 className="text-zinc-600 text-[0.65rem] md:text-sm -mb-1">Theater Arrivals</h1>
-              <h2 className="text-sm md:text-lg font-semibold">11 times</h2>
-            </div>
-          </div>
-</div>
-          <div className="pb-5 flex flex-col items-center">
+          <div className="basis-1/5 md:basis-1/6 pb-5 flex flex-col items-center md:pl-8">
             <h1 className="text-zinc-400 text-sm md:text-lg text-center font-bold">
               Barcode
             </h1>
@@ -126,7 +147,7 @@ export default function profilePage() {
           </button>
           <button
             type="button"
-            className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-[#69D1C2] border border-zinc-700 rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-[#69D1C2] border border-[#69D1C2] rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           >
             Print OFC Card
           </button>
@@ -138,7 +159,7 @@ export default function profilePage() {
           </button>
           <button
             type="button"
-            className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-blue-600 border border-zinc-700 rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="py-1 px-2 md:py-1.5 md:px-4 shadow-sm shadow-blue-600 border border-blue-600 rounded font-poppins active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
           >
             Buy JKT48 Point
           </button>

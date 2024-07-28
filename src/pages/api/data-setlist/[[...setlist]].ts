@@ -7,7 +7,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(req.query);
   if (req.query.setlist?.[1]) {
     const data = await retrieveDataById("setlist", req.query.setlist[1]);
     res.status(200).json({

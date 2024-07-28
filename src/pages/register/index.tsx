@@ -483,13 +483,12 @@ export default function registerPage() {
                         </h1>
                       </Link>
                     )}
-                    <button
+                    <div
                       onClick={nextPage}
-                      type="button"
                       className="text-center cursor-pointer font-bold  text-black font-urbanist text-lg uppercase w-full bg-gradient-to-r from-custom-green to-blue-600 rounded py-1"
                     >
                       Next
-                    </button>
+                    </div>
                   </div>
                 )}
               </div>

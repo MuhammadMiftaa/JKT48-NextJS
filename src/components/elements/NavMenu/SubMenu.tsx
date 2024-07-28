@@ -37,7 +37,7 @@ function SubMenu(props: SubMenuProps) {
       <button
         id="dropdownNavbarLink"
         className="flex items-center justify-between w-full py-2 px-3 text-gray-400 rounded hover:border-custom-green border-transparent  md:hover:text-custom-green md:border-0 md:p-0 md:w-auto animate__animated animate__fadeIn"
-        onClick={goToDiscography}
+        // onClick={goToDiscography}
       >
         <h1
           className={
