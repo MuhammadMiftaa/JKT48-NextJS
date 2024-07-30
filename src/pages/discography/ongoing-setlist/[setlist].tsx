@@ -4011,7 +4011,7 @@ export default function SetlistDetailPage() {
               <SetlistSong lagu={lagu} index={index} key={index} />
             ))}
             <Link
-              href={"/discography/setlist"}
+              href={"/discography/ongoing-setlist"}
               className="absolute top-6 md:top-14 left-6 text-zinc-500 text-lg md:text-2xl py-1 px-2 rounded-sm border border-zinc-500 cursor-pointer hover:text-white hover:border-white active:border-black active:bg-custom-green active:text-black"
             >
               <GoMoveToStart />

@@ -20,7 +20,7 @@ export default function BackSide(props: {
         className={`absolute top-0 right-0 left-0 border-b border-${baseColor}`}
       >
         <h1
-          className={`text-center md:text-xl text-[0.74rem] text-${baseColor} md:py-1.5 text-xl uppercase text-nowrap font-bold font-poppins`}
+          className={`text-center md:text-xl text-xs px-0.5 text-${baseColor} md:py-1.5 py-1 text-xl uppercase text-nowrap font-bold font-poppins`}
         >
           {nama}
         </h1>

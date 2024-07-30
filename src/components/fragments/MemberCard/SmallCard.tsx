@@ -7,7 +7,7 @@ export default function SmallCard(props: {
 }) {
   return (
     <div
-      className="flex flex-col bg-zinc-900 py-2 px-2 justify-start md:py-6 md:px-7 text-nowrap h-fit items-center"
+      className="flex flex-col bg-zinc-900 py-2 px-2 justify-start md:py-6 md:px-7 text-nowrap h-fit items-center snap-start"
       data-aos="fade-left"
       data-aos-delay={200 * props.index}
       key={props.member.id}

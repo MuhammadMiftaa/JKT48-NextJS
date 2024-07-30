@@ -10,7 +10,7 @@ export default function AppShell(props: AppShellProps) {
   const { children } = props;
   const router = useRouter();
 
-  const noNavbar: RegExp[] = [/^\/member\/.*/, /^\/discography\/setlist\/.*/];
+  const noNavbar: RegExp[] = [/^\/member\/.*/, /^\/discography\/ongoing-setlist\/.*/,/^\/profile\/.*/];
   const isNoNavbarRoute = noNavbar.some((pattern) =>
     pattern.test(router.pathname)
   );
