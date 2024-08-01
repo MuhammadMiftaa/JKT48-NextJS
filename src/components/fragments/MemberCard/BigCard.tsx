@@ -1,7 +1,5 @@
 import { memberType } from "@/components/types/memberType";
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import FrontSide from "@/components/elements/MemberCardSide/FrontSide";
 import BackSide from "@/components/elements/MemberCardSide/BackSide";
 
@@ -15,7 +13,7 @@ export default function Card(props: CardProps) {
   const { delay, member, baseColor } = props;
   return (
     <label data-aos="fade-up" data-aos-delay={delay}>
-      <input type="checkbox" className="absolute scale-0 peer" />
+      <input type="checkbox" className="absolute peer scale-0" />
       <div className="card w-36 h-[10.09rem] md:h-[16.9rem] md:w-60 md:my-5 md:mx-5 m-3 relative">
         <FrontSide nama={member.nama} baseColor={baseColor} />
         <BackSide

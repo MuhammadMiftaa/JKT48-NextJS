@@ -5,7 +5,7 @@ export default function FrontSide(props: { nama: string; baseColor: string }) {
   const { nama, baseColor } = props;
   return (
     <div
-      className={`front w-full h-full md:h-full md:w-full peer-checked:rotate-y-180 border-${baseColor} border rounded-2xl absolute top-0 bottom-0 left-0 right-0 overflow-hidden bg-zinc-950 hover:cursor-pointer shadow-xl shadow-${baseColor} duration-700 backface-hidden`}
+      className={`front backface-hidden w-full h-full md:h-full md:w-full border-${baseColor} border rounded-2xl absolute top-0 bottom-0 left-0 right-0 overflow-hidden bg-zinc-950 hover:cursor-pointer shadow-xl shadow-${baseColor} duration-700`}
     >
       <Image
         width={256}

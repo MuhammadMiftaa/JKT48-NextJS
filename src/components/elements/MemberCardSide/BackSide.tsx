@@ -14,7 +14,7 @@ export default function BackSide(props: {
   const { nama, generasi, tanggal_lahir, umur, id, baseColor } = props;
   return (
     <div
-      className={`back border-${baseColor} border rounded-2xl bg-zinc-950 flex flex-col justify-end items-center pb-2 absolute top-0 bottom-0 left-0 right-0 hover:cursor-pointer overflow-hidden rotate-y-180 shadow-xl shadow-${baseColor} duration-700 backface-hidden peer-checked:-rotate-y-0`}
+      className={`back rotate-y-180 backface-hidden border-${baseColor} border rounded-2xl bg-zinc-950 flex flex-col justify-end items-center pb-2 absolute top-0 bottom-0 left-0 right-0 hover:cursor-pointer overflow-hidden shadow-xl shadow-${baseColor} duration-700`}
     >
       <div
         className={`absolute top-0 right-0 left-0 border-b border-${baseColor}`}
