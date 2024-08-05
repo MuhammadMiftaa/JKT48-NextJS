@@ -1341,6 +1341,14 @@ export default function MemberPage() {
   const handleSetGen: ChangeEventHandler<HTMLInputElement> = (event) => {
     setGen(parseInt(event.target.value));
   };
+  const handleReset = () => {
+    setName('');
+    setBirthday('');
+    setGen(0);
+    setAge(0);
+    setBirthplace('');
+    setHometown('');
+  };
 
   return (
     <>
@@ -1373,7 +1381,7 @@ export default function MemberPage() {
         >
           <h5
             id="drawer-right-label"
-            className="inline-flex font-poppins items-center mb-2 md:mb-4 title-gradient-bold text-lg md:text-2xl"
+            className="inline-flex font-poppins items-center mt-1 md:mt-0 mb-2 md:mb-4 title-gradient-bold text-lg md:text-2xl"
           >
             Search Member
           </h5>
@@ -1400,17 +1408,15 @@ export default function MemberPage() {
             </svg>
             <span className="sr-only">Close menu</span>
           </button>
-          <div className="flex flex-col gap-6 mt-5">
+          <div className="flex flex-col gap-4 mt-5">
             <div>
               <label
-                htmlFor="first_name"
                 className="block text-xs mb-1 md:mb-0 md:text-sm font-light text-zinc-400 font-poppins"
               >
                 Name
               </label>
               <input onChange={handleSetName}
                 type="text"
-                id="first_name"
                 className="bg-zinc-950 border font-montserrat text-white border-gray-300 text-sm md:text-md rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Abigail Rachel"
                 required
@@ -1418,14 +1424,12 @@ export default function MemberPage() {
             </div>
             <div>
               <label
-                htmlFor="first_name"
                 className="block text-xs mb-1 md:mb-0 md:text-sm font-light text-zinc-400 font-poppins"
               >
                 Birthday
               </label>
               <input onChange={handleSetBirthday}
                 type="text"
-                id="first_name"
                 className="bg-zinc-950 border font-montserrat text-white border-gray-300 text-sm md:text-md rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="06 August 2006"
                 required
@@ -1433,14 +1437,12 @@ export default function MemberPage() {
             </div>
             <div>
               <label
-                htmlFor="last_name"
                 className="block text-xs mb-1 md:mb-0 md:text-sm font-light text-zinc-400 font-poppins"
               >
                 Generation
               </label>
               <input onChange={handleSetGen}
                 type="number"
-                id="number-input"
                 aria-describedby="helper-text-explanation"
                 className="bg-zinc-950 border border-gray-300 text-white font-montserrat text-sm md:text-md rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="12"
@@ -1449,14 +1451,12 @@ export default function MemberPage() {
             </div>
             <div>
               <label
-                htmlFor="company"
                 className="block text-xs mb-1 md:mb-0 md:text-sm font-light text-zinc-400 font-poppins"
               >
                 Age
               </label>
               <input onChange={handleSetAge}
                 type="number"
-                id="number-input"
                 aria-describedby="helper-text-explanation"
                 className="bg-zinc-950 border border-gray-300 text-white font-montserrat text-sm md:text-md rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="16"
@@ -1465,14 +1465,12 @@ export default function MemberPage() {
             </div>
             <div>
               <label
-                htmlFor="phone"
                 className="block text-xs mb-1 md:mb-0 md:text-sm font-light text-zinc-400 font-poppins"
               >
                 Birthplace
               </label>
               <input onChange={handleSetBirthplace}
-                type="tel"
-                id="phone"
+                type="text"
                 className="bg-zinc-950 border font-montserrat text-white border-gray-300 text-sm md:text-md rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Jakarta"
                 required
@@ -1480,19 +1478,19 @@ export default function MemberPage() {
             </div>
             <div>
               <label
-                htmlFor="website"
                 className="block text-xs mb-1 md:mb-0 md:text-sm font-light text-zinc-400 font-poppins"
               >
                 Hometown
               </label>
               <input onChange={handleSetHometown}
-                type="url"
-                id="website"
+                type="text"
                 className="bg-zinc-950 border font-montserrat text-white border-gray-300 text-sm md:text-md rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Jakarta"
                 required
               />
             </div>
+            <button onClick={handleReset} type="reset" className="w-fit font-poppins text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2 text-center me-2 mb-2">Clear</button>
+
           </div>
         </div>
 

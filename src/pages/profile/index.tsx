@@ -24,7 +24,7 @@ export default function profilePage() {
 
   return (
     <div className="grid gap-6 grid-cols-4 p-8 pt-48 bg-zinc-950 w-full overflow-hidden">
-      <div className="flex flex-col col-span-4 rounded-xl pt-12 pb-6 px-12 bg-black relative outline outline-custom-green shadow-[0_0_15px_0] shadow-custom-green">
+      <div className="flex flex-col col-span-4 rounded-xl pt-12 pb-6 px-4 bg-black relative outline outline-custom-green shadow-[0_0_15px_0] shadow-custom-green">
         <div className="flex flex-col md:flex-row md:justify-around gap-4 md:gap-0 items-center w-full pb-8">
           <div className="bg-black -top-5 rounded-xl w-fit absolute border-2 border-custom-green shadow-[0_0_15px_0] shadow-custom-green">
             {userData ? (
@@ -35,8 +35,8 @@ export default function profilePage() {
               <h1>...</h1>
             )}
           </div>
-          <div className="basis-2/5 md:basis-3/6 md:justify-between md:w-full flex flex-row items-center gap-8 md:gap-16 md:pl-9">
-            <div className="p-1 outline outline-white shadow-[0_0_20px_0] shadow-white rounded-lg md:rounded-xl">
+          <div className="basis-2/5 md:basis-3/6 w-full flex flex-row justify-between gap-6 items-start md:items-center md:gap-16 md:pl-9">
+            <div className="p-1 w-fit outline outline-white shadow-[0_0_20px_0] shadow-white rounded-lg md:rounded-xl">
               {userData.oshimen && (
                 <Image
                   src={
@@ -51,13 +51,13 @@ export default function profilePage() {
                 />
               )}
             </div>
-            <div className="flex flex-col items-end md:w-full md:items-start gap-2">
+            <div className="flex flex-col items-end w-fit md:w-full md:items-start gap-2">
               <div className="flex flex-col items-end md:items-start font-poppins">
                 <h1 className="text-zinc-600 text-[0.55rem] md:text-sm">
                   Email`
                 </h1>
                 {userData && (
-                  <h2 className="text-xs md:text-lg font-semibold">
+                  <h2 className="text-xs max-w-44 text-end md:text-lg font-semibold text-ellipsis overflow-hidden">
                     {userData.email}
                   </h2>
                 )}

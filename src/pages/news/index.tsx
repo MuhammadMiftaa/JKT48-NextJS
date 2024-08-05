@@ -140,7 +140,7 @@ export default function NewsPage() {
                   alt="meet and greet"
                   className="h-full aspect-video object-cover object-center mr-2"
                 />
-                <p className="font-urbanist text-xs md:text-sm text-gradient-group-hover line-clamp-3">
+                <p className="font-urbanist text-xs md:text-sm text-gradient-group-hover line-clamp-4 md:line-clamp-3">
                   {news.judul}
                 </p>
               </div>
