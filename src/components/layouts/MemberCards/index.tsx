@@ -11,6 +11,7 @@ export default function MemberCards(props: {
     age: number;
     hometown: string;
     birthplace: string;
+    birthday: string;
   } | null;
 }) {
   const filterMembers = (member: memberType) => {
@@ -22,15 +23,32 @@ export default function MemberCards(props: {
       age,
       hometown = "",
       birthplace = "",
+      birthday = "",
     } = props.search;
 
-    const isNameMatch = name ? member.nama.toLowerCase().includes(name.toLowerCase()) : true;
+    const isNameMatch = name
+      ? member.nama.toLowerCase().includes(name.toLowerCase())
+      : true;
+    const isBirthdayMatch = birthday
+      ? member.tanggal_lahir.toLowerCase().includes(birthday.toLowerCase())
+      : true;
     const isGenMatch = gen ? member.generasi === gen : true;
     const isAgeMatch = age ? member.umur === age : true;
-    const isHometownMatch = hometown ? member.asal.toLowerCase().includes(hometown.toLowerCase()) : true;
-    const isBirthplaceMatch = birthplace ? member.kota_lahir.toLowerCase().includes(birthplace.toLowerCase()) : true;
+    const isHometownMatch = hometown
+      ? member.asal.toLowerCase().includes(hometown.toLowerCase())
+      : true;
+    const isBirthplaceMatch = birthplace
+      ? member.kota_lahir.toLowerCase().includes(birthplace.toLowerCase())
+      : true;
 
-    return isNameMatch && isGenMatch && isAgeMatch && isHometownMatch && isBirthplaceMatch;
+    return (
+      isNameMatch &&
+      isGenMatch &&
+      isBirthdayMatch &&
+      isAgeMatch &&
+      isHometownMatch &&
+      isBirthplaceMatch
+    );
   };
 
   return (

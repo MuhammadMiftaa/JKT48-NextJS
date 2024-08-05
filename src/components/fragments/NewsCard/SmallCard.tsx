@@ -34,7 +34,7 @@ export default function SmallCard(props: {
           <h1 className="text-black my-1 md:my-0 font-semibold font-poppins md:font-bold text-xl md:text-lg text-ellipsis w-full whitespace-nowrap overflow-hidden">
             {item.judul}
           </h1>
-          <h2 className="md:text-xs text-sm text-slate-900 text-light">{item.desc}</h2>
+          <h2 className="md:text-xs text-sm text-slate-900 text-light line-clamp-2 md:line-clamp-4">{item.desc}</h2>
         </div>
       </div>
       {index !== 3 && <hr className="h-0.5 bg-black hidden md:block" />}

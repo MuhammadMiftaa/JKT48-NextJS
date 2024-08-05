@@ -1321,6 +1321,10 @@ export default function MemberPage() {
   const handleSetName: ChangeEventHandler<HTMLInputElement> = (event) => {
     setName(event.target.value);
   };
+  const [birthday, setBirthday] = useState<string>("");
+  const handleSetBirthday: ChangeEventHandler<HTMLInputElement> = (event) => {
+    setBirthday(event.target.value);
+  };
   const [birthplace, setBirthplace] = useState<string>("");
   const handleSetBirthplace: ChangeEventHandler<HTMLInputElement> = (event) => {
     setBirthplace(event.target.value);
@@ -1355,7 +1359,7 @@ export default function MemberPage() {
             data-drawer-placement="right"
             aria-controls="drawer-right-example"
             data-drawer-body-scrolling="true"
-            className="text-black bg-gradient-to-r from-custom-green to-blue-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-lg md:text-xl px-3 md:px-5 py-2 md:py-2.5 text-center me-2 mb-2 "
+            className="text-black bg-gradient-to-r duration-700 from-custom-green to-blue-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-lg md:text-xl px-3 md:px-5 py-2 md:py-2.5 text-center me-2 mb-2 "
           >
             <FiSearch />
           </button>
@@ -1414,6 +1418,21 @@ export default function MemberPage() {
             </div>
             <div>
               <label
+                htmlFor="first_name"
+                className="block text-xs mb-1 md:mb-0 md:text-sm font-light text-zinc-400 font-poppins"
+              >
+                Birthday
+              </label>
+              <input onChange={handleSetBirthday}
+                type="text"
+                id="first_name"
+                className="bg-zinc-950 border font-montserrat text-white border-gray-300 text-sm md:text-md rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="06 August 2006"
+                required
+              />
+            </div>
+            <div>
+              <label
                 htmlFor="last_name"
                 className="block text-xs mb-1 md:mb-0 md:text-sm font-light text-zinc-400 font-poppins"
               >
@@ -1456,7 +1475,6 @@ export default function MemberPage() {
                 id="phone"
                 className="bg-zinc-950 border font-montserrat text-white border-gray-300 text-sm md:text-md rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Jakarta"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 required
               />
             </div>
@@ -1484,9 +1502,10 @@ export default function MemberPage() {
               memberRegular={memberRegular}
               category="Regular"
               search={
-                name || birthplace || hometown || age || gen
+                name || birthday || birthplace || hometown || age || gen
                   ? {
                       name,
+                      birthday,
                       birthplace,
                       hometown,
                       age,
@@ -1497,9 +1516,10 @@ export default function MemberPage() {
             />
             <MemberCards
               search={
-                name || birthplace || hometown || age || gen
+                name || birthday || birthplace || hometown || age || gen
                   ? {
                       name,
+                      birthday,
                       birthplace,
                       hometown,
                       age,

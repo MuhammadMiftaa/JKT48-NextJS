@@ -140,7 +140,7 @@ export default function NewsPage() {
                   alt="meet and greet"
                   className="h-full aspect-video object-cover object-center mr-2"
                 />
-                <p className="font-urbanist text-xs md:text-sm text-gradient-group-hover">
+                <p className="font-urbanist text-xs md:text-sm text-gradient-group-hover line-clamp-3">
                   {news.judul}
                 </p>
               </div>
@@ -162,7 +162,7 @@ export default function NewsPage() {
                 <h1 className="text-slate-300 text-xs group-hover:text-custom-green cursor-pointer">
                   {theater.tanggal}
                 </h1>
-                <h2 className="text-sm md:text-md group-hover:text-custom-green cursor-pointer">
+                <h2 className="text-sm md:text-md group-hover:text-custom-green cursor-pointer line-clamp-2">
                   {theater.judul}
                 </h2>
               </div>

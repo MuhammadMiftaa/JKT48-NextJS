@@ -64,7 +64,7 @@ export default function News() {
             <h1 className="text-black font-semibold text-xl mt-1 font-poppins text-ellipsis w-full whitespace-nowrap overflow-hidden">
               {news[3].judul}
             </h1>
-            <h2 className="text-slate-900 font-medium text-sm mt-1">
+            <h2 className="text-slate-900 font-medium text-sm mt-1 line-clamp-2 md:line-clamp-6">
               {news[3].desc}
             </h2>
           </div>

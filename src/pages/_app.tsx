@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import "animate.css";
 
+
 export const metadata = {
   title: "JKT48 Redesign",
   description: "Redesign of JKT48 website",
@@ -23,12 +24,14 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
+
   useEffect(() => {
     AOS.init({
       // Configuration options
       // duration: 1000,
     });
   }, []);
+
   return (
     <SessionProvider session={session}>
       <AppShell>
