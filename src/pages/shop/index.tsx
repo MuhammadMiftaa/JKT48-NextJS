@@ -146,7 +146,7 @@ export default function ShopPage() {
             text="Meet Your Idols Face-to-Face"
             revealText="Reserve Your Spot"
           ></TextRevealCard>
-          <div className="flex flex-wrap gap-12 justify-center">
+          <div className="flex flex-wrap gap-8  md:gap-12 justify-center">
             {dataMember.map(
               (member, index) =>
                 index % 4 === 0 && (
@@ -277,7 +277,7 @@ export default function ShopPage() {
             text="Connect with Your Idols Virtually"
             revealText="Schedule Your Call"
           ></TextRevealCard>
-          <div className="flex flex-wrap gap-12 justify-center">
+          <div className="flex flex-wrap gap-8  md:gap-12 justify-center">
             {dataMember.map(
               (member, index) =>
                 index % 6 === 0 && (
