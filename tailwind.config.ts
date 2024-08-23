@@ -1,6 +1,10 @@
 import type { Config } from "tailwindcss";
 import { PluginAPI } from "tailwindcss/types/config";
 
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,12 +15,14 @@ const config: Config = {
     "./pages/**/*.{ts,tsx}",
     "./public/**/*.html",
   ],
+  darkMode: "class",
   theme: {
     extend: {
-      fontFamily:{
-        urbanist: ["Urbanist", "sans-serif"], 
-        montserrat: ["Montserrat", "sans-serif"], 
+      fontFamily: {
+        urbanist: ["Urbanist", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        londrina: ["Londrina", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -41,9 +47,18 @@ const config: Config = {
   },
   plugins: [
     require("flowbite/plugin"),
-    require('tailwind-scrollbar'),
-    require('@tailwindcss/line-clamp'),
-    
+    require("tailwind-scrollbar"),
+    require("@tailwindcss/line-clamp"),
+    function addVariablesForColors({ addBase, theme }: any) {
+      let allColors = flattenColorPalette(theme("colors"));
+      let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+      );
+
+      addBase({
+        ":root": newVars,
+      });
+    },
     function ({ addUtilities }: PluginAPI) {
       addUtilities({
         ".rotate-y-0": {
