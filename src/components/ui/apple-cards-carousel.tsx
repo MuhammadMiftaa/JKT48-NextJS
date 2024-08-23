@@ -250,7 +250,7 @@ export const Card = ({
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
         <div
-          className={`absolute left-0 right-0 bottom-0 z-40 px-8 py-4 ${
+          className={`absolute left-0 right-0 bottom-0 z-40 px-5 md:px-8 py-2 md:py-4 ${
             index % 3 === 0
               ? "bg-orange-500"
               : index % 3 === 1

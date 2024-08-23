@@ -105,7 +105,7 @@ export default function ShopPage() {
       </div>
       <div className="flex justify-between items-center px-8 md:px-16">
         <div>
-          <div className="flex items-center p-[0.05rem] font-urbanist bg-gradient-to-r from-custom-green to-blue-600 rounded-2xl justify-center">
+          <div className="flex items-center p-[0.05rem] font-urbanist bg-gradient-to-r from-custom-green to-blue-600 rounded-full md:rounded-2xl justify-center">
             <FloatingDock
               // mobileClassName="translate-y-20" // only for demo, remove for production
               items={links}
@@ -124,7 +124,7 @@ export default function ShopPage() {
       <div className="px-8 md:px-20">
         <div className="w-full h-full">
           <TextRevealCard
-            className="p-0 m-0 bg-black border-none w-fit"
+            className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
             text="Exclusive Merch Just for You"
             revealText="Grab Yours Now"
           ></TextRevealCard>
@@ -133,7 +133,7 @@ export default function ShopPage() {
 
         <div className="w-full h-full">
           <TextRevealCard
-            className="p-0 m-0 bg-black border-none w-fit"
+            className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
             text="Express Your Fandom in Style"
             revealText="Find Your Fit"
           ></TextRevealCard>
@@ -142,7 +142,7 @@ export default function ShopPage() {
 
         <div className="w-full h-full">
           <TextRevealCard
-            className="p-0 m-0 bg-black border-none w-fit"
+            className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
             text="Meet Your Idols Face-to-Face"
             revealText="Reserve Your Spot"
           ></TextRevealCard>
@@ -151,10 +151,10 @@ export default function ShopPage() {
               (member, index) =>
                 index % 4 === 0 && (
                   <CardContainer className="inter-var">
-                    <CardBody className="bg-black relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[15rem] h-auto rounded-xl border-[0.5px] border-zinc-600">
+                    <CardBody className="bg-black relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-36 sm:w-[15rem] h-auto rounded-xl border-[0.5px] border-zinc-600">
                       <CardItem
                         translateZ="100"
-                        className={`w-full h-72 flex items-end bg-gradient-to-b ${
+                        className={`w-full h-36 md:h-72 flex items-end bg-gradient-to-b ${
                           index % 3 === 0
                             ? "from-[#38EF7D] to-[#11998E]"
                             : index % 3 === 1
@@ -163,45 +163,45 @@ export default function ShopPage() {
                         } rounded-t-xl relative overflow-hidden`}
                       >
                         {index % 10 === 0 ? (
-                          <div className="font-londrina uppercase flex-col flex items-center opacity-70 font-semibold text-zinc-200 text-6xl">
+                          <div className="font-londrina uppercase flex-col flex items-center opacity-70 font-semibold text-zinc-200 text-3xl md:text-6xl">
                             <h1 className="tracking-widest absolute top-0">
-                              2Shot2Shot2Shot
+                              2Shot2Shot2Shot2Shot
                             </h1>
-                            <h1 className="tracking-widest absolute top-12">
-                              2Shot2Shot2Shot
+                            <h1 className="tracking-widest absolute top-6 md:top-12">
+                              2Shot2Shot2Shot2Shot
                             </h1>
-                            <h1 className="tracking-widest absolute top-24">
-                              2Shot2Shot2Shot
+                            <h1 className="tracking-widest absolute top-12 md:top-24">
+                              2Shot2Shot2Shot2Shot
                             </h1>
-                            <h1 className="tracking-widest absolute top-36">
-                              2Shot2Shot2Shot
+                            <h1 className="tracking-widest absolute top-[4.5rem] md:top-36">
+                              2Shot2Shot2Shot2Shot
                             </h1>
-                            <h1 className="tracking-widest absolute top-48">
-                              2Shot2Shot2Shot
+                            <h1 className="tracking-widest absolute top-24 md:top-48">
+                              2Shot2Shot2Shot2Shot
                             </h1>
-                            <h1 className="tracking-widest absolute top-60">
-                              2Shot2Shot2Shot
+                            <h1 className="tracking-widest absolute top-[7.5rem] md:top-60">
+                              2Shot2Shot2Shot2Shot
                             </h1>
                           </div>
                         ) : (
-                          <div className="font-londrina uppercase flex-col flex items-center opacity-70 font-semibold text-zinc-200 text-6xl">
+                          <div className="font-londrina uppercase flex-col flex items-center opacity-70 font-semibold text-zinc-200 text-3xl md:text-6xl">
                             <h1 className="tracking-widest absolute top-0">
-                              MnGMnGMnGMnGMnG
+                              MnGMnGMnGMnGMnGMnG
                             </h1>
-                            <h1 className="tracking-widest absolute top-12">
-                              MnGMnGMnGMnGMnG
+                            <h1 className="tracking-widest absolute top-6 md:top-12">
+                              MnGMnGMnGMnGMnGMnG
                             </h1>
-                            <h1 className="tracking-widest absolute top-24">
-                              MnGMnGMnGMnGMnG
+                            <h1 className="tracking-widest absolute top-12 md:top-24">
+                              MnGMnGMnGMnGMnGMnG
                             </h1>
-                            <h1 className="tracking-widest absolute top-36">
-                              MnGMnGMnGMnGMnG
+                            <h1 className="tracking-widest absolute top-[4.5rem] md:top-36">
+                              MnGMnGMnGMnGMnGMnG
                             </h1>
-                            <h1 className="tracking-widest absolute top-48">
-                              MnGMnGMnGMnGMnG
+                            <h1 className="tracking-widest absolute top-24 md:top-48">
+                              MnGMnGMnGMnGMnGMnG
                             </h1>
-                            <h1 className="tracking-widest absolute top-60">
-                              MnGMnGMnGMnGMnG
+                            <h1 className="tracking-widest absolute top-[7.5rem] md:top-60">
+                              MnGMnGMnGMnGMnGMnG
                             </h1>
                           </div>
                         )}
@@ -211,30 +211,30 @@ export default function ShopPage() {
                             .replace(" ", "_")}.png`}
                           height="1000"
                           width="1000"
-                          className="h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl z-10"
+                          className="h-32 md:h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl z-10"
                           alt="thumbnail"
                         />
                       </CardItem>
                       <CardItem
                         translateZ="50"
-                        className="text-lg font-poppins font-semibold text-white mx-4 mt-3"
+                        className="text-base md:text-lg font-poppins font-semibold text-white mx-4 mt-2 md:mt-3 line-clamp-1"
                       >
                         {member.nama}
                       </CardItem>
-                      <div className="flex justify-between items-center mx-4">
+                      <div className="flex flex-col items-start md:flex-row justify-between md:items-center mx-4 mt-2">
                         <CardItem
                           as="p"
                           translateZ="60"
-                          className="text-neutral-500 font-urbanist text-sm max-w-sm mt-2 dark:text-neutral-300"
+                          className="text-neutral-500 font-urbanist text-xs md:text-sm max-w-sm mt-1 md:mt-2 dark:text-neutral-300"
                         >
                           Sesi 2 - Jalur 8
                         </CardItem>
                         <CardItem
                           as="p"
                           translateZ="60"
-                          className="text-white font-urbanist font-semibold text-sm max-w-sm mt-2 dark:text-neutral-300"
+                          className="text-white font-urbanist font-semibold text-xs md:text-sm max-w-sm mt-1 md:mt-2 dark:text-neutral-300"
                         >
-                          Rp. 120.000
+                          Rp 120.000
                         </CardItem>
                       </div>
                       <div className="flex justify-between items-center mx-4 my-3">
@@ -273,7 +273,7 @@ export default function ShopPage() {
         </div>
         <div className="w-full h-full py-20">
           <TextRevealCard
-            className="p-0 m-0 bg-black border-none w-fit"
+            className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
             text="Connect with Your Idols Virtually"
             revealText="Schedule Your Call"
           ></TextRevealCard>
@@ -282,10 +282,10 @@ export default function ShopPage() {
               (member, index) =>
                 index % 6 === 0 && (
                   <CardContainer className="inter-var">
-                    <CardBody className="bg-black relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[15rem] h-auto rounded-xl border-[0.5px] border-zinc-600">
+                    <CardBody className="bg-black relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-36 sm:w-[15rem] h-auto rounded-xl border-[0.5px] border-zinc-600">
                       <CardItem
                         translateZ="100"
-                        className={`w-full h-72 flex items-end bg-gradient-to-b from-blue-500 to-cyan-400
+                        className={`w-full h-36 md:h-72 flex items-end bg-gradient-to-b  from-blue-500 to-cyan-400
                           rounded-t-xl relative overflow-hidden`}
                       >
                         <Image
@@ -294,30 +294,30 @@ export default function ShopPage() {
                             .replace(" ", "_")}.png`}
                           height="1000"
                           width="1000"
-                          className="h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl z-10"
+                          className="h-32 md:h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl z-10"
                           alt="thumbnail"
                         />
                       </CardItem>
                       <CardItem
-                        translateZ="150"
-                        className="text-lg font-poppins font-semibold text-white mx-4 mt-3"
+                        translateZ="50"
+                        className="text-base md:text-lg font-poppins font-semibold text-white mx-4 mt-2 md:mt-3 line-clamp-1"
                       >
                         {member.nama}
                       </CardItem>
-                      <div className="flex justify-between items-center mx-4">
+                      <div className="flex flex-col items-start md:flex-row justify-between md:items-center mx-4 mt-2">
                         <CardItem
                           as="p"
                           translateZ="60"
-                          className="text-neutral-500 font-urbanist text-sm max-w-sm mt-2"
+                          className="text-neutral-500 font-urbanist text-xs md:text-sm max-w-sm mt-1 md:mt-2 dark:text-neutral-300"
                         >
                           Sesi 2 - Jalur 8
                         </CardItem>
                         <CardItem
                           as="p"
                           translateZ="60"
-                          className="text-white font-urbanist font-semibold text-sm max-w-sm mt-2"
+                          className="text-white font-urbanist font-semibold text-xs md:text-sm max-w-sm mt-1 md:mt-2 dark:text-neutral-300"
                         >
-                          Rp. 120.000
+                          Rp 120.000
                         </CardItem>
                       </div>
                       <div className="flex justify-between items-center mx-4 my-3">
