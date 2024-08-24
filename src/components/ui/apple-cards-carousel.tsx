@@ -28,6 +28,7 @@ type Card = {
   src: string;
   title: string;
   category: string;
+  price: string;
   content: React.ReactNode;
 };
 
@@ -216,27 +217,180 @@ export const Card = ({
               exit={{ opacity: 0 }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="max-w-5xl mx-auto bg-white dark:bg-neutral-900 h-fit  z-[60] my-10 p-4 md:p-10 rounded-3xl font-poppins relative"
+              className="max-w-5xl mx-auto bg-slate-300 dark:bg-neutral-900 h-fit  z-[60] my-10 p-4 md:p-10 rounded-3xl font-poppins relative"
             >
-              <button
-                className="sticky top-4 h-8 w-8 right-0 ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
-                onClick={handleClose}
-              >
-                <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
-              </button>
-              <motion.p
-                layoutId={layout ? `category-${card.title}` : undefined}
-                className="text-base font-medium text-black dark:text-white font-urbanist"
-              >
-                {card.category}
-              </motion.p>
-              <motion.p
-                layoutId={layout ? `title-${card.title}` : undefined}
-                className="text-2xl md:text-5xl font-semibold text-neutral-700 mt-4 dark:text-white font-urbanist"
-              >
-                {card.title}
-              </motion.p>
-              <div className="py-10">{card.content}</div>
+              <form action="">
+                <button
+                  className="sticky top-4 h-8 w-8 right-0 ml-auto bg-black z-10 dark:bg-white rounded-full flex items-center justify-center"
+                  onClick={handleClose}
+                >
+                  <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
+                </button>
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center md:px-5">
+                  <motion.p
+                    layoutId={layout ? `category-${card.category}` : undefined}
+                    className="font-light text-2xl md:text-4xl font text-black dark:text-white font-urbanist"
+                  >
+                    {card.category}
+                  </motion.p>
+                  <motion.p
+                    layoutId={layout ? `category-${card.title}` : undefined}
+                    className="font-bold text-3xl md:text-5xl font text-black dark:text-white font-urbanist md:text-end"
+                  >
+                    {card.title}
+                  </motion.p>
+                </div>
+                <div className="py-10">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-4xl mx-auto md:basis-2/3 relative">
+                    {isMerch ? (
+                      <div className="md:col-start-2">
+                        <img
+                          src={card.src}
+                          alt={card.src}
+                          className="w-full h-full object-cover rounded-xl"
+                        />
+                      </div>
+                    ) : (
+                      <>
+                        <div className="row-span-1">
+                          <img
+                            src={`/product/tshirt/${card.title
+                              .toLowerCase()
+                              .replace(/ /g, "-")}-1.jpg`}
+                            alt=""
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        </div>
+                        <div className="md:row-span-2 md:col-span-2">
+                          <img
+                            src={`/product/tshirt/${card.title
+                              .toLowerCase()
+                              .replace(/ /g, "-")}-2.jpg`}
+                            alt=""
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        </div>
+                        <div className="row-span-1">
+                          <img
+                            src={`/product/tshirt/${card.title
+                              .toLowerCase()
+                              .replace(/ /g, "-")}-3.jpg`}
+                            alt=""
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        </div>
+                        <div className="row-span-1 col-span-1">
+                          <img
+                            src={`/product/tshirt/${card.title
+                              .toLowerCase()
+                              .replace(/ /g, "-")}-4.jpg`}
+                            alt=""
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        </div>
+                        <div className="row-span-1 col-span-1">
+                          <img
+                            src={`/product/tshirt/${card.title
+                              .toLowerCase()
+                              .replace(/ /g, "-")}-5.jpg`}
+                            alt=""
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        </div>
+                        <div className="row-span-1 col-span-1">
+                          <img
+                            src={`/product/tshirt/${card.title
+                              .toLowerCase()
+                              .replace(/ /g, "-")}-6.jpg`}
+                            alt=""
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+                <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-start md:items-center">
+                  {!isMerch && (
+                    <div className="flex gap-4">
+                      <label className="w-12" htmlFor="s">
+                        <input
+                          className="peer scale-0"
+                          type="radio"
+                          required
+                          value="s"
+                          id="s"
+                          name="size"
+                        />
+                        <span className="radio-mark w-12 cursor-pointer text-zinc-900 shadow-sm border border-zinc-900 shadow-zinc-900 py-1 px-2 rounded absolute peer-checked:translate-x-0.5 peer-checked:translate-y-0.5 peer-checked:shadow-none">
+                          S
+                        </span>
+                      </label>
+                      <label className="w-12" htmlFor="m">
+                        <input
+                          className="peer scale-0"
+                          type="radio"
+                          required
+                          value="m"
+                          id="m"
+                          name="size"
+                        />
+                        <span className="radio-mark w-12 cursor-pointer text-zinc-900 shadow-sm border border-zinc-900 shadow-zinc-900 py-1 px-2 rounded absolute peer-checked:translate-x-0.5 peer-checked:translate-y-0.5 peer-checked:shadow-none">
+                          M
+                        </span>
+                      </label>
+                      <label className="w-12" htmlFor="l">
+                        <input
+                          className="peer scale-0"
+                          type="radio"
+                          required
+                          value="l"
+                          id="l"
+                          name="size"
+                        />
+                        <span className="radio-mark w-12 cursor-pointer text-zinc-900 shadow-sm border border-zinc-900 shadow-zinc-900 py-1 px-2 rounded absolute peer-checked:translate-x-0.5 peer-checked:translate-y-0.5 peer-checked:shadow-none">
+                          L
+                        </span>
+                      </label>
+                      <label className="w-12" htmlFor="xl">
+                        <input
+                          className="peer scale-0"
+                          type="radio"
+                          required
+                          value="xl"
+                          id="xl"
+                          name="size"
+                        />
+                        <span className="radio-mark w-12 cursor-pointer text-zinc-900 shadow-sm border border-zinc-900 shadow-zinc-900 py-1 px-2 rounded absolute peer-checked:translate-x-0.5 peer-checked:translate-y-0.5 peer-checked:shadow-none">
+                          XL
+                        </span>
+                      </label>
+                      <label className="w-12" htmlFor="xxl">
+                        <input
+                          className="peer scale-0"
+                          type="radio"
+                          required
+                          value="xxl"
+                          id="xxl"
+                          name="size"
+                        />
+                        <span className="radio-mark w-12 cursor-pointer text-zinc-900 shadow-sm border border-zinc-900 shadow-zinc-900 py-1 px-2 rounded absolute peer-checked:translate-x-0.5 peer-checked:translate-y-0.5 peer-checked:shadow-none">
+                          XXL
+                        </span>
+                      </label>
+                    </div>
+                  )}
+                  <motion.p
+                    layoutId={layout ? `title-${card.title}` : undefined}
+                    className="text-3xl md:text-4xl ml-4 md:ml-0 font-light text-neutral-700 dark:text-white font-urbanist"
+                  >
+                    {card.price}
+                  </motion.p>
+                </div>
+                <button className="font-urbanist mt-12 w-full inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                  Check Out
+                </button>
+              </form>
             </motion.div>
           </div>
         )}
@@ -266,7 +420,7 @@ export const Card = ({
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-poppins mt-2"
+            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-poppins mt-2 line-clamp-1"
           >
             {card.title}
           </motion.p>

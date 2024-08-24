@@ -13,42 +13,42 @@ export default function Product() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-4xl mx-auto md:basis-2/3 relative">
           <div className="row-span-1" data-aos="flip-up" data-aos-duration="1000">
             <img
-              src="/latestProduct/product1.jpg"
+              src="/product/tshirt/marsha-lenathea-1.jpg"
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
           <div className="md:row-span-2 md:col-span-2" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="200">
             <img
-              src="/latestProduct/product2.jpg"
+              src="/product/tshirt/marsha-lenathea-2.jpg"
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
           <div className="row-span-1" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="100">
             <img
-              src="/latestProduct/product3.jpg"
+              src="/product/tshirt/marsha-lenathea-3.jpg"
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
           <div className="row-span-1 col-span-1" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="100">
             <img
-              src="/latestProduct/product4.jpg"
+              src="/product/tshirt/marsha-lenathea-4.jpg"
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
           <div className="row-span-1 col-span-1" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="200">
             <img
-              src="/latestProduct/product5.jpg"
+              src="/product/tshirt/marsha-lenathea-5.jpg"
               alt=""
               className="w-full h-full object-cover"
             />
           </div>
           <div className="row-span-1 col-span-1" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="300">
             <img
-              src="/latestProduct/product6.jpg"
+              src="/product/tshirt/marsha-lenathea-6.jpg"
               alt=""
               className="w-full h-full object-cover"
             />

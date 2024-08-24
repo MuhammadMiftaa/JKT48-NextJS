@@ -39,25 +39,25 @@ export default function ShopPage() {
     {
       title: "Merchandise",
       icon: <PiHandbagFill className="h-full w-full text-green-500" />,
-      href: "#",
+      href: "#merch",
     },
     {
       title: "Shirts",
       icon: <IoShirtSharp className="h-full w-full text-orange-500" />,
-      href: "#",
+      href: "#tshirt",
     },
 
     {
       title: "2Shot and MnG",
       icon: <MdOutlineCamera className="h-full w-full text text-purple-500" />,
-      href: "#",
+      href: "#2shot-mng",
     },
     {
       title: "Video Call",
       icon: (
         <HiOutlineDevicePhoneMobile className="h-full w-full text text-zinc-500" />
       ),
-      href: "#",
+      href: "#videocall",
     },
   ];
 
@@ -122,7 +122,7 @@ export default function ShopPage() {
         </div>
       </div>
       <div className="px-8 md:px-20">
-        <div className="w-full h-full">
+        <div className="w-full h-full pt-8" id="merch">
           <TextRevealCard
             className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
             text="Exclusive Merch Just for You"
@@ -131,7 +131,7 @@ export default function ShopPage() {
           <Carousel items={merchCards} />
         </div>
 
-        <div className="w-full h-full">
+        <div className="w-full h-bull pt-8" id="tshirt">
           <TextRevealCard
             className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
             text="Express Your Fandom in Style"
@@ -140,7 +140,7 @@ export default function ShopPage() {
           <Carousel items={tshirtCards} />
         </div>
 
-        <div className="w-full h-full">
+        <div className="w-full h-bull pt-8" id="2shot-mng">
           <TextRevealCard
             className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
             text="Meet Your Idols Face-to-Face"
@@ -271,7 +271,7 @@ export default function ShopPage() {
             )}
           </div>
         </div>
-        <div className="w-full h-full py-20">
+        <div className="w-full h-full pb-12 pt-8" id="videocall">
           <TextRevealCard
             className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
             text="Connect with Your Idols Virtually"
@@ -394,78 +394,90 @@ const DummyContent = () => {
 const dataTshirt = [
   {
     category: "Birthday T-shirt",
-    title: "Jesslyn Elly",
-    src: "/product/tshirt/jesslyn-elly.jpg",
+    title: "Marsha Lenathea",
+    price: "Rp 195.000",
+    src: "/product/tshirt/marsha-lenathea-2.jpg",
     content: <DummyContent />,
   },
   {
     category: "Birthday T-shirt",
     title: "Shania Gracia",
-    src: "/product/tshirt/shania-gracia.jpg",
+    price: "Rp 195.000",
+    src: "/product/tshirt/shania-gracia-1.jpg",
     content: <DummyContent />,
   },
   {
     category: "Birthday T-shirt",
     title: "Gabriela Abigail",
-    src: "/product/tshirt/gabriela-abigail.jpg",
+    price: "Rp 195.000",
+    src: "/product/tshirt/gabriela-abigail-1.jpg",
     content: <DummyContent />,
   },
 
   {
     category: "Birthday T-shirt",
     title: "Kathrina Irene",
-    src: "/product/tshirt/kathrina-irene.jpg",
+    price: "Rp 195.000",
+    src: "/product/tshirt/kathrina-irene-1.jpg",
     content: <DummyContent />,
   },
   {
     category: "Birthday T-shirt",
     title: "Cornelia Vanisa",
-    src: "/product/tshirt/cornelia-vanisa.jpg",
+    price: "Rp 195.000",
+    src: "/product/tshirt/cornelia-vanisa-1.jpg",
     content: <DummyContent />,
   },
   {
     category: "Birthday T-shirt",
     title: "Reva Fidela",
-    src: "/product/tshirt/reva-fidela.jpg",
+    price: "Rp 195.000",
+    src: "/product/tshirt/reva-fidela-1.jpg",
     content: <DummyContent />,
   },
 ];
 
 const dataMerch = [
   {
-    category: "Magic Hour Pandora Box Set",
-    title: "Rp 480.000",
+    title: "Magic Hour Pandora Box Set",
+    category: "Merchandise",
+    price: "Rp 480.000",
     src: "/product/merch/1.jpg",
     content: <DummyContent />,
   },
   {
-    category: "C’est Moi SHANI",
-    title: "Rp 295.000",
+    title: "C’est Moi SHANI",
+    category: "Merchandise",
+    price: "Rp 295.000",
     src: "/product/merch/2.jpg",
     content: <DummyContent />,
   },
   {
-    category: "Deskmate Valkryie",
-    title: "Rp 250.000",
+    title: "Deskmate Valkryie",
+    category: "Merchandise",
+    price: "Rp 250.000",
     src: "/product/merch/3.jpg",
     content: <DummyContent />,
   },
 
   {
-    category: "JKT48 Calendar The Morning Call",
-    title: "Rp 180.000",
+    title: "JKT48 Calendar The Morning Call",
+    category: "Merchandise",
+    price: "Rp 180.000",
     src: "/product/merch/4.jpg",
     content: <DummyContent />,
   },
   {
-    category: "Sayonara Crawl Special Set",
-    title: "Rp 245.000",
+    title: "Sayonara Crawl Special Set",
+    category: "Merchandise",
+    price: "Rp 245.000",
     src: "/product/merch/5.jpg",
     content: <DummyContent />,
   },
   {
-    category: "JKT48 Deluxe Set “Cara Ceroboh untuk Mencinta”",
-    title: "Rp 480.000",
+    title: "JKT48 Deluxe Set “Cara Ceroboh untuk Mencinta”",
+    category: "Merchandise",
+    price: "Rp 480.000",
     src: "/product/merch/6.jpg",
     content: <DummyContent />,
   },
