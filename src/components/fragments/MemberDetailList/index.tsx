@@ -25,6 +25,7 @@ export default function MemberDetailList(props: MemberDetailListProps) {
         <ul className="flex flex-col md:gap-2">
           {dataMember.label.map((label, index) => (
             <MemberDetailListIItem
+            key={index}
               label={label}
               value={dataMember.value[index]}
               index={index}

@@ -5,6 +5,7 @@ import useSWR from "swr";
 import MemberCards from "@/components/layouts/MemberCards";
 import { ChangeEventHandler, useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import { log } from "console";
 
 export default function MemberPage() {
   // const [member, setMember] = useState([]);
@@ -16,6 +17,7 @@ export default function MemberPage() {
   // }, []);
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  console.log(fetcher);
 
   const { data, error, isLoading } = useSWR("/api/data-member/member", fetcher);
   const dataMember: memberType[] = isLoading ? [] : data.data;
@@ -105,9 +107,9 @@ export default function MemberPage() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
               />
             </svg>

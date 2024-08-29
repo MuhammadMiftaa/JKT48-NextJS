@@ -27,7 +27,13 @@ export default function BackSide(props: {
         "https://idn.onelink.me/VKUf/" + props.username_idn.split(" ").join(""),
       username: props.username_idn,
       colorClass: "from-red-200 via-red-600 to-red-800",
-      icon: <img className="md:h-14 h-5 rounded md:rounded-lg" src="/IDN.png" alt="" />,
+      icon: (
+        <img
+          className="md:h-14 h-5 rounded md:rounded-lg"
+          src="/IDN.png"
+          alt=""
+        />
+      ),
     },
     {
       link: "https://www.tiktok.com/@" + props.username_tiktok + "/",
@@ -44,7 +50,13 @@ export default function BackSide(props: {
       username: props.username_sr,
       colorClass:
         "from-[#F29600] via-[#54C2F0] via-70% to-[#E8528D] text-nowrap",
-      icon: <img className="md:h-14 h-5 rounded md:rounded-lg" src="/SR.png" alt="" />,
+      icon: (
+        <img
+          className="md:h-14 h-5 rounded md:rounded-lg"
+          src="/SR.png"
+          alt=""
+        />
+      ),
     },
     {
       link: "https://www.twitter.com/" + props.username_x + "/",
@@ -60,6 +72,7 @@ export default function BackSide(props: {
     <div className="back flex flex-col justify-center items-center bg-black md:h-full w-full md:basis-1/3 md:absolute md:top-0 md:bottom-0 md:left-0 md:right-0 overflow-hidden duration-700 gap-2 py-2 md:pr-16 md:backface-hidden md:rotate-y-180">
       {backSideData.map((data, i) => (
         <MemberDetailMediaSocial
+          key={i}
           link={data.link}
           username={data.username}
           colorClass={data.colorClass}

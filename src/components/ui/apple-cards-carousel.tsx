@@ -428,6 +428,7 @@ export const Card = ({
         <BlurImage
           src={card.src}
           alt={card.title}
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           fill
           className="object-cover absolute z-10 inset-0"
         />

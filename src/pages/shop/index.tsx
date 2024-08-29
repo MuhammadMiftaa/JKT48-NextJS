@@ -150,7 +150,7 @@ export default function ShopPage() {
             {dataMember.map(
               (member, index) =>
                 index % 4 === 0 && (
-                  <CardContainer className="inter-var">
+                  <CardContainer key={index} className="inter-var">
                     <CardBody className="bg-black relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-36 sm:w-[15rem] h-auto rounded-xl border-[0.5px] border-zinc-600">
                       <CardItem
                         translateZ="100"
@@ -281,7 +281,7 @@ export default function ShopPage() {
             {dataMember.map(
               (member, index) =>
                 index % 6 === 0 && (
-                  <CardContainer className="inter-var">
+                  <CardContainer key={index} className="inter-var">
                     <CardBody className="bg-black relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-36 sm:w-[15rem] h-auto rounded-xl border-[0.5px] border-zinc-600">
                       <CardItem
                         translateZ="100"

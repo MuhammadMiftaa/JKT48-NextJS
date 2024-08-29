@@ -1429,6 +1429,7 @@ export default function MemberDetailPage() {
                 {detailMemberData.map((data, i) => (
                   <MemberDetailList
                     index={i}
+                    key={i}
                     category={data.category}
                     dataMember={{
                       label: data.label,

@@ -161,7 +161,7 @@ export const FadeInDiv = ({
                   {tab.nama_setlist}
                 </h1>
                 {tab.lagu.map((item, index) => (
-                  <p className="capitalize text-sm md:text-xl font-urbanist text-slate-200 line-clamp-1">
+                  <p className="capitalize text-sm md:text-xl font-urbanist text-slate-200 line-clamp-1" key={index}>
                     {index + 1}. {item.judul_lagu}
                   </p>
                 ))}
