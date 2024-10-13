@@ -5,7 +5,6 @@ import useSWR from "swr";
 import MemberCards from "@/components/layouts/MemberCards";
 import { ChangeEventHandler, useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { log } from "console";
 
 export default function MemberPage() {
   // const [member, setMember] = useState([]);
@@ -17,7 +16,6 @@ export default function MemberPage() {
   // }, []);
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  console.log(fetcher);
 
   const { data, error, isLoading } = useSWR("/api/data-member/member", fetcher);
   const dataMember: memberType[] = isLoading ? [] : data.data;
