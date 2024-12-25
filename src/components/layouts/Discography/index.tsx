@@ -5,7 +5,7 @@ import {
   PuzzleIcon,
   StarIcon,
   ArrowUpIcon,
-} from "@heroicons/react/outline/index.js";
+} from "@heroicons/react/outline";
 import Link from "next/link";
 
 export default function Diskografi() {
