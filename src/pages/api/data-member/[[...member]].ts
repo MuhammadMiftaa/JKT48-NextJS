@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { addMember, retrieveData, retrieveDataById, updateMember } from "../../../../utils/db/services";
+import { addData, retrieveData, retrieveDataById, updateData } from "../../../../utils/db/services";
 import { memberType } from "@/components/types/memberType";
 
 type Data = any;
@@ -22,8 +22,8 @@ export default async function handler(
 
       const ID: string = member.nama.split(" ").join("-")
 
-      await addMember(ID, "member", member, ({status, message, member}: {status: boolean, message: string, member?: memberType}) => {
-        if (status) res.status(200).json({status, message, member})
+      await addData(ID, "member", member, ({status, message, data}: {status: boolean, message: string, data?: memberType}) => {
+        if (status) res.status(200).json({status, message, data})
         else res.status(400).json({status, message})
       })
     }
@@ -31,8 +31,8 @@ export default async function handler(
     if (req.query.member[0] === "update" && req.method === "PUT") {
       const member: memberType = req.body;
 
-      await updateMember("member", member, ({status, message, member}: {status: boolean, message: string, member?: memberType}) => {
-        if (status) res.status(200).json({status, message, member})
+      await updateData("member", member, ({status, message, data}: {status: boolean, message: string, data?: memberType}) => {
+        if (status) res.status(200).json({status, message, data})
         else res.status(400).json({status, message})
       })
     }

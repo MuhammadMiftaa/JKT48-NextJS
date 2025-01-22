@@ -13,7 +13,6 @@ import {
 import app from "./firebase";
 import { userType } from "@/components/types/userType";
 import bcrypt from "bcrypt";
-import { memberType } from "@/components/types/memberType";
 
 const firestore = getFirestore(app);
 
@@ -36,44 +35,44 @@ export async function retrieveDataById(collectionName: string, id: string) {
   return data;
 }
 
-export async function addMember(
+export async function addData(
   ID: string,
   collectionName: string,
-  member: memberType,
+  data: any,
   callback = (data: {
     status: boolean;
     message: string;
-    member?: memberType;
+    data?: any;
   }): void => {}
 ) {
   const docRef = doc(firestore, collectionName, ID);
-  await setDoc(docRef, member)
+  await setDoc(docRef, data)
     .then(() =>
       callback({
         status: true,
-        message: `Berhasil Menambahkan ${member.nama}.`,
-        member,
+        message: `berhasil menambahkan data.`,
+        data,
       })
     )
     .catch((error) => callback({ status: false, message: error }));
 }
 
-export async function updateMember(
+export async function updateData(
   collectionName: string,
-  member: memberType,
+  data: any,
   callback = (data: {
     status: boolean;
     message: string;
-    member?: memberType;
+    data?: any;
   }): void => {}
 ) {
-  const docRef = doc(firestore, collectionName, member.id || "");
-  await updateDoc(docRef, member)
+  const docRef = doc(firestore, collectionName, data.id || "");
+  await updateDoc(docRef, data)
     .then(() => {
       callback({
         status: true,
-        message: `Berhasil update ${member.id}.`,
-        member,
+        message: `berhasil update data.`,
+        data,
       });
     })
     .catch((error) => callback({ status: false, message: error }));
