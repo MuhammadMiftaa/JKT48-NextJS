@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BiSolidExit } from "react-icons/bi";
+import { BiSolidEdit, BiSolidExit } from "react-icons/bi";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -83,16 +83,27 @@ function SubMenu(props: SubMenuProps) {
             ))}
           </ul>
           {data && (
-            <button
-              className="py-2  pl-4 flex items-center gap-1 group"
-              type="button"
-              onClick={() => signOut()}
-            >
-              <h1 className="font-urbanist text-md  duration-500  text-zinc-400 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-custom-green group-hover:to-blue-600 font-bold">
-                Logout
-              </h1>
-              <BiSolidExit className="text-zinc-400 group-hover:text-blue-600 duration-500" />
-            </button>
+            <>
+              <Link
+                className="py-2  pl-4 flex items-center gap-1 group"
+                href={"/customize"}
+              >
+                <h1 className="font-urbanist text-md  duration-500  text-zinc-400 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-custom-green group-hover:to-blue-600 font-bold">
+                  Customize
+                </h1>
+                <BiSolidEdit className="text-zinc-400 group-hover:text-blue-600 duration-500" />
+              </Link>
+              <button
+                className="py-2  pl-4 flex items-center gap-1 group w-full"
+                type="button"
+                onClick={() => signOut()}
+              >
+                <h1 className="font-urbanist text-md duration-500  text-zinc-400 group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-custom-green group-hover:to-blue-600 font-bold">
+                  Logout
+                </h1>
+                <BiSolidExit className="text-zinc-400 group-hover:text-blue-600 duration-500" />
+              </button>
+            </>
           )}
         </div>
       )}

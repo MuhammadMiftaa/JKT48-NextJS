@@ -14,7 +14,7 @@ export default function MemberDetailPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
   const { data, error, isLoading } = useSWR(
-    `/api/data-member/member/${query.member}`,
+    `/api/data-member/${query.member}`,
     fetcher
   );
   let dataMember: memberType | undefined = isLoading ? {} : data.data;

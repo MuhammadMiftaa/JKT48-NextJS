@@ -17,7 +17,7 @@ export default function profilePage() {
     data: dataUser,
     error,
     isLoading,
-  } = useSWR(`/api/data-user/user/${userID}`, fetcher);
+  } = useSWR(`/api/data-user/${userID}`, fetcher);
   const userData: userType = isLoading ? {} : dataUser.data;
 
   const iterations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

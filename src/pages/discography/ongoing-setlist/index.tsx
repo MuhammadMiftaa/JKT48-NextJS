@@ -17,7 +17,7 @@ export default function setlistPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
   const { data, error, isLoading } = useSWR(
-    "/api/data-setlist/setlist",
+    "/api/data-setlist",
     fetcher
   );
   const dataSetlist: setlistType[] = isLoading ? [] : data.data;

@@ -14,7 +14,7 @@ export default function Member() {
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const { data, error, isLoading } = useSWR("/api/data-member/member", fetcher);
+  const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
   const dataMember: memberType[] = isLoading ? [] : data.data;
   const memberRegular = dataMember.filter((member) => member.member_regular);
   const memberTrainee = dataMember.filter((member) => !member.member_regular);

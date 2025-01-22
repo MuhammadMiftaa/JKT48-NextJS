@@ -7,8 +7,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  if (req.query.member?.[1]) {
-    const data = await retrieveDataById("member", req.query.member[1]);
+  if (req.query.member?.[0]) {
+    const data = await retrieveDataById("member", req.query.member[0]);
     res.status(200).json({
       status: true,
       statusCode: 200,

@@ -13,7 +13,7 @@ export default function SetlistDetailPage() {
   const { query } = useRouter();
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
-    `/api/data-setlist/setlist/${query.setlist}`,
+    `/api/data-setlist/${query.setlist}`,
     fetcher
   );
   let dataSetlist: setlistType | undefined = isLoading ? {} : data.data;
