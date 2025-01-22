@@ -1,3 +1,9 @@
+type deleted = {
+  isDeleted: boolean;
+  deletedAt: string;
+  description: string
+}
+
 export type memberType = {
   id?: string;
   nama: string;
@@ -20,4 +26,5 @@ export type memberType = {
   username_sr: string;
   username_tiktok: string;
   username_x: string;
+  deleted: deleted;
 };

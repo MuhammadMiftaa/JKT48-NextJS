@@ -19,8 +19,8 @@ export default function MemberPage() {
 
   const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
   const dataMember: memberType[] = isLoading ? [] : data.data;
-  const memberRegular = dataMember.filter((member) => member.member_regular);
-  const memberTrainee = dataMember.filter((member) => !member.member_regular);
+  const memberRegular = dataMember.filter(member => !member.deleted.isDeleted).filter(member => member.member_regular);
+  const memberTrainee = dataMember.filter(member => !member.deleted.isDeleted).filter(member => !member.member_regular);
 
   const [name, setName] = useState<string>("");
   const handleSetName: ChangeEventHandler<HTMLInputElement> = (event) => {

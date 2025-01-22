@@ -96,7 +96,7 @@ export async function deleteData(
     data.deleted.deletedAt = new Date();
     data.deleted.description = description;
 
-    const docRef = doc(firestore, collectionName, data.id || "");
+    const docRef = doc(firestore, collectionName, snapshot.id);
     await updateDoc(docRef, data)
       .then(() => {
         callback({

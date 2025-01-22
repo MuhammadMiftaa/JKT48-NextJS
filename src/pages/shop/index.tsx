@@ -23,7 +23,7 @@ import {
 export default function ShopPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
-  const dataMember: memberType[] = isLoading ? [] : data.data;
+  const dataMember: memberType[] = isLoading ? [] : data.data.filter((member: memberType) => !member.deleted.isDeleted);
 
   const [qty, setQty] = useState(0);
   function addQty() {

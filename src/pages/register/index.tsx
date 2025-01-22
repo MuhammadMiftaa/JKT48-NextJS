@@ -22,7 +22,7 @@ import { useRouter } from "next/router";
 export default function registerPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
-  const member: memberType[] = isLoading ? [] : data.data;
+  const member: memberType[] = isLoading ? [] : data.data.filter((member: memberType) => !member.deleted.isDeleted);
 
   const [page, setPage] = useState(1);
   const [selected, setSelected] = useState<memberType | null>(null);
