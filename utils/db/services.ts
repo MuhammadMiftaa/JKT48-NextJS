@@ -6,11 +6,14 @@ import {
   getDocs,
   getFirestore,
   query,
+  setDoc,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import app from "./firebase";
 import { userType } from "@/components/types/userType";
 import bcrypt from "bcrypt";
+import { memberType } from "@/components/types/memberType";
 
 const firestore = getFirestore(app);
 
@@ -31,6 +34,49 @@ export async function retrieveDataById(collectionName: string, id: string) {
   const data = snapshot.data();
 
   return data;
+}
+
+export async function addMember(
+  ID: string,
+  collectionName: string,
+  member: memberType,
+  callback = (data: {
+    status: boolean;
+    message: string;
+    member?: memberType;
+  }): void => {}
+) {
+  const docRef = doc(firestore, collectionName, ID);
+  await setDoc(docRef, member)
+    .then(() =>
+      callback({
+        status: true,
+        message: `Berhasil Menambahkan ${member.nama}.`,
+        member,
+      })
+    )
+    .catch((error) => callback({ status: false, message: error }));
+}
+
+export async function updateMember(
+  collectionName: string,
+  member: memberType,
+  callback = (data: {
+    status: boolean;
+    message: string;
+    member?: memberType;
+  }): void => {}
+) {
+  const docRef = doc(firestore, collectionName, member.id || "");
+  await updateDoc(docRef, member)
+    .then(() => {
+      callback({
+        status: true,
+        message: `Berhasil update ${member.id}.`,
+        member,
+      });
+    })
+    .catch((error) => callback({ status: false, message: error }));
 }
 
 export async function loginUser(userData: { email: string }) {

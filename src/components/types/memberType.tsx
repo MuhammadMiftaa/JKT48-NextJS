@@ -1,5 +1,5 @@
 export type memberType = {
-  id: string;
+  id?: string;
   nama: string;
   nama_lengkap: string;
   nama_panggilan: string;
@@ -13,11 +13,11 @@ export type memberType = {
   salam_perkenalan: string;
   tanggal_bergabung: string;
   fanbase: string;
-  universitas?: string;
-  jurusan?: string;
-  username_idn?: string;
-  username_ig?: string;
-  username_sr?: string;
-  username_tiktok?: string;
-  username_x?: string;
+  universitas: string;
+  jurusan: string;
+  username_idn: string;
+  username_ig: string;
+  username_sr: string;
+  username_tiktok: string;
+  username_x: string;
 };
