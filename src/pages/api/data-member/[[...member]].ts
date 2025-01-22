@@ -8,6 +8,15 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.query.member?.[0]) {
+
+    if (req.query.member[0] === "add" && req.method === "POST") {
+      res.status(200).json({
+        status: true,
+        statusCode: 200,
+        message: "Data berhasil ditambahkan",
+      });
+    }
+
     const data = await retrieveDataById("member", req.query.member[0]);
     res.status(200).json({
       status: true,
