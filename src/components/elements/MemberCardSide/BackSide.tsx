@@ -8,7 +8,7 @@ export default function BackSide(props: {
   generasi: number;
   tanggal_lahir: string;
   umur: number;
-  id: string;
+  id: string | undefined;
   baseColor: string;
 }) {
   const { nama, generasi, tanggal_lahir, umur, id, baseColor } = props;
