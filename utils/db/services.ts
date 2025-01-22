@@ -78,6 +78,39 @@ export async function updateData(
     .catch((error) => callback({ status: false, message: error }));
 }
 
+export async function deleteData(
+  ID: string,
+  collectionName: string,
+  description: string,
+  callback = (data: {
+    status: boolean;
+    message: string;
+    data?: any;
+  }): void => {}
+) {
+  const snapshot = await getDoc(doc(firestore, collectionName, ID));
+  const data = snapshot.data();
+
+  if (data) {
+    data.deleted.isDeleted = true;
+    data.deleted.deletedAt = new Date();
+    data.deleted.description = description;
+
+    const docRef = doc(firestore, collectionName, data.id || "");
+    await updateDoc(docRef, data)
+      .then(() => {
+        callback({
+          status: true,
+          message: `berhasil hapus data.`,
+          data,
+        });
+      })
+      .catch((error) => callback({ status: false, message: error }));
+  } else {
+    callback({ status: false, message: "data tidak ditemukan" });
+  }
+}
+
 export async function loginUser(userData: { email: string }) {
   const q = query(
     collection(firestore, "users"),
