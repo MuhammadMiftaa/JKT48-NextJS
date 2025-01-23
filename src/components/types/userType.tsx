@@ -1,3 +1,4 @@
+import { deleted } from "./delete";
 import { memberType } from "./memberType";
 
 export type userType = {
@@ -16,4 +17,5 @@ export type userType = {
   city: string;
   nonjabodetabek: boolean;
   role?: string;
+  deleted: deleted;
 };

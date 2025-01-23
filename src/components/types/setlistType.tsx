@@ -1,3 +1,5 @@
+import { deleted } from "./delete";
+
 export type setlistType = {
   id: string;
   nama_setlist: string;
@@ -6,4 +8,5 @@ export type setlistType = {
     judul_lagu: string;
     lirik: string[];
   }[];
+    deleted: deleted;
 };

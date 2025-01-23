@@ -1,8 +1,4 @@
-type deleted = {
-  isDeleted: boolean;
-  deletedAt: string;
-  description: string
-}
+import { deleted } from "./delete";
 
 export type memberType = {
   id?: string;
