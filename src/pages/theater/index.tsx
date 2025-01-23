@@ -9,7 +9,7 @@ export default function theaterPage() {
   const { data, isLoading, error } = useSWR("/api/data-theater", fetcher);
   const dataTheater: theaterType[] = isLoading
     ? []
-    : data.data;
+    : data.data.filter((theater: theaterType) => !theater.deleted.isDeleted);
 
   const color = (setlist: string) => {
     switch (setlist) {

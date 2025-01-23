@@ -1,16 +1,6 @@
 import Loading from "@/components/elements/Loading";
-import SetlistArrowButton from "@/components/elements/SetlistArrowButton";
 import { setlistType } from "@/components/types/setlistType";
 import { Tabs } from "@/components/ui/tabs";
-import Image from "next/image";
-import Link from "next/link";
-import { title } from "process";
-import React, { useState } from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
-import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
-import { MdOutlineLyrics } from "react-icons/md";
-import { RxDotFilled } from "react-icons/rx";
 import useSWR from "swr";
 
 export default function setlistPage() {
