@@ -23,8 +23,7 @@ export default async function handler(
       const ID: string = member.nama.split(" ").join("-")
 
       await addData(ID, "member", member, ({status, message, data}: {status: boolean, message: string, data?: memberType}) => {
-        if (status) res.status(200).json({status, message, data})
-        else res.status(400).json({status, message})
+        status ? res.status(200).json({status, message, data}) : res.status(400).json({status, message})
       })
     }
 
@@ -32,8 +31,7 @@ export default async function handler(
       const member: memberType = req.body;
 
       await updateData("member", member, ({status, message, data}: {status: boolean, message: string, data?: memberType}) => {
-        if (status) res.status(200).json({status, message, data})
-        else res.status(400).json({status, message})
+        status ? res.status(200).json({status, message, data}) : res.status(400).json({status, message})
       })
     }
 
@@ -41,8 +39,7 @@ export default async function handler(
       const {id, description}: {id: string, description: string} = req.body
 
       await deleteData(id, "member", description, ({status, message, data}: {status: boolean, message: string, data?: memberType}) => {
-        if (status) res.status(200).json({status, message, data})
-        else res.status(400).json({status, message})
+        status ? res.status(200).json({status, message, data}) : res.status(400).json({status, message})
       })
     }
 

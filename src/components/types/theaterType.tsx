@@ -8,6 +8,6 @@ export type theaterType = {
   member_regular: boolean;
   member: string;
   venue: string;
-  time: Timestamp;
+  time: string;
   deleted: deleted;
 };

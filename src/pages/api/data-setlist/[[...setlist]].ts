@@ -10,33 +10,30 @@ export default async function handler(
 ) {
   if (req.query.setlist?.[0]) {
     if (req.query.setlist[0] === "add" && req.method === "POST") {
-          const setlist: setlistType = req.body;
+      const setlist: setlistType = req.body;
     
-          const ID: string = setlist.nama_setlist.split(" ").join("-")
+      const ID: string = setlist.nama_setlist.split(" ").join("-")
     
-          await addData(ID, "setlist", setlist, ({status, message, data}: {status: boolean, message: string, data?: setlistType}) => {
-            if (status) res.status(200).json({status, message, data})
-            else res.status(400).json({status, message})
-          })
-        }
+      await addData(ID, "setlist", setlist, ({status, message, data}: {status: boolean, message: string, data?: setlistType}) => {
+        status ? res.status(200).json({status, message, data}) : res.status(400).json({status, message})
+      })
+    }
     
-        if (req.query.setlist[0] === "update" && req.method === "PUT") {
-          const setlist: setlistType = req.body;
+    if (req.query.setlist[0] === "update" && req.method === "PUT") {
+      const setlist: setlistType = req.body;
     
-          await updateData("setlist", setlist, ({status, message, data}: {status: boolean, message: string, data?: setlistType}) => {
-            if (status) res.status(200).json({status, message, data})
-            else res.status(400).json({status, message})
-          })
-        }
+      await updateData("setlist", setlist, ({status, message, data}: {status: boolean, message: string, data?: setlistType}) => {
+        status ? res.status(200).json({status, message, data}) : res.status(400).json({status, message})
+      })
+    }
     
-        if (req.query.setlist[0] === "delete" && req.method === "DELETE") {
-          const {id, description}: {id: string, description: string} = req.body
+    if (req.query.setlist[0] === "delete" && req.method === "DELETE") {
+      const {id, description}: {id: string, description: string} = req.body
     
-          await deleteData(id, "setlist", description, ({status, message, data}: {status: boolean, message: string, data?: setlistType}) => {
-            if (status) res.status(200).json({status, message, data})
-            else res.status(400).json({status, message})
-          })
-        }
+      await deleteData(id, "setlist", description, ({status, message, data}: {status: boolean, message: string, data?: setlistType}) => {
+        status ? res.status(200).json({status, message, data}) : res.status(400).json({status, message})
+      })
+    }
 
     const data = await retrieveDataById("setlist", req.query.setlist[0]);
     res.status(200).json({
