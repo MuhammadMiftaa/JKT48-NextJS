@@ -22,7 +22,9 @@ import { useRouter } from "next/router";
 export default function registerPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
-  const member: memberType[] = isLoading ? [] : data.data.filter((member: memberType) => !member.deleted.isDeleted);
+  const member: memberType[] = isLoading
+    ? []
+    : data.data.filter((member: memberType) => !member.deleted.isDeleted);
 
   const [page, setPage] = useState(1);
   const [selected, setSelected] = useState<memberType | null>(null);
@@ -70,6 +72,11 @@ export default function registerPage() {
       username_sr: z.string(),
       username_tiktok: z.string(),
       username_x: z.string(),
+      deleted: z.object({
+        isDeleted: z.boolean(),
+        deletedAt: z.string(),
+        description: z.string(),
+      }),
     }),
     birthday: z.string(),
     gender: z.enum(["man", "woman"]),
