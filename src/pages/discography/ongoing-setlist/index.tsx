@@ -20,7 +20,7 @@ export default function setlistPage() {
     "/api/data-setlist",
     fetcher
   );
-  const dataSetlist: setlistType[] = isLoading ? [] : data.data;
+  const dataSetlist: setlistType[] = isLoading ? [] : data.data.filter((setlist: setlistType) => !setlist.deleted.isDeleted);
 
   return (
     <div className="pb-40 relative">
