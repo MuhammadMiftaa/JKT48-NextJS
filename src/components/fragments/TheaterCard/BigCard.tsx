@@ -12,12 +12,12 @@ type BigCardProps = {
 export default function BigCard(props: BigCardProps) {
   const { theater, color, borderColor } = props;
 
-  let timestamp =
-    (theater.time.seconds + theater.time.nanoseconds / 1000000000) * 1000;
-  const date = new Date(timestamp);
+  // let timestamp =
+  //   (theater.time.seconds + theater.time.nanoseconds / 1000000000) * 1000;
+  // const date = new Date(timestamp);
 
-  const hours = date.getHours().toString().padStart(2, "0");
-  const minutes = date.getMinutes().toString().padStart(2, "0");
+  // const hours = date.getHours().toString().padStart(2, "0");
+  // const minutes = date.getMinutes().toString().padStart(2, "0");
   return (
     <div
       className={
@@ -53,7 +53,7 @@ export default function BigCard(props: BigCardProps) {
           <h2 className="font-bold text-zinc-200 font-poppins">
             {theater.tanggal}
           </h2>
-          <p className="text-right inline-block font-extralight text-zinc-200 font-poppins">{`— ${hours}.${minutes} WIB`}</p>
+          <p className="text-right inline-block font-extralight text-zinc-200 font-poppins">{theater.time}</p>
         </div>
         <h3 className="block text-sm md:text-2xl font-semibold font-poppins">
           <span className="block text-[10px] md:text-sm text-zinc-400 italic font-light font-urbanist">

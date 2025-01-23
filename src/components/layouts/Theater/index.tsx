@@ -155,21 +155,21 @@ export default function Theater() {
       </h1>
       <div className="py-5 md:px-32 px-8 flex flex-col gap-y-12">
         {dataTheater.map((theater, index) => {
-          let timestamp =
-            (theater.time.seconds + theater.time.nanoseconds / 1000000000) *
-            1000;
-          const date = new Date(timestamp);
+          // let timestamp =
+          //   (theater.time.seconds + theater.time.nanoseconds / 1000000000) *
+          //   1000;
+          // const date = new Date(timestamp);
 
-          const hours = date.getHours().toString().padStart(2, "0");
-          const minutes = date.getMinutes().toString().padStart(2, "0");
+          // const hours = date.getHours().toString().padStart(2, "0");
+          // const minutes = date.getMinutes().toString().padStart(2, "0");
           if (index > 5) {
             return null;
           }
           return (
             <SmallCard
               theater={theater}
-              hours={hours}
-              minutes={minutes}
+              // hours={hours}
+              // minutes={minutes}
               key={index}
             ></SmallCard>
           );

@@ -3,12 +3,10 @@ import React from "react";
 
 type TheaterCardProps = {
   theater: theaterType;
-  hours: string;
-  minutes: string;
 };
 
 export default function SmallCard(props: TheaterCardProps) {
-  const { theater, hours, minutes } = props;
+  const { theater } = props;
   return (
     <div
       className="flex flex-col md:flex-row gap-x-8 items-center font-urbanist"
@@ -31,7 +29,7 @@ export default function SmallCard(props: TheaterCardProps) {
         </h5>
         <h4 className="font-light text-xs text-slate-400 tracking-wider">
           {theater.tanggal}
-          <span className="ml-12">{`${hours}.${minutes} WIB`}</span>
+          <span className="ml-12">{theater.time}</span>
         </h4>
         <h2 className="text-sm md:text-xl font-semibold mb-2 md:mb-10">{theater.member}</h2>
         <h1 className="md:text-sm text-xs italic text-zinc-500">Read More</h1>
