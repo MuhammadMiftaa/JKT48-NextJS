@@ -35,11 +35,13 @@ export function generatePlaceholder(label: string): string {
     case "nama":
       return "Abigail Rachel";
     case "nama_lengkap":
-      return "Abigail Rachel";
+      return "Abigail Rachel Lie";
     case "nama_panggilan":
       return "Aralie, Ayayi";
     case "generasi":
       return "12";
+    case "kabesha":
+      return "https://example.com/kabesha-aralie.jpg";
     case "foto":
       return "https://example.com/abigail-rachel.jpg";
     case "umur":

@@ -10,6 +10,7 @@ const addMemberSchema = z.object({
   nama_lengkap: z.string(),
   nama_panggilan: z.string(),
   generasi: z.number().max(20).min(1),
+  kabesha: z.string(),
   foto: z.string(),
   umur: z.number().max(30).min(10),
   asal: z.string(),
@@ -38,6 +39,7 @@ function Add() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [kabesha, setKabesha] = useState<string | null>(null);
   const [photo, setPhoto] = useState<string | null>(null);
   const [noCollege, setNoCollege] = useState(false);
 
@@ -87,6 +89,8 @@ function Add() {
             <MemberInput
               label={key}
               form={form}
+              kabesha={kabesha}
+              setKabesha={setKabesha}
               photo={photo}
               setPhoto={setPhoto}
               noCollege={noCollege}
@@ -98,7 +102,7 @@ function Add() {
                 {form.formState.errors[key as keyof AddMemberSchema]?.message}
               </span>
             )}
-            {(index + 1) % 5 === 0 && (
+            {(index + 5) % 5 === 0 && (
               <div className="flex flex-row items-center mt-6 mb-3">
                 <div className="h-0.5 w-8 mr-2 rounded-xl bg-zinc-700"></div>
                 <div className="h-0.5 w-4 mr-2 rounded-xl bg-zinc-700"></div>

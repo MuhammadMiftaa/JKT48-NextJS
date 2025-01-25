@@ -5,6 +5,8 @@ import { IoIosAt } from "react-icons/io";
 export default function MemberInput(props: {
   label: string;
   form: any;
+  kabesha: string | null;
+  setKabesha: Function;
   photo: string | null;
   setPhoto: Function;
   noCollege: boolean;
@@ -82,10 +84,21 @@ export default function MemberInput(props: {
               }
               onChange={(e) => {
                 if (
+                  props.label === "kabesha" &&
+                  (e.target.value.includes("https://pbs.twimg.com") ||
+                    e.target.value.includes("https://jkt48.com") ||
+                    e.target.value.includes("https://res.cloudinary.com") ||
+                    e.target.value === "")
+                ) {
+                  props.setKabesha(e.target.value);
+                }
+
+                if (
                   props.label === "foto" &&
                   (e.target.value.includes("https://pbs.twimg.com") ||
                     e.target.value.includes("https://jkt48.com") ||
-                    e.target.value.includes("https://res.cloudinary.com"))
+                    e.target.value.includes("https://res.cloudinary.com") ||
+                    e.target.value === "")
                 ) {
                   props.setPhoto(e.target.value);
                 }
@@ -112,20 +125,36 @@ export default function MemberInput(props: {
           </div>
         </div>
         {props.label === "foto" && (
-          <div
-            className={`mt-6 mx-auto ${
-              props.photo && "border"
-            } border-zinc-600 p-2`}
-          >
-            {props.photo ? (
-              <Image
-                src={props.photo || "/assets/placeholder.png"}
-                width={200}
-                height={200}
-                alt="member"
-                className=""
-              />
-            ) : (
+          <div className={`mt-6 mx-auto`}>
+            <div className="flex gap-5 items-center">
+              {props.photo && (
+                <div
+                  className={`p-2 border border-zinc-600 relative after:absolute after:content-["Photo"] after:text-white after:border after:border-zinc-600 after:-skew-x-12 after:font-poppins after:mx-auto after:my-auto after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:fit after:py-0.5 after:text-xs after:px-3 after:h-fit after:bg-custom-black`}
+                >
+                  <Image
+                    src={props.photo || "/assets/placeholder.png"}
+                    width={200}
+                    height={200}
+                    alt="member"
+                    className=""
+                  />
+                </div>
+              )}
+              {props.kabesha && (
+                <div
+                  className={`p-2 border border-zinc-600 relative after:absolute after:content-["Kabesha"] after:text-white after:border after:border-zinc-600 after:-skew-x-12 after:font-poppins after:mx-auto after:my-auto after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:fit after:py-0.5 after:text-xs after:px-3 after:h-fit after:bg-custom-black`}
+                >
+                  <Image
+                    src={props.kabesha || "/assets/placeholder.png"}
+                    width={200}
+                    height={200}
+                    alt="member"
+                    className=""
+                  />
+                </div>
+              )}
+            </div>
+            {!(props.photo || props.kabesha) && (
               <p className="font-poppins italic -mt-4 text-xs font-light text-zinc-500">
                 Image preview is not available.
               </p>
