@@ -12,6 +12,12 @@ export default async function handler(
     if (req.query.setlist[0] === "add" && req.method === "POST") {
       const setlist: setlistType = req.body;
     
+      setlist.deleted = {
+        isDeleted: false,
+        deletedAt: "",
+        description: "",
+      }
+
       const ID: string = setlist.nama_setlist.split(" ").join("-")
     
       await addData(ID, "setlist", setlist, ({status, message, data}: {status: boolean, message: string, data?: setlistType}) => {

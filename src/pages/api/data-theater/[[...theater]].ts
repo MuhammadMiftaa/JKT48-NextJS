@@ -14,6 +14,12 @@ export default async function handler(
     if (req.query.theater[0] === "add" && req.method === "POST") {
       const theater: theaterType = req.body;
     
+      theater.deleted = {
+        isDeleted: false,
+        deletedAt: "",
+        description: "",
+      }
+
       const ID: string =
         theater.setlist
           .split(" ")

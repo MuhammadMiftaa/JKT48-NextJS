@@ -20,6 +20,12 @@ export default async function handler(
       if (member.username_tiktok === "" || member.username_tiktok === undefined) member.username_tiktok = "-";
       if (member.username_x === "" || member.username_x === undefined) member.username_x = "-";
 
+      member.deleted = {
+        isDeleted: false,
+        deletedAt: "",
+        description: "",
+      }
+
       const ID: string = member.nama.split(" ").join("-")
 
       await addData(ID, "member", member, ({status, message, data}: {status: boolean, message: string, data?: memberType}) => {
