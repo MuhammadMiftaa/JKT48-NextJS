@@ -1,10 +1,5 @@
 import Link from "next/link";
-import { Navbar } from "flowbite-react";
-import Image from "next/image";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { BiSolidExit } from "react-icons/bi";
+import { signIn, useSession } from "next-auth/react";
 import { BsPersonCircle } from "react-icons/bs";
 import NavList from "@/components/fragments/NavList";
 
@@ -12,7 +7,7 @@ export default function NavbarLayout() {
   const { data }: any = useSession();
 
   return (
-    <nav className="bg-black fixed w-full z-20 top-0 start-0 border-b border-custom-green">
+    <nav className="bg-custom-gray fixed w-full z-20 top-0 start-0 rounded-b-lg shadow-md">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto pt-4 pb-3 px-6">
         <Link
           href="/"

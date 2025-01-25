@@ -22,7 +22,7 @@ function Menu(props: MenuProps) {
             ? "md:text-custom-green bg-custom-green text-zinc-950"
             : pathname === "/" && item === "home"
             ? "md:text-custom-green bg-custom-green text-zinc-950"
-            : "md:text-gray-400 hover:text-custom-green")
+            : "md:text-gray-400 hover:text-green-50")
         }
         aria-current="page"
       >

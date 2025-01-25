@@ -31,6 +31,8 @@ const config: Config = {
       },
       colors: {
         "custom-green": "#88FCAF",
+        "custom-black": "#121212",
+        "custom-gray": "#212121",
       },
       textShadow: {
         "custom-hover": "2px 2px 4px #88CFAF",

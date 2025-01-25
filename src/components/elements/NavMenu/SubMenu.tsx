@@ -36,7 +36,7 @@ function SubMenu(props: SubMenuProps) {
     >
       <button
         id="dropdownNavbarLink"
-        className="flex items-center justify-between w-full py-2 px-3 text-gray-400 rounded hover:border-custom-green border-transparent  md:hover:text-custom-green md:border-0 md:p-0 md:w-auto animate__animated animate__fadeIn"
+        className="flex items-center justify-between w-full py-2 px-3 text-gray-400 rounded hover:border-custom-green border-transparent  md:hover:text-green-50 md:border-0 md:p-0 md:w-auto animate__animated animate__fadeIn"
         // onClick={goToDiscography}
       >
         <h1
@@ -65,7 +65,7 @@ function SubMenu(props: SubMenuProps) {
       {dropdownOpen && (
         <div
           id="dropdownNavbar"
-          className="absolute md:top-6 z-10 font-normal divide-y rounded-lg shadow-[0_0_7px_0_rgba(0,0,0,0.3)] w-44 bg-black divide-gray-600 border border-custom-green shadow-custom-green"
+          className="absolute md:top-6 z-10 font-normal divide-y rounded-lg shadow-[0_0_7px_0_rgba(0,0,0,0.3)] w-44 bg-custom-gray divide-gray-600 border border-custom-green shadow-custom-green"
         >
           <ul
             className="py-2 text-sm text-gray-400"
@@ -75,7 +75,7 @@ function SubMenu(props: SubMenuProps) {
               <li key={index}>
                 <Link
                   href={"/discography/" + item.replace(/ /g, "-")}
-                  className="block px-4 py-2 hover:text-custom-green capitalize"
+                  className="block px-4 py-2 hover:text-green-50 capitalize"
                 >
                   {item}
                 </Link>
