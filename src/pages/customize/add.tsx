@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
 import MemberInput from "@/components/fragments/InputGroup/MemberInput";
+import { GETAPIURL } from "@/helper/getEnv";
 
 const addMemberSchema = z.object({
   nama: z.string(),
@@ -46,19 +47,16 @@ function Add() {
     nameRef.current?.focus();
   }, []);
 
-  const onSubmit = form.handleSubmit(async (data) => {
+  const onSubmit = form.handleSubmit(async (data) => {    
     try {
       setLoading(true);
-      const response = await fetch(
-        "http://localhost:3000/api/data-member/add",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      const response = await fetch(`${GETAPIURL()}/data-member/add`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
       if (!response.ok) {
         throw new Error("An error occurred while adding a member");
