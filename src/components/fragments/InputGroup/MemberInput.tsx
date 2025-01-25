@@ -15,7 +15,11 @@ export default function MemberInput(props: {
   //   valueAsNumber: props.label === "generasi" || props.label === "umur",
   // });
 
-  const { onChange, ref: registerRef, ...rest } = props.form.register(props.label, {
+  const {
+    onChange,
+    ref: registerRef,
+    ...rest
+  } = props.form.register(props.label, {
     valueAsNumber: props.label === "generasi" || props.label === "umur",
   });
 
@@ -77,7 +81,12 @@ export default function MemberInput(props: {
                   : undefined
               }
               onChange={(e) => {
-                if (props.label === "foto" && e.target.value.includes("https://pbs.twimg.com")) {
+                if (
+                  props.label === "foto" &&
+                  (e.target.value.includes("https://pbs.twimg.com") ||
+                    e.target.value.includes("https://jkt48.com") ||
+                    e.target.value.includes("https://res.cloudinary.com"))
+                ) {
                   props.setPhoto(e.target.value);
                 }
 
@@ -104,7 +113,9 @@ export default function MemberInput(props: {
         </div>
         {props.label === "foto" && (
           <div
-            className={`mt-6 mx-auto ${props.photo && "border"} border-zinc-600 p-2`}
+            className={`mt-6 mx-auto ${
+              props.photo && "border"
+            } border-zinc-600 p-2`}
           >
             {props.photo ? (
               <Image
@@ -115,7 +126,9 @@ export default function MemberInput(props: {
                 className=""
               />
             ) : (
-              <p className="font-poppins italic -mt-4 text-xs font-light text-zinc-500">Image preview is not available.</p>
+              <p className="font-poppins italic -mt-4 text-xs font-light text-zinc-500">
+                Image preview is not available.
+              </p>
             )}
           </div>
         )}
