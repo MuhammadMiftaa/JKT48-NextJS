@@ -129,7 +129,7 @@ export default function MemberInput(props: {
             <div className="flex gap-5 items-center">
               {props.photo && (
                 <div
-                  className={`p-2 border border-zinc-600 relative after:absolute after:content-["Photo"] after:text-white after:border after:border-zinc-600 after:-skew-x-12 after:font-poppins after:mx-auto after:my-auto after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:fit after:py-0.5 after:text-xs after:px-3 after:h-fit after:bg-custom-black`}
+                  className={`p-2 border border-zinc-600 relative after:absolute after:content-["Foto"] after:text-white after:border after:border-zinc-600 after:-skew-x-12 after:font-poppins after:mx-auto after:my-auto after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:fit after:py-0.5 after:text-xs after:px-3 after:h-fit after:bg-custom-black`}
                 >
                   <Image
                     src={props.photo || "/assets/placeholder.png"}

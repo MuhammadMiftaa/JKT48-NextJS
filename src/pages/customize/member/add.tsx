@@ -37,6 +37,7 @@ function AddMember() {
       }
       setLoading(false);
       setPhoto(null);
+      setKabesha(null);
       form.reset();
       nameRef.current?.focus();
     } catch (error: any) {

@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { MemberTypeZod } from "./zodSchema";
 import { MoreHorizontal } from "lucide-react";
-import { ArrowUpDown } from "lucide-react"
+import { ArrowUpDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,18 +15,113 @@ import {
 
 export const columns: ColumnDef<MemberTypeZod>[] = [
   {
+    accessorKey: "member_regular",
+    header: "",
+  },
+  {
     accessorKey: "nama",
     header: ({ column }) => {
-        return (
-          <button
-            type="button"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Nama
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </button>
-        )
-      },
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Nama
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
+  },
+  {
+    accessorKey: "generasi",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Generasi
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
+  },
+  {
+    accessorKey: "umur",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Umur
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
+  },
+  {
+    accessorKey: "tanggal_lahir",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Tanggal Lahir
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
+  },
+  {
+    accessorKey: "asal",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Kota Asal
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
+  },
+  {
+    accessorKey: "kota_lahir",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Kota Lahir
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
+  },
+  {
+    accessorKey: "fanbase",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Fanbase
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
   },
   {
     accessorKey: "nama_lengkap",
@@ -37,10 +132,6 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
     header: "Nama Panggilan",
   },
   {
-    accessorKey: "generasi",
-    header: "Generasi",
-  },
-  {
     accessorKey: "kabesha",
     header: "Kabesha",
   },
@@ -49,44 +140,53 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
     header: "Foto",
   },
   {
-    accessorKey: "umur",
-    header: "Umur",
-  },
-  {
-    accessorKey: "asal",
-    header: "Asal",
-  },
-  {
-    accessorKey: "tanggal_lahir",
-    header: "Tanggal Lahir",
-  },
-  {
-    accessorKey: "kota_lahir",
-    header: "Kota Lahir",
-  },
-  {
-    accessorKey: "member_regular",
-    header: "Member Regular",
+    accessorKey: "tanggal_bergabung",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Tanggal Bergabung
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
   },
   {
     accessorKey: "salam_perkenalan",
     header: "Salam Perkenalan",
   },
   {
-    accessorKey: "tanggal_bergabung",
-    header: "Tanggal Bergabung",
-  },
-  {
-    accessorKey: "fanbase",
-    header: "Fanbase",
-  },
-  {
     accessorKey: "universitas",
-    header: "Universitas",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Universitas
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
   },
   {
     accessorKey: "jurusan",
-    header: "Jurusan",
+    header: ({ column }) => {
+      return (
+        <button
+          className="flex items-center justify-center"
+          type="button"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Jurusan
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </button>
+      );
+    },
   },
   {
     accessorKey: "username_idn",
@@ -116,7 +216,10 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <button type="button" className="h-8 w-8 p-0">
+            <button
+              type="button"
+              className="h-8 w-8 p-0 flex justify-center items-center"
+            >
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </button>
