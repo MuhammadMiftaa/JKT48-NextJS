@@ -13,7 +13,7 @@ export default function Member() {
     : data.data.filter((member: memberType) => !member.deleted.isDeleted);
 
   return (
-    <div className="w-[90%] mx-auto mt-32">
+    <div className="w-[90%] mx-auto mt-20">
       <DataTable columns={columns} data={dataMember} />
     </div>
   );
