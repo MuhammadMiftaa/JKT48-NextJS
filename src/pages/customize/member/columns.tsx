@@ -12,8 +12,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { memberType } from "@/components/types/memberType";
 
-export const columns: ColumnDef<MemberTypeZod>[] = [
+export const columns: ColumnDef<memberType>[] = [
   {
     accessorKey: "member_regular",
     header: "",

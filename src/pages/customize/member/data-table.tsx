@@ -38,12 +38,12 @@ import { useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import Link from "next/link";
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData extends object, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function DataTable<TData extends Cell<TData, unknown>, TValue>({
+export function DataTable<TData extends object, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
