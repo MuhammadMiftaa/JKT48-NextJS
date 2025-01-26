@@ -5,7 +5,7 @@ export default function CustomizePage() {
     {
       title: "Add New Member",
       src: "/customize/Add New Member.jpg",
-      link: "/customize/add"
+      link: "/customize/member"
     },
     {
       title: "Edit Existing Member",

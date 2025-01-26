@@ -33,7 +33,7 @@ const addMemberSchema = z.object({
 
 type AddMemberSchema = z.infer<typeof addMemberSchema>;
 
-function Add() {
+function AddMember() {
   const form = useForm<AddMemberSchema>({
     resolver: zodResolver(addMemberSchema),
   });
@@ -122,4 +122,4 @@ function Add() {
   );
 }
 
-export default Add;
+export default AddMember;
