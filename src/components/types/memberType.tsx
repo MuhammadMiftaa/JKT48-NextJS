@@ -6,6 +6,7 @@ export type memberType = {
   nama_lengkap: string;
   nama_panggilan: string;
   generasi: number;
+  kabesha: string;
   foto: string;
   umur: number;
   asal: string;

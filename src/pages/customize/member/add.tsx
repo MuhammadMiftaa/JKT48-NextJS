@@ -1,41 +1,13 @@
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
 import MemberInput from "@/components/fragments/InputGroup/MemberInput";
 import { GETAPIURL } from "@/helper/getEnv";
-
-const addMemberSchema = z.object({
-  nama: z.string(),
-  nama_lengkap: z.string(),
-  nama_panggilan: z.string(),
-  generasi: z.number().max(20).min(1),
-  kabesha: z.string(),
-  foto: z.string(),
-  umur: z.number().max(30).min(10),
-  asal: z.string(),
-  tanggal_lahir: z.string(),
-  kota_lahir: z.string(),
-  member_regular: z
-    .union([z.boolean(), z.string()])
-    .transform((val) => (typeof val === "string" ? val === "true" : val)),
-  salam_perkenalan: z.string(),
-  tanggal_bergabung: z.string(),
-  fanbase: z.string(),
-  universitas: z.string(),
-  jurusan: z.string(),
-  username_idn: z.string(),
-  username_ig: z.string(),
-  username_sr: z.string(),
-  username_tiktok: z.string(),
-  username_x: z.string(),
-});
-
-type AddMemberSchema = z.infer<typeof addMemberSchema>;
+import { MemberSchemaZod, MemberTypeZod } from "./zodSchema";
 
 function AddMember() {
-  const form = useForm<AddMemberSchema>({
-    resolver: zodResolver(addMemberSchema),
+  const form = useForm<MemberTypeZod>({
+    resolver: zodResolver(MemberSchemaZod),
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +21,7 @@ function AddMember() {
     nameRef.current?.focus();
   }, []);
 
-  const onSubmit = form.handleSubmit(async (data) => {    
+  const onSubmit = form.handleSubmit(async (data) => {
     try {
       setLoading(true);
       const response = await fetch(`${GETAPIURL()}/data-member/add`, {
@@ -84,7 +56,7 @@ function AddMember() {
         <div className="h-0.5 w-8 bg-white mt-1"></div>
       </div>
       <form className="mt-10 max-w-7xl flex flex-col gap-4" onSubmit={onSubmit}>
-        {Object.keys(addMemberSchema.shape).map((key, index) => (
+        {Object.keys(MemberSchemaZod.shape).map((key, index) => (
           <div key={key}>
             <MemberInput
               label={key}
@@ -97,9 +69,9 @@ function AddMember() {
               setNoCollege={setNoCollege}
               nameRef={nameRef}
             />
-            {form.formState.errors[key as keyof AddMemberSchema] && (
+            {form.formState.errors[key as keyof MemberTypeZod] && (
               <span className="font-light text-sm italic font-urbanist text-white">
-                {form.formState.errors[key as keyof AddMemberSchema]?.message}
+                {form.formState.errors[key as keyof MemberTypeZod]?.message}
               </span>
             )}
             {(index + 5) % 5 === 0 && (
