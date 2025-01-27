@@ -65,6 +65,7 @@ export default function registerPage() {
       nama_lengkap: z.string(),
       universitas: z.string(),
       jurusan: z.string(),
+      kabesha: z.string(),
       foto: z.string(),
       member_regular: z.boolean(),
       username_idn: z.string(),
