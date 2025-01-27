@@ -1,6 +1,6 @@
 import PageSeparator from "@/components/fragments/PageSeparator/PageSeparator";
 import SmallCard from "@/components/fragments/TheaterCard/SmallCard";
-import { theaterType } from "@/components/types/theaterType";
+import { theaterType } from "@/types/theaterType";
 import Link from "next/link";
 import useSWR from "swr";
 

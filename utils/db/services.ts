@@ -11,7 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 import app from "./firebase";
-import { userType } from "@/components/types/userType";
+import { userType } from "@/types/userType";
 import bcrypt from "bcrypt";
 
 const firestore = getFirestore(app);

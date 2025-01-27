@@ -1,7 +1,7 @@
 import Loading from "@/components/elements/Loading";
 import SetlistSong from "@/components/fragments/SetlistSong";
 import SetlistTitle from "@/components/fragments/SetlistTitle";
-import { setlistType } from "@/components/types/setlistType";
+import { setlistType } from "@/types/setlistType";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";

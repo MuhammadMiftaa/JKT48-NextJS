@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 // import { cn } from "@/lib/utils";
 import { cn } from "../../../lib/utils";
-import { setlistType } from "../types/setlistType";
+import { setlistType } from "../../types/setlistType";
 import Image from "next/image";
 import Link from "next/link";
 import { HoverBorderGradient } from "./hover-border-gradient";
@@ -161,12 +161,18 @@ export const FadeInDiv = ({
                   {tab.nama_setlist}
                 </h1>
                 {tab.lagu.map((item, index) => (
-                  <p className="capitalize text-sm md:text-xl font-urbanist text-slate-200 line-clamp-1" key={index}>
+                  <p
+                    className="capitalize text-sm md:text-xl font-urbanist text-slate-200 line-clamp-1"
+                    key={index}
+                  >
                     {index + 1}. {item.judul_lagu}
                   </p>
                 ))}
               </div>
-              <Link href={"/discography/ongoing-setlist/" + tab.id} className="absolute bottom-2 md:bottom-8 right-2 md:right-8">
+              <Link
+                href={"/discography/ongoing-setlist/" + tab.id}
+                className="absolute bottom-2 md:bottom-8 right-2 md:right-8"
+              >
                 <HoverBorderGradient
                   containerClassName="rounded-full"
                   as="button"

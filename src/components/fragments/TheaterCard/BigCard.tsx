@@ -1,5 +1,5 @@
 import TheaterCardButton from "@/components/elements/TheaterCardButton";
-import { theaterType } from "@/components/types/theaterType";
+import { theaterType } from "@/types/theaterType";
 import Image from "next/image";
 import React from "react";
 
@@ -53,7 +53,9 @@ export default function BigCard(props: BigCardProps) {
           <h2 className="font-bold text-zinc-200 font-poppins">
             {theater.tanggal}
           </h2>
-          <p className="text-right inline-block font-extralight text-zinc-200 font-poppins">{theater.time}</p>
+          <p className="text-right inline-block font-extralight text-zinc-200 font-poppins">
+            {theater.time}
+          </p>
         </div>
         <h3 className="block text-sm md:text-2xl font-semibold font-poppins">
           <span className="block text-[10px] md:text-sm text-zinc-400 italic font-light font-urbanist">

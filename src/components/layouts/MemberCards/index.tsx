@@ -1,5 +1,5 @@
 import Card from "@/components/fragments/MemberCard/BigCard";
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 import React from "react";
 
 export default function MemberCards(props: {

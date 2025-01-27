@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { MemberTypeZod } from "./zodSchema";
+import { MemberTypeZod } from "../../../schema/zodSchema";
 import { MoreHorizontal } from "lucide-react";
 import { ArrowUpDown } from "lucide-react";
 import {
@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 
 export const columns: ColumnDef<memberType>[] = [
   {

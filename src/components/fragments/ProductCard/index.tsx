@@ -1,4 +1,4 @@
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 import Image from "next/image";
 import React from "react";
 

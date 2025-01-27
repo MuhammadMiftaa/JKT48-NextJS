@@ -1,8 +1,8 @@
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 import React from "react";
 import useSWR from "swr";
-import { DataTable } from "./data-table";
-import { columns } from "./columns";
+import { columns } from "../../../components/layouts/TableMember/columns";
+import { DataTable } from "@/components/layouts/TableMember/data-table";
 
 export default function Member() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());

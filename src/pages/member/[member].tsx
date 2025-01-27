@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 import useSWR from "swr";
 import Loading from "@/components/elements/Loading";
 import MemberDetailName from "@/components/fragments/MemberDetailName";
@@ -153,7 +153,9 @@ export default function MemberDetailPage() {
               />
             </label>
             <div className="flex flex-col md:hidden items-center my-10">
-              <h1 className="title-gradient-bold w-fit font-poppins">Media Social</h1>
+              <h1 className="title-gradient-bold w-fit font-poppins">
+                Media Social
+              </h1>
               <BackSide
                 username_ig={dataMember.username_ig}
                 username_sr={dataMember.username_sr}

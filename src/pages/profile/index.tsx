@@ -4,7 +4,7 @@ import Barcode from "./Barcode.js";
 import Link from "next/link.js";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
-import { userType } from "@/components/types/userType.jsx";
+import { userType } from "@/types/userType.jsx";
 import { useRouter } from "next/router.js";
 
 export default function profilePage() {

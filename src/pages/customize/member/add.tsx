@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
 import MemberInput from "@/components/fragments/InputGroup/MemberInput";
 import { GETAPIURL } from "@/helper/getEnv";
-import { MemberSchemaZod, MemberTypeZod } from "./zodSchema";
+import { MemberSchemaZod, MemberTypeZod } from "../../../schema/zodSchema";
 
 function AddMember() {
   const form = useForm<MemberTypeZod>({

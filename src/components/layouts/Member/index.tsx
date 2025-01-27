@@ -2,7 +2,7 @@ import Button from "@/components/elements/Button";
 import MainCard from "@/components/fragments/MemberCard/MainCard";
 import SmallCard from "@/components/fragments/MemberCard/SmallCard";
 import PageSeparator from "@/components/fragments/PageSeparator/PageSeparator2";
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -16,8 +16,12 @@ export default function Member() {
 
   const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
   const dataMember: memberType[] = isLoading ? [] : data.data;
-  const memberRegular = dataMember.filter(member => !member.deleted.isDeleted).filter((member) => member.member_regular);
-  const memberTrainee = dataMember.filter(member => !member.deleted.isDeleted).filter((member) => !member.member_regular);
+  const memberRegular = dataMember
+    .filter((member) => !member.deleted.isDeleted)
+    .filter((member) => member.member_regular);
+  const memberTrainee = dataMember
+    .filter((member) => !member.deleted.isDeleted)
+    .filter((member) => !member.member_regular);
 
   return (
     <>

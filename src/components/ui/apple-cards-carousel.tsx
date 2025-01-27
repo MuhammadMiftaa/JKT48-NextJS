@@ -17,7 +17,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 // import { useOutsideClick } from "@/hooks/use-outside-click";
 import { useOutsideClick } from "../hooks/use-outside-click";
-import { memberType } from "../types/memberType";
+import { memberType } from "../../types/memberType";
 
 interface CarouselProps {
   items: JSX.Element[];

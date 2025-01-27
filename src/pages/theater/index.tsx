@@ -1,6 +1,6 @@
 import Loading from "@/components/elements/Loading";
 import BigCard from "@/components/fragments/TheaterCard/BigCard";
-import { theaterType } from "@/components/types/theaterType";
+import { theaterType } from "@/types/theaterType";
 import React from "react";
 import useSWR from "swr";
 

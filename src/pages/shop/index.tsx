@@ -7,7 +7,7 @@ import { PiHandbagFill } from "react-icons/pi";
 import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import ProductCard from "@/components/fragments/ProductCard";
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 import useSWR from "swr";
 import { LampContainer } from "@/components/ui/lamp";
 import { motion } from "framer-motion";
@@ -23,7 +23,9 @@ import {
 export default function ShopPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
-  const dataMember: memberType[] = isLoading ? [] : data.data.filter((member: memberType) => !member.deleted.isDeleted);
+  const dataMember: memberType[] = isLoading
+    ? []
+    : data.data.filter((member: memberType) => !member.deleted.isDeleted);
 
   const [qty, setQty] = useState(0);
   function addQty() {

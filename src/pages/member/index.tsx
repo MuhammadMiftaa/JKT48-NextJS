@@ -1,6 +1,6 @@
 // import "../member/index.module.scss"
 import Loading from "@/components/elements/Loading";
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 import useSWR from "swr";
 import MemberCards from "@/components/layouts/MemberCards";
 import { ChangeEventHandler, useState } from "react";
@@ -19,8 +19,12 @@ export default function MemberPage() {
 
   const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
   const dataMember: memberType[] = isLoading ? [] : data.data;
-  const memberRegular = dataMember.filter(member => !member.deleted.isDeleted).filter(member => member.member_regular);
-  const memberTrainee = dataMember.filter(member => !member.deleted.isDeleted).filter(member => !member.member_regular);
+  const memberRegular = dataMember
+    .filter((member) => !member.deleted.isDeleted)
+    .filter((member) => member.member_regular);
+  const memberTrainee = dataMember
+    .filter((member) => !member.deleted.isDeleted)
+    .filter((member) => !member.member_regular);
 
   const [name, setName] = useState<string>("");
   const handleSetName: ChangeEventHandler<HTMLInputElement> = (event) => {

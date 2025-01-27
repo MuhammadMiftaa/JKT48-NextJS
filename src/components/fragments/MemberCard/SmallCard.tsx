@@ -1,4 +1,4 @@
-import { memberType } from "@/components/types/memberType";
+import { memberType } from "@/types/memberType";
 import React from "react";
 
 export default function SmallCard(props: {
@@ -24,7 +24,9 @@ export default function SmallCard(props: {
         <h1 className="text-slate-400 mt-2 md:mt-6 font-light italic text-[8px] md:text-xs">
           Member
         </h1>
-        <h2 className="text-[10px] md:text-lg font-semibold">{props.member.nama}</h2>
+        <h2 className="text-[10px] md:text-lg font-semibold">
+          {props.member.nama}
+        </h2>
       </div>
     </div>
   );

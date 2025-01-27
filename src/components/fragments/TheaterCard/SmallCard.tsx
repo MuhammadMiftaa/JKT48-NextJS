@@ -1,4 +1,4 @@
-import { theaterType } from "@/components/types/theaterType";
+import { theaterType } from "@/types/theaterType";
 import React from "react";
 
 type TheaterCardProps = {
@@ -31,7 +31,9 @@ export default function SmallCard(props: TheaterCardProps) {
           {theater.tanggal}
           <span className="ml-12">{theater.time}</span>
         </h4>
-        <h2 className="text-sm md:text-xl font-semibold mb-2 md:mb-10">{theater.member}</h2>
+        <h2 className="text-sm md:text-xl font-semibold mb-2 md:mb-10">
+          {theater.member}
+        </h2>
         <h1 className="md:text-sm text-xs italic text-zinc-500">Read More</h1>
       </div>
     </div>

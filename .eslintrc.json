@@ -1,4 +1,4 @@
 {
   "extends": "next/core-web-vitals",
-  "eslint-disable-next-line react/no-unescaped-entities": "off",
+  "eslint-disable-next-line react/no-unescaped-entities": "off"
 }
