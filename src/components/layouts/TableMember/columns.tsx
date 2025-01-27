@@ -284,13 +284,21 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                 >
                   <div className="w-11/12 h-96 grid grid-cols-3 grid-rows-5">
                     <div className="col-span-1 row-span-5 h-full w-full border-r border-zinc-600 flex justify-end items-center p-4">
-                      <Image
-                        className="object-contain h-full rounded"
-                        src={member.kabesha}
-                        alt="kabesha"
-                        height={400}
-                        width={300}
-                      ></Image>
+                      {member.kabesha ? (
+                        <Image
+                          className="object-contain h-full rounded"
+                          src={member.kabesha}
+                          alt="kabesha"
+                          height={400}
+                          width={300}
+                        ></Image>
+                      ) : (
+                        <div className="flex justify-center items-center h-full w-full">
+                          <p className="text-sm font-light text-zinc-400">
+                            No image available.
+                          </p>
+                        </div>
+                      )}
                     </div>
                     <div className="col-span-2 flex flex-col border-b border-zinc-600 mb-4">
                       <label
@@ -403,13 +411,21 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                 >
                   <div className="w-11/12 h-[23rem] grid grid-cols-3 grid-rows-5">
                     <div className="col-span-1 row-span-5 h-full w-full border-r border-zinc-600 flex justify-end items-center p-4">
-                      <Image
-                        className="object-contain h-full rounded"
-                        src={member.foto}
-                        alt="kabesha"
-                        height={400}
-                        width={300}
-                      ></Image>
+                      {member.foto ? (
+                        <Image
+                          className="object-contain h-full rounded"
+                          src={member.foto}
+                          alt="foto"
+                          height={400}
+                          width={300}
+                        ></Image>
+                      ) : (
+                        <div className="flex justify-center items-center h-full w-full">
+                          <p className="text-sm font-light text-zinc-400">
+                            No image available.
+                          </p>
+                        </div>
+                      )}
                     </div>
                     <div className="col-span-1 flex flex-col border-b border-zinc-600 mb-4">
                       <label
@@ -501,7 +517,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                   className="h-full flex justify-center items-center font-urbanist -mt-[0.1rem]"
                   value="keanggotaan"
                 >
-                  <div className="grid grid-cols-5 grid-rows-5 h-full w-4/5">
+                  <div className="grid grid-cols-5 grid-rows-5 h-full w-4/5 mt-3">
                     <div className="col-span-5 flex flex-col border-b border-zinc-600 mb-4">
                       <label
                         className="text-nowrap text-start text-xs italic tracking-widest z-10 text-zinc-400 pl-2.5"
@@ -707,33 +723,33 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                   <TabsList className="bg-custom-gray basis-1/3 flex gap-4 items-center justify-start">
                     <div className="group">
                       <TabsTrigger
-                        className="bg-transparent text-lg text-zinc-600 group-hover:text-white duration-300 focus:text-white peer"
+                        className="bg-transparent text-lg text-zinc-600 group-hover:text-white duration-300 focus:text-white peer data-[state=active]:text-white"
                         value="identitas"
                       >
                         Identitas
                       </TabsTrigger>
-                      <div className="w-0 h-0.5 bg-gradient-to-r from-custom-green to-blue-500 group-hover:w-full peer-focus:w-full duration-500 ease-in-out"></div>
+                      <div className="w-0 h-0.5 bg-gradient-to-r from-custom-green to-blue-500 group-hover:w-full peer-focus:w-full duration-500 ease-in-out peer-data-[state=active]:w-full"></div>
                     </div>
                     <div className="group">
                       <TabsTrigger
-                        className="bg-transparent text-lg text-zinc-600 group-hover:text-white duration-300 focus:text-white peer"
+                        className="bg-transparent text-lg text-zinc-600 group-hover:text-white duration-300 focus:text-white peer data-[state=active]:text-white"
                         value="profil"
                       >
                         Profil
                       </TabsTrigger>
-                      <div className="w-0 h-0.5 bg-gradient-to-r from-custom-green to-blue-500 group-hover:w-full peer-focus:w-full duration-500 ease-in-out"></div>
+                      <div className="w-0 h-0.5 bg-gradient-to-r from-custom-green to-blue-500 group-hover:w-full peer-focus:w-full duration-500 ease-in-out peer-data-[state=active]:w-full"></div>
                     </div>
                     <div className="group">
                       <TabsTrigger
-                        className="bg-transparent text-lg text-zinc-600 group-hover:text-white duration-300 focus:text-white peer"
+                        className="bg-transparent text-lg text-zinc-600 group-hover:text-white duration-300 focus:text-white peer data-[state=active]:text-white"
                         value="keanggotaan"
                       >
                         Keanggotaan
                       </TabsTrigger>
-                      <div className="w-0 h-0.5 bg-gradient-to-r from-custom-green to-blue-500 group-hover:w-full peer-focus:w-full duration-500 ease-in-out"></div>
+                      <div className="w-0 h-0.5 bg-gradient-to-r from-custom-green to-blue-500 group-hover:w-full peer-focus:w-full duration-500 ease-in-out peer-data-[state=active]:w-full"></div>
                     </div>
                   </TabsList>
-                  <h1 className="text-2xl basis-1/3 text-center bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-500 font-semibold relative after:content-[''] after:h-0.5 after:w-32 after:rounded-full after:bg-gradient-to-r after:from-custom-green after:to-blue-500 after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2">
+                  <h1 className="text-2xl basis-1/3 text-center bg-clip-text text-transparent bg-gradient-to-r from-custom-green to-blue-500 font-bold relative after:content-[''] after:h-0.5 after:w-32 after:rounded-full after:bg-gradient-to-r after:from-custom-green after:to-blue-500 after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2">
                     {member.nama}
                   </h1>
                   <div className="flex gap-3 basis-1/3 justify-end">
