@@ -1,6 +1,6 @@
 import Loading from "@/components/elements/Loading";
 import { setlistType } from "@/types/setlistType";
-import { Tabs } from "@/components/ui/tabs";
+import { Tabs } from "@/components/ui/custom-tabs";
 import useSWR from "swr";
 
 export default function setlistPage() {
