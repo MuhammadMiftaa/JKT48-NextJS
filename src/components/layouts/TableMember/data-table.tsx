@@ -174,7 +174,7 @@ export function DataTable<TData extends object, TValue>({
               {headerGroup.headers.map((header) => {
                 return (
                   <TableHead
-                    className="p-1 text-nowrap pr-6 text-zinc-400 group-hover:text-white"
+                    className="py-2 text-nowrap pr-6 text-zinc-400 group-hover:text-white"
                     key={header.id}
                   >
                     {header.isPlaceholder
@@ -216,7 +216,7 @@ export function DataTable<TData extends object, TValue>({
                       } ———— ${
                         (cellName === "foto" || cellName === "kabesha") &&
                         "text-blue-500 italic hover:underline hover:text-white"
-                      } ———— ${index === 0 && "pl-6"} text-nowrap pr-6`}
+                      } ———— ${index === 0 && "pl-6"} text-nowrap pr-2 py-3`}
                       key={cell.id}
                     >
                       {!(cellName === "member_regular") ? (

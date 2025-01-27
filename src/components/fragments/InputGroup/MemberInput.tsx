@@ -11,7 +11,7 @@ export default function MemberInput(props: {
   setPhoto: Function;
   noCollege: boolean;
   setNoCollege: Function;
-  nameRef: any;
+  nameRef?: any;
 }) {
   // const { onChange, ...rest } = props.form.register(props.label, {
   //   valueAsNumber: props.label === "generasi" || props.label === "umur",
