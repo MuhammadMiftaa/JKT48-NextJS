@@ -27,7 +27,7 @@ import { useForm } from "react-hook-form";
 import { GETAPIURL } from "@/helper/getEnv";
 import { zodResolver } from "@hookform/resolvers/zod";
 import MemberInput from "@/components/fragments/InputGroup/MemberInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
@@ -230,35 +230,67 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
   {
     id: "update",
     cell: ({ row }) => {
+      const { register, setValue, handleSubmit } = useForm<MemberTypeZod>({
+        resolver: zodResolver(MemberSchemaZod),
+      });
+
       const member = row.original;
       const [loading, setLoading] = useState(false);
       const [error, setError] = useState<string | null>(null);
-      const [kabesha, setKabesha] = useState<string | null>(null);
-      const [photo, setPhoto] = useState<string | null>(null);
-      const [noCollege, setNoCollege] = useState(false);
+      const [kabesha, setKabesha] = useState<string>("");
+      const [photo, setPhoto] = useState<string>("");
       const [memberRegular, setMemberRegular] = useState(member.member_regular);
 
-      const form = useForm<MemberTypeZod>({
-        resolver: zodResolver(MemberSchemaZod),
-      });
-      const onSubmit = form.handleSubmit(async (data) => {
+      useEffect(() => {
+        setValue("nama", member.nama);
+        setValue("nama_lengkap", member.nama_lengkap);
+        setValue("nama_panggilan", member.nama_panggilan);
+        setValue("umur", member.umur);
+        setValue("generasi", member.generasi);
+        setValue("member_regular", member.member_regular);
+        setValue("kabesha", member.kabesha);
+        setValue("tanggal_lahir", member.tanggal_lahir);
+        setValue("kota_lahir", member.kota_lahir);
+        setValue("asal", member.asal);
+        setValue("universitas", member.universitas);
+        setValue("jurusan", member.jurusan);
+        setValue("foto", member.foto);
+        setValue("tanggal_bergabung", member.tanggal_bergabung);
+        setValue("fanbase", member.fanbase);
+        setValue("salam_perkenalan", member.salam_perkenalan);
+        setValue("username_idn", member.username_idn);
+        setValue("username_ig", member.username_ig);
+        setValue("username_sr", member.username_sr);
+        setValue("username_tiktok", member.username_tiktok);
+        setValue("username_x", member.username_x);
+      }, []);
+
+      const onSubmit = handleSubmit(async (data) => {
+        console.info({
+          ...data,
+          member_regular: memberRegular,
+          id: member.nama.split(" ").join("-"),
+        });
         try {
           setLoading(true);
-          const response = await fetch(`${GETAPIURL()}/data-member/add`, {
-            method: "POST",
+          const response = await fetch(`${GETAPIURL()}/data-member/update`, {
+            method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({
+              ...data,
+              member_regular: memberRegular,
+              id: member.nama.split(" ").join("-"),
+            }),
           });
 
           if (!response.ok) {
             throw new Error("An error occurred while adding a member");
           }
           setLoading(false);
-          setPhoto(null);
-          setKabesha(null);
-          form.reset();
+          // setPhoto("");
+          // setKabesha("");
         } catch (error: any) {
           setError(error);
           setLoading(false);
@@ -277,23 +309,23 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
               defaultValue="identitas"
               className="w-full h-full relative font-urbanist pt-5"
             >
-              <form className="" action="">
+              <form className="" onSubmit={onSubmit}>
                 <TabsContent
                   className="h-full flex justify-center items-center font-urbanist"
                   value="identitas"
                 >
                   <div className="w-11/12 h-96 grid grid-cols-3 grid-rows-5">
                     <div className="col-span-1 row-span-5 h-full w-full border-r border-zinc-600 flex justify-end items-center p-4">
-                      {member.kabesha ? (
+                      {member.kabesha || kabesha ? (
                         <Image
                           className="object-contain h-full rounded"
-                          src={member.kabesha}
+                          src={member.kabesha || kabesha}
                           alt="kabesha"
                           height={400}
                           width={300}
                         ></Image>
                       ) : (
-                        <div className="flex justify-center items-center h-full w-full">
+                        <div className="flex flex-col justify-center items-center h-full w-full">
                           <p className="text-sm font-light text-zinc-400">
                             No image available.
                           </p>
@@ -311,8 +343,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="nama_lengkap"
-                        name="nama_lengkap"
-                        defaultValue={member.nama_lengkap}
+                        {...register("nama_lengkap")}
                       />
                     </div>
                     <div className="col-span-2 flex flex-col border-b border-zinc-600 mb-4">
@@ -326,7 +357,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="nama_panggilan"
-                        defaultValue={member.nama_panggilan}
+                        {...register("nama_panggilan")}
                       />
                     </div>
                     <div className="col-span-1 flex flex-col border-b border-zinc-600 mb-4">
@@ -340,7 +371,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="number"
                         id="generasi"
-                        defaultValue={member.generasi}
+                        {...register("generasi", { valueAsNumber: true })}
                       />
                     </div>
                     <div className="col-span-1 flex flex-col border-b border-zinc-600 mb-4">
@@ -354,7 +385,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="number"
                         id="umur"
-                        defaultValue={member.umur}
+                        {...register("umur", { valueAsNumber: true })}
                       />
                     </div>
                     <div className="col-span-2 flex flex-col border-b border-zinc-600 mb-4">
@@ -368,7 +399,16 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="kabesha"
-                        defaultValue={member.kabesha}
+                        {...register("kabesha", {
+                          onChange: (e) =>
+                            (e.target.value.includes("https://pbs.twimg.com") ||
+                              e.target.value.includes("https://jkt48.com") ||
+                              e.target.value.includes(
+                                "https://res.cloudinary.com"
+                              ) ||
+                              e.target.value === "") &&
+                            setKabesha(e.target.value),
+                        })}
                       />
                     </div>
                     <div className="col-span-2 flex items-center gap-4 pl-3">
@@ -381,7 +421,6 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                           name="member_regular"
                           checked={memberRegular}
                           onChange={() => setMemberRegular(true)}
-                          // {...register("member_regular", { valueAsBoolean: true })}
                         />
                         <span className="block font-poppins text-center uppercase border border-white text-white py-1 w-full text-lg rounded shadow-sm shadow-white peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-1">
                           regular
@@ -396,7 +435,6 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                           name="member_regular"
                           checked={!memberRegular}
                           onChange={() => setMemberRegular(false)}
-                          // {...register("member_regular", { valueAsBoolean: true })}
                         />
                         <span className="block font-poppins text-center uppercase border border-white text-white py-1 w-full text-lg rounded shadow-sm shadow-white peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-0.translate-x-0.5">
                           trainee
@@ -411,10 +449,10 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                 >
                   <div className="w-11/12 h-[23rem] grid grid-cols-3 grid-rows-5">
                     <div className="col-span-1 row-span-5 h-full w-full border-r border-zinc-600 flex justify-end items-center p-4">
-                      {member.foto ? (
+                      {member.foto || photo ? (
                         <Image
                           className="object-contain h-full rounded"
-                          src={member.foto}
+                          src={member.foto || photo}
                           alt="foto"
                           height={400}
                           width={300}
@@ -438,7 +476,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="kota_lahir"
-                        defaultValue={member.kota_lahir}
+                        {...register("kota_lahir")}
                       />
                     </div>
                     <div className="col-span-1 flex flex-col border-b border-zinc-600 mb-4">
@@ -452,7 +490,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="tanggal_lahir"
-                        defaultValue={member.tanggal_lahir}
+                        {...register("tanggal_lahir")}
                       />
                     </div>
                     <div className="col-span-2 flex flex-col border-b border-zinc-600 mb-4">
@@ -466,7 +504,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="asal"
-                        defaultValue={member.asal}
+                        {...register("asal")}
                       />
                     </div>
                     <div className="col-span-2 flex flex-col border-b border-zinc-600 mb-4">
@@ -480,7 +518,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="universitas"
-                        defaultValue={member.universitas}
+                        {...register("universitas")}
                       />
                     </div>
                     <div className="col-span-2 flex flex-col border-b border-zinc-600 mb-4">
@@ -494,7 +532,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="jurusan"
-                        defaultValue={member.jurusan}
+                        {...register("jurusan")}
                       />
                     </div>
                     <div className="col-span-2 flex flex-col">
@@ -508,7 +546,16 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="foto"
-                        defaultValue={member.foto}
+                        {...register("foto", {
+                          onChange: (e) =>
+                            (e.target.value.includes("https://pbs.twimg.com") ||
+                              e.target.value.includes("https://jkt48.com") ||
+                              e.target.value.includes(
+                                "https://res.cloudinary.com"
+                              ) ||
+                              e.target.value === "") &&
+                            setPhoto(e.target.value),
+                        })}
                       />
                     </div>
                   </div>
@@ -529,7 +576,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="tanggal_bergabung"
-                        defaultValue={member.tanggal_bergabung}
+                        {...register("tanggal_bergabung")}
                       />
                     </div>
                     <div className="col-span-5 flex flex-col border-b border-zinc-600 mb-4">
@@ -543,7 +590,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
                         type="text"
                         id="fanbase"
-                        defaultValue={member.fanbase}
+                        {...register("fanbase")}
                       />
                     </div>
                     <div className="col-span-5 flex flex-col border-b border-zinc-600 mb-4">
@@ -556,9 +603,8 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                       <input
                         type="text"
                         className="w-full bg-custom-gray rounded text-xl -mt-2 border-none focus:ring-0 focus:border-0 focus:outline-none"
-                        // rows={2}
                         id="salam_perkenalan"
-                        defaultValue={member.salam_perkenalan}
+                        {...register("salam_perkenalan")}
                       />
                     </div>
                     <div className="flex items-center col-span-2">
@@ -609,7 +655,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         type="text"
                         className="w-full bg-custom-gray rounded text-xl border-none focus:ring-0 focus:border-0 focus:outline-none"
                         id="username_ig"
-                        defaultValue={member.username_ig}
+                        {...register("username_ig")}
                       />
                     </div>
                     <div className="flex items-center col-start-3 col-span-2">
@@ -639,7 +685,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         type="text"
                         className="w-full bg-custom-gray rounded text-xl border-none focus:ring-0 focus:border-0 focus:outline-none"
                         id="username_tiktok"
-                        defaultValue={member.username_tiktok}
+                        {...register("username_tiktok")}
                       />
                     </div>
                     <div className="flex items-center col-start-5">
@@ -661,7 +707,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         type="text"
                         className="w-full bg-custom-gray rounded text-xl border-none focus:ring-0 focus:border-0 focus:outline-none"
                         id="username_x"
-                        defaultValue={member.username_x}
+                        {...register("username_x")}
                       />
                     </div>
                     <div className="flex items-center col-start-2 col-span-2">
@@ -697,7 +743,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         type="text"
                         className="w-full bg-custom-gray rounded text-xl border-none focus:ring-0 focus:border-0 focus:outline-none"
                         id="username_idn"
-                        defaultValue={member.username_idn}
+                        {...register("username_idn")}
                       />
                     </div>
                     <div className="flex items-center col-start-4 col-span-2">
@@ -714,7 +760,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         type="text"
                         className="w-full bg-custom-gray rounded text-xl border-none focus:ring-0 focus:border-0 focus:outline-none"
                         id="username_sr"
-                        defaultValue={member.username_sr}
+                        {...register("username_sr")}
                       />
                     </div>
                   </div>
@@ -763,9 +809,9 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                     </DrawerClose>
                     <button
                       className="w-32 h-10 flex justify-center items-center bg-gradient-to-br from-zinc-400 via-white to-zinc-400 rounded text-black uppercase font-bold text-lg hover:shadow-md hover:shadow-white duration-300"
-                      type="button"
+                      type="submit"
                     >
-                      Update!
+                      {loading ? "Loading..." : "Save"}
                     </button>
                   </div>
                 </div>
