@@ -439,7 +439,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                             checked={memberRegular}
                             onChange={() => setMemberRegular(true)}
                           />
-                          <span className="block font-poppins text-center uppercase border border-white text-white py-1 w-full text-lg rounded shadow-sm shadow-white peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-1">
+                          <span className="block font-poppins text-center uppercase border border-red-500 text-red-500 py-1 w-full text-lg rounded shadow-sm shadow-red-500 peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-1">
                             regular
                           </span>
                         </label>
@@ -456,7 +456,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                             checked={!memberRegular}
                             onChange={() => setMemberRegular(false)}
                           />
-                          <span className="block font-poppins text-center uppercase border border-white text-white py-1 w-full text-lg rounded shadow-sm shadow-white peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-0.translate-x-0.5">
+                          <span className="block font-poppins text-center uppercase border border-pink-400 text-pink-400 py-1 w-full text-lg rounded shadow-sm shadow-pink-400 peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-0.translate-x-0.5">
                             trainee
                           </span>
                         </label>
