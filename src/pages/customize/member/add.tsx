@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import MemberInput from "@/components/fragments/InputGroup/MemberInput";
 import { GETAPIURL } from "@/helper/getEnv";
 import { MemberSchemaZod, MemberTypeZod } from "../../../schema/zodSchema";
+import { IoCheckmarkCircle } from "react-icons/io5";
 
 function AddMember() {
   const form = useForm<MemberTypeZod>({
@@ -14,12 +15,24 @@ function AddMember() {
   const [kabesha, setKabesha] = useState<string | null>(null);
   const [photo, setPhoto] = useState<string | null>(null);
   const [noCollege, setNoCollege] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const nameRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     nameRef.current?.focus();
   }, []);
+
+  useEffect(() => {
+    if (success) {
+      const timeout = setTimeout(() => {
+        setSuccess(false);
+      }, 1500);
+  
+      return () => clearTimeout(timeout);
+    }
+  }, [success]);
+  
 
   const onSubmit = form.handleSubmit(async (data) => {
     try {
@@ -38,6 +51,7 @@ function AddMember() {
       setLoading(false);
       setPhoto(null);
       setKabesha(null);
+      setSuccess(true);
       form.reset();
       nameRef.current?.focus();
     } catch (error: any) {
@@ -48,13 +62,13 @@ function AddMember() {
   });
 
   return (
-    <div className="pt-20 pb-10 px-10 w-full flex flex-col items-center">
-      <h1 className="text-4xl text-center font-poppins italic text-transparent bg-clip-text bg-gradient-to-r from-custom-green to-white">
+    <div className="pt-20 pb-10 px-10 w-full flex flex-col items-center relative">
+      <h1 className="text-4xl text-center font-poppins italic text-transparent bg-clip-text bg-gradient-to-r from-custom-green to-blue-500">
         Add Member
       </h1>
       <div className="flex flex-row items-center justify-center mr-8">
-        <div className="h-0.5 w-32 bg-gradient-to-r from-custom-green to-white mr-3 mt-1"></div>
-        <div className="h-0.5 w-8 bg-white mt-1"></div>
+        <div className="h-0.5 w-32 bg-gradient-to-r from-custom-green to-blue-500 mr-3 mt-1"></div>
+        <div className="h-0.5 w-8 bg-blue-500 mt-1"></div>
       </div>
       <form className="mt-10 max-w-7xl flex flex-col gap-4" onSubmit={onSubmit}>
         {Object.keys(MemberSchemaZod.shape).map((key, index) => (
@@ -91,6 +105,18 @@ function AddMember() {
           {loading ? "Loading..." : "Add Member"}
         </button>
       </form>
+      <div
+        className={`fixed top-20 left-1/2 -translate-x-1/2 bg-gradient-to-r from-custom-green to-blue-500 p-0.5 rounded-xl ${
+          success ? "top-20 opacity-100" : "top-10 opacity-0"
+        } transition-all duration-300`}
+      >
+        <div className="bg-gradient-to-br from-white via-zinc-200 to-white text-sm py-3 px-6 font-urbanist text-custom-gray rounded-xl flex gap-3 items-center">
+          <div className="text-emerald-500 text-xl">
+            <IoCheckmarkCircle />
+          </div>
+          <h1>Data member berhasil ditambahkan.</h1>
+        </div>
+      </div>
     </div>
   );
 }

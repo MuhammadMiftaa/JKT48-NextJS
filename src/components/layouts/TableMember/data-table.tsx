@@ -37,6 +37,7 @@ import {
 import { useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import Link from "next/link";
+import { GoPlus } from "react-icons/go";
 
 interface DataTableProps<TData extends object, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -93,7 +94,7 @@ export function DataTable<TData extends object, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4">
+      <div className="flex items-center justify-between py-4">
         <div className="flex items-center border border-zinc-600 rounded-xl w-[21rem]">
           <input
             placeholder={`Cari berdasarkan ${filterBy.split("_").join(" ")}...`}
@@ -134,38 +135,46 @@ export function DataTable<TData extends object, TValue>({
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button
-              type="button"
-              className="text-zinc-400 hover:text-white duration-300 ml-auto border rounded-md border-zinc-600 py-1.5 px-4 font-urbanist shadow-sm shadow-zinc-600 focus:outline-none active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+        <div className="flex items-center gap-4">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="text-zinc-400 hover:text-white duration-300 ml-auto border rounded-md border-zinc-600 py-1.5 px-4 font-urbanist shadow-sm shadow-zinc-600 focus:outline-none active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+              >
+                Pilih kolom
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              className="font-urbanist bg-custom-gray border-zinc-600 text-white overflow-y-auto max-h-80"
             >
-              Pilih kolom
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align="end"
-            className="font-urbanist bg-custom-gray border-zinc-600 text-white overflow-y-auto max-h-80"
+              {table
+                .getAllColumns()
+                .filter((column) => column.getCanHide())
+                .map((column) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.getIsVisible()}
+                      onCheckedChange={(value) =>
+                        column.toggleVisibility(!!value)
+                      }
+                    >
+                      {column.id.split("_").join(" ")}
+                    </DropdownMenuCheckboxItem>
+                  );
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Link
+            className=" text-2xl p-2 text-zinc-400 border border-zinc-600 rounded-lg shadow-sm shadow-zinc-600 hover:bg-white hover:shadow-white hover:text-black hover:border-black duration-300 active:shadow-none active:translate-x-0.5 active:translate-y-0.5"
+            href="member/add"
           >
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id.split("_").join(" ")}
-                  </DropdownMenuCheckboxItem>
-                );
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+            <GoPlus />
+          </Link>{" "}
+        </div>
       </div>
       <Table className="border border-zinc-600 font-urbanist rounded">
         <TableHeader className="">

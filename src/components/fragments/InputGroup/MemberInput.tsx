@@ -49,7 +49,7 @@ export default function MemberInput(props: {
             </label>
             <div className="flex flex-row items-center w-full">
               <div className="h-[0.1rem] w-2 bg-custom-green mr-1"></div>
-              <div className="h-[0.1rem] w-[50%] bg-gradient-to-r from-custom-green to-white"></div>
+              <div className="h-[0.1rem] w-[50%] bg-gradient-to-r from-custom-green to-blue-500"></div>
             </div>
           </div>
           <div className="relative w-full">
@@ -206,7 +206,7 @@ export function MemberRegular(props: { form: any }) {
               value={"true"}
               {...register("member_regular", { valueAsBoolean: true })}
             />
-            <span className="block font-poppins text-center uppercase border border-white text-white py-1 w-full text-xl rounded -skew-x-12 shadow-sm shadow-white peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-1">
+            <span className="block font-poppins text-center uppercase border border-red-500 text-red-500 py-1 w-full text-xl rounded -skew-x-12 shadow-sm shadow-red-500 peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-1">
               regular
             </span>
           </label>
@@ -219,7 +219,7 @@ export function MemberRegular(props: { form: any }) {
               checked
               {...register("member_regular", { valueAsBoolean: true })}
             />
-            <span className="block font-poppins text-center uppercase border border-white text-white py-1 w-full text-xl rounded -skew-x-12 shadow-sm shadow-white peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-0.translate-x-0.5">
+            <span className="block font-poppins text-center uppercase border border-pink-400 text-pink-400 py-1 w-full text-xl rounded -skew-x-12 shadow-sm shadow-pink-400 peer-checked:shadow-none peer-checked:translate-x-0.5 peer-checked:translate-y-0.translate-x-0.5">
               trainee
             </span>
           </label>
