@@ -289,8 +289,6 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
             throw new Error("An error occurred while adding a member");
           }
           setLoading(false);
-          // setPhoto("");
-          // setKabesha("");
         } catch (error: any) {
           setError(error);
           setLoading(false);
@@ -827,6 +825,43 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
     cell: ({ row }) => {
       const member = row.original;
 
+      const [loading, setLoading] = useState(false);
+      const [error, setError] = useState<string | null>(null);
+
+      const handleDelete = async (name: string, description: string) => {
+        if (
+          window.confirm(
+            `Are you sure you want to delete ${name} because ${description}?`
+          )
+        ) {
+          try {
+            setLoading(true);
+            const response = await fetch(`${GETAPIURL()}/data-member/delete`, {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id: name.split(" ").join("-"),
+                description,
+              }),
+            });
+
+            if (response.ok) {
+              setLoading(false);
+              window.location.reload();
+            } else {
+              setLoading(false);
+              throw new Error("Failed to delete member");
+            }
+          } catch (error: any) {
+            setLoading(false);
+            setError(error);
+            console.error(error);
+          }
+        }
+      };
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -845,16 +880,34 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
             <DropdownMenuLabel className="text-zinc-200">
               Tandai dengan
             </DropdownMenuLabel>
-            <DropdownMenuItem className="text-zinc-200">
+            <DropdownMenuItem
+              onClick={() =>
+                handleDelete(member.nama, "graduated")
+              }
+              className="text-zinc-200"
+            >
               Graduated
             </DropdownMenuItem>
-            <DropdownMenuItem className="text-zinc-200">
+            <DropdownMenuItem
+              onClick={() =>
+                handleDelete(member.nama, "resigned")
+              }
+              className="text-zinc-200"
+            >
               Resigned
             </DropdownMenuItem>
-            <DropdownMenuItem className="text-zinc-200">
+            <DropdownMenuItem
+              onClick={() => handleDelete(member.nama, "laid off")}
+              className="text-zinc-200"
+            >
               Laid Off
             </DropdownMenuItem>
-            <DropdownMenuItem className="text-zinc-200">Fired</DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => handleDelete(member.nama, "fired")}
+              className="text-zinc-200"
+            >
+              Fired
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
