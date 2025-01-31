@@ -1,10 +1,12 @@
-// import "../member/index.module.scss"
+import { RxAvatar } from "react-icons/rx";
 import Loading from "@/components/elements/Loading";
 import { memberType } from "@/types/memberType";
 import useSWR from "swr";
 import MemberCards from "@/components/layouts/MemberCards";
 import { ChangeEventHandler, useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import { FaCamera } from "react-icons/fa";
+import { IoCameraOutline } from "react-icons/io5";
 
 export default function MemberPage() {
   // const [member, setMember] = useState([]);
@@ -59,27 +61,61 @@ export default function MemberPage() {
     setHometown("");
   };
 
+  const [showKabesha, setShowKabesha] = useState<boolean>(true);
+
   return (
     <>
       <div className="flex flex-col w-full pb-32 mt-12">
-        <div className="flex justify-between px-8 md:px-24 items-start mt-10 md:mt-12 mb-6 md:mb-20">
+        <div className="flex flex-col md:flex-row justify-between px-8 md:px-24 items-start mt-10 md:mt-12 mb-6 md:mb-20">
           <h1 className="font-extralight text-lg md:text-2xl font-urbanist">
             <span className="title-gradient-bold text-2xl md:text-4xl font-poppins">
               JKT48
             </span>{" "}
             Active Member
           </h1>
-          <button
-            type="button"
-            data-drawer-target="drawer-right-example"
-            data-drawer-show="drawer-right-example"
-            data-drawer-placement="right"
-            aria-controls="drawer-right-example"
-            data-drawer-body-scrolling="true"
-            className="text-black bg-gradient-to-r duration-700 from-custom-green to-blue-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-lg md:text-xl px-3 md:px-5 py-2 md:py-2.5 text-center me-2 mb-2 "
-          >
-            <FiSearch />
-          </button>
+          <div className="flex gap-2 items-center w-full md:w-fit justify-between md:justify-start">
+            <label
+              htmlFor="switch-image"
+              className="relative border border-zinc-600 h-10 md:h-12 w-28 rounded-xl md:-mt-2"
+            >
+              <input
+                onChange={() => setShowKabesha(!showKabesha)}
+                className="peer scale-0"
+                id="switch-image"
+                type="checkbox"
+              />
+              <div className="inset-0 absolute flex text-2xl justify-around items-center cursor-pointer">
+                <div
+                  className={`${
+                    showKabesha ? "text-zinc-600 z-10" : "text-white"
+                  } delay-200 duration-300`}
+                >
+                  <RxAvatar />
+                </div>
+                <div
+                  className={`${
+                    !showKabesha ? "text-zinc-600 z-10" : "text-white"
+                  } delay-200 duration-300`}
+                >
+                  <IoCameraOutline />
+                </div>
+              </div>
+              <div
+                className={`absolute top-1 bottom-1 duration-500 peer-checked:translate-x-14 left-1 w-12 bg-gradient-to-br from-zinc-600 via-zinc-400 to-zinc-600 rounded-lg p-2`}
+              ></div>
+            </label>
+            <button
+              type="button"
+              data-drawer-target="drawer-right-example"
+              data-drawer-show="drawer-right-example"
+              data-drawer-placement="right"
+              aria-controls="drawer-right-example"
+              data-drawer-body-scrolling="true"
+              className="text-black bg-gradient-to-r duration-700 from-custom-green to-blue-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-lg md:text-xl px-3 md:px-5 py-2 md:py-2.5 text-center me-2 mb-2 "
+            >
+              <FiSearch />
+            </button>
+          </div>
         </div>
         <div
           id="drawer-right-example"
@@ -219,8 +255,11 @@ export default function MemberPage() {
                     }
                   : null
               }
+              showKabesha={showKabesha}
             />
             <MemberCards
+              memberRegular={memberTrainee}
+              category="Trainee"
               search={
                 name || birthday || birthplace || hometown || age || gen
                   ? {
@@ -233,8 +272,7 @@ export default function MemberPage() {
                     }
                   : null
               }
-              memberRegular={memberTrainee}
-              category="Trainee"
+              showKabesha={showKabesha}
             />
           </div>
         ) : (

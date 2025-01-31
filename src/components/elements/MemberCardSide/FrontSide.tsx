@@ -3,16 +3,18 @@ import React from "react";
 
 export default function FrontSide(props: {
   nama: string;
+  showKabesha: boolean;
   foto: string;
+  kabesha: string;
   baseColor: string;
 }) {
-  const { nama, foto, baseColor } = props;
+  const { nama, showKabesha, foto, kabesha, baseColor } = props;
   return (
     <div
-      className={`front backface-hidden w-full h-full md:h-full md:w-full border-${baseColor} border rounded-2xl absolute top-0 bottom-0 left-0 right-0 overflow-hidden bg-zinc-950 hover:cursor-pointer shadow-xl shadow-${baseColor} duration-700`}
+      className={`front backface-hidden w-full h-full md:h-full md:w-full border-${baseColor} border rounded-2xl absolute top-0 bottom-0 left-0 right-0 overflow-hidden bg-gradient-to-br from-zinc-700 via-zinc-800 to-black hover:cursor-pointer shadow-xl shadow-${baseColor} duration-700`}
     >
-      <div className="w-4/5 h-fit border-r md:h-full border-${baseColor}">
-        <Image width={256} height={361} className={`h-full w-full object-cover`} src={foto} alt={nama} />
+      <div className={`w-4/5 h-full border-r md:h-full border-${baseColor}`}>
+        <Image width={256} height={361} className={`h-full w-full object-cover`} src={showKabesha ? kabesha : foto} alt={nama} />
       </div>
       <div className="absolute top-1/2 left-[.47rem] md:left-[5.9rem] transform -translate-y-1/2 bg-transparent w-60 h-60 flex items-center justify-center rotate-90">
         <h1

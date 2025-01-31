@@ -145,6 +145,7 @@ export default function MemberDetailPage() {
               <input type="checkbox" className="absolute scale-0" />
               <MemberDetailMedia
                 nama={dataMember.nama}
+                foto={dataMember.foto}
                 username_ig={dataMember.username_ig}
                 username_sr={dataMember.username_sr}
                 username_tiktok={dataMember.username_tiktok}

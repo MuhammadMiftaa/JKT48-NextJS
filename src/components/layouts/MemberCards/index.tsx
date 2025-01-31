@@ -13,6 +13,7 @@ export default function MemberCards(props: {
     birthplace: string;
     birthday: string;
   } | null;
+  showKabesha: boolean;
 }) {
   const filterMembers = (member: memberType) => {
     if (!props.search) return true; // Jika tidak ada kriteria pencarian, tampilkan semua member
@@ -80,6 +81,7 @@ export default function MemberCards(props: {
                 baseColor={
                   props.category === "Regular" ? "custom-green" : "pink-600"
                 }
+                showKabesha={props.showKabesha}
               />
             );
           })}

@@ -69,7 +69,7 @@ export default function BackSide(props: {
   ];
 
   return (
-    <div className="back flex flex-col justify-center items-center bg-black md:h-full w-full md:basis-1/3 md:absolute md:top-0 md:bottom-0 md:left-0 md:right-0 overflow-hidden duration-700 gap-2 py-2 md:pr-16 md:backface-hidden md:rotate-y-180">
+    <div className="back flex flex-col justify-center items-center bg-custom-black md:h-full w-full md:basis-1/3 md:absolute md:top-0 md:bottom-0 md:left-0 md:right-0 overflow-hidden duration-700 gap-2 py-2 md:pr-16 md:backface-hidden md:rotate-y-180">
       {backSideData.map((data, i) => (
         <MemberDetailMediaSocial
           key={i}
