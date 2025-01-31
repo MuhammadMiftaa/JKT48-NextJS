@@ -15,9 +15,7 @@ export default function SmallCard(props: {
       <div
         className="h-20 w-20 md:h-40 md:w-40 bg-black rounded-full bg-no-repeat bg-center bg-cover"
         style={{
-          backgroundImage: `url("/member/${props.member.nama
-            .toLowerCase()
-            .replace(/ /g, "_")}.png")`,
+          backgroundImage: `url(${props.member.kabesha})`,
         }}
       ></div>
       <div className="w-full h-fit pl-2">
