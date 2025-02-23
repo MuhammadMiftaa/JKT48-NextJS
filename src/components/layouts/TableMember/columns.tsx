@@ -331,7 +331,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         {member.kabesha || kabesha ? (
                           <Image
                             className="object-contain h-full rounded"
-                            src={member.kabesha || kabesha}
+                            src={kabesha || member.kabesha}
                             alt="kabesha"
                             height={400}
                             width={300}
@@ -472,7 +472,7 @@ export const columns: ColumnDef<MemberTypeZod>[] = [
                         {member.foto || photo ? (
                           <Image
                             className="object-contain h-full rounded"
-                            src={member.foto || photo}
+                            src={photo || member.foto}
                             alt="foto"
                             height={400}
                             width={300}
