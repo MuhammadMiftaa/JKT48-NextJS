@@ -1,0 +1,35 @@
+{
+  "name": "Sanggar Tari",
+  "short_name": "Sanggar Tari",
+  "description": "Sanggar Tari adalah website redesign dari website resmi JKT48",
+  "theme_color": "#88FCAF",
+  "background_color": "#88FCAF",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "../../public/assets/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../../public/assets/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "../../public/assets/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "../../public/assets/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
