@@ -7,8 +7,10 @@ export default function Document() {
       className="scrollbar-thin scrollbar-thumb-white scrollbar-track-black hover:scrollbar-track-blue-700 active:scrollbar-track-black"
     >
       <Head>
-        <link rel="apple-touch-icon" href="../../public/assets/apple-icon-180.png" />
+        <meta name="theme-color" content="#000000" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="../../public/assets/apple-icon-180.png" />
         <link rel="apple-touch-startup-image" href="../../public/assets/apple-splash-2048-2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
         <link rel="apple-touch-startup-image" href="../../public/assets/apple-splash-2732-2048.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
         <link rel="apple-touch-startup-image" href="../../public/assets/apple-splash-1668-2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
