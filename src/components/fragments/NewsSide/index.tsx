@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 
 export default function NewsSide() {
   return (
@@ -6,7 +6,7 @@ export default function NewsSide() {
       <h1 className="text-3xl mb-4 text-center font-semibold text-gradient">
         Chekicha
       </h1>
-      <img src="/birthdayMember.jpg" alt="birthday member this month" />
+      <Image src="/birthdayMember.jpg" alt="birthday member this month" width={1000} height={1000} />
       <h1 className="text-zinc-500 mt-5 italic text-sm md:before:content-['——————————————————'] md:before:mr-3 md:before:tracking-[-4px] md:after:content-['——————————————————————————————————————————————————————————————————'] md:after:tracking-[-10px] md:after:ml-2">
         10 Juli 2024
       </h1>

@@ -4,7 +4,7 @@ import { theaterType } from "@/types/theaterType";
 import React from "react";
 import useSWR from "swr";
 
-export default function theaterPage() {
+export default function TheaterPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, isLoading, error } = useSWR("/api/data-theater", fetcher);
   const dataTheater: theaterType[] = isLoading
@@ -48,7 +48,7 @@ export default function theaterPage() {
   return (
     <>
       {!isLoading ? (
-        <div className="container mt-32 pb-12 relative">
+        <div className="mt-32 pb-12 relative">
           <h1 className="uppercase text-center font-extrabold text-2xl block mb-16 font-poppins">
             Upcoming Theater{" "}
             <span className="block text-5xl title-gradient-thin w-fit text-center mx-auto">

@@ -2,6 +2,7 @@ import NewsCatPill from "@/components/elements/NewsCatPill";
 import NewsHighlight from "@/components/fragments/NewsHighlight";
 import NewsPaging from "@/components/fragments/NewsPaging";
 import NewsSide from "@/components/fragments/NewsSide";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function NewsPage() {
@@ -135,10 +136,12 @@ export default function NewsPage() {
                 }}
                 key={i}
               >
-                <img
+                <Image
                   src={news.image}
                   alt="meet and greet"
-                  className="h-full aspect-video object-cover object-center mr-2"
+                  className="h-full w-40 aspect-video object-cover object-center mr-2"
+                  width={1000}
+                  height={1000}
                 />
                 <p className="font-urbanist text-xs md:text-sm text-gradient-group-hover line-clamp-4 md:line-clamp-3">
                   {news.judul}

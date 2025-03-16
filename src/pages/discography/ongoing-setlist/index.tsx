@@ -3,7 +3,7 @@ import { setlistType } from "@/types/setlistType";
 import { Tabs } from "@/components/ui/custom-tabs";
 import useSWR from "swr";
 
-export default function setlistPage() {
+export default function SetlistPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
   const { data, error, isLoading } = useSWR("/api/data-setlist", fetcher);

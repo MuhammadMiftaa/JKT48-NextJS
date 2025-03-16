@@ -28,14 +28,16 @@ export default function BigCard(props: BigCardProps) {
       data-aos-duration="500"
       key={theater.id}
     >
-      <img
-        className="md:w-5/12 rounded-md"
+      <Image
+        className="md:w-5/12 rounded-md object-cover"
         src={
           "/setlistPoster/" +
           theater.setlist.toLowerCase().replace(/ /g, "_") +
           ".jpg"
         }
         alt={theater.setlist}
+        width={1000}
+        height={1000}
       />
       <div className="md:w-7/12 p-2 md:p-0 flex flex-col justify-start relative">
         <h1

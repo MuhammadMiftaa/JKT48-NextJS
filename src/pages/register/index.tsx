@@ -18,8 +18,9 @@ import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
-export default function registerPage() {
+export default function RegisterPage() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR("/api/data-member", fetcher);
   const member: memberType[] = isLoading
@@ -153,7 +154,7 @@ export default function registerPage() {
                       />
                     </label>
                     <span className="font-light text-xs italic font-urbanist text-red-600 hidden">
-                      Looks like there's a typo in your email. Make sure it's in
+                      Looks like there&apos;s a typo in your email. Make sure it&apos;s in
                       the correct format.
                     </span>
                   </div>
@@ -204,7 +205,7 @@ export default function registerPage() {
                       />
                     </label>
                     <span className="font-light text-xs italic font-urbanist text-red-600 hidden">
-                      The passwords don't match. Please try typing them again.
+                      The passwords don&apos;t match. Please try typing them again.
                     </span>
                   </div>
                 </div>
@@ -259,12 +260,14 @@ export default function registerPage() {
                           <ListboxButton className="relative w-full cursor-default rounded-md bg-black py-1.5 pl-3 pr-10 text-left text-white border-2 border-zinc-900 focus:outline-none sm:text-sm sm:leading-6">
                             {selected && selected.nama && (
                               <span className="flex items-center">
-                                <img
+                                <Image
                                   alt={selected.nama}
                                   src={`/member/webp/${selected.nama
                                     .toLowerCase()
                                     .replace(/ /g, "_")}.webp`}
                                   className="h-5 w-5 flex-shrink-0 rounded-full object-cover object-center"
+                                  width={50}
+                                  height={50}
                                 />
                                 <span className="ml-3 block truncate font-urbanist">
                                   {selected.nama}
@@ -287,12 +290,14 @@ export default function registerPage() {
                                 className="group relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900 data-[focus]:bg-pink-600 data-[focus]:text-white"
                               >
                                 <div className="flex items-center">
-                                  <img
+                                  <Image
                                     alt=""
                                     src={`/member/webp/${m.nama
                                       .toLowerCase()
                                       .replace(/ /g, "_")}.webp`}
                                     className="h-5 w-5 flex-shrink-0 rounded-full object-cover object-center"
+                                    width={50}
+                                    height={50}
                                   />
                                   <span className="ml-3 block truncate font-normal group-data-[selected]:font-bold font-urbanist text-white">
                                     {m.nama}

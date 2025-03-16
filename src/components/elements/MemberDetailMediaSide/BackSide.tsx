@@ -1,10 +1,9 @@
-import Link from "next/link";
 import React from "react";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { GoArrowSwitch } from "react-icons/go";
 import { RiTwitterXFill } from "react-icons/ri";
 import MemberDetailMediaSocial from "../MemberDetailMediaSocial";
-import { link } from "fs";
+import Image from "next/image";
 
 export default function BackSide(props: {
   username_ig: string;
@@ -28,10 +27,12 @@ export default function BackSide(props: {
       username: props.username_idn,
       colorClass: "from-red-200 via-red-600 to-red-800",
       icon: (
-        <img
-          className="md:h-14 h-5 rounded md:rounded-lg"
+        <Image
+          className="md:h-14 h-5 object-contain object-center md:object-left"
+          width={100}
+          height={100}
           src="/IDN.png"
-          alt=""
+          alt="IDN logo"
         />
       ),
     },
@@ -51,10 +52,12 @@ export default function BackSide(props: {
       colorClass:
         "from-[#F29600] via-[#54C2F0] via-70% to-[#E8528D] text-nowrap",
       icon: (
-        <img
-          className="md:h-14 h-5 rounded md:rounded-lg"
+        <Image
+          className="md:h-14 h-5 object-contain object-center md:object-left"
+          width={100}
+          height={100}
           src="/SR.png"
-          alt=""
+          alt="Showroom logo"
         />
       ),
     },

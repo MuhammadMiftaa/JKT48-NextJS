@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 
 export default function SmallCard(props: {
   item: { image: string; tanggal: string; judul: string; desc: string };
@@ -17,10 +17,12 @@ export default function SmallCard(props: {
         data-aos-easing="ease-out-cubic"
         data-aos-delay={index * 100}
       >
-        <img
+        <Image
           src={item.image}
-          className="rounded-lg md:w-1/3 h-fit"
-          alt=""
+          className="rounded-lg md:w-52 h-fit"
+          width={1000}
+          height={1000}
+          alt={item.judul}
         />
         <div className="flex flex-col md:ml-4 overflow-auto">
           <div className="flex justify-between items-center mt-3 md:mt-0">

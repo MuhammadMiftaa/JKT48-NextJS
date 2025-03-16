@@ -8,7 +8,7 @@ export default function FooterName() {
       </h1>
       <h2 className="text-black text-center text-sm md:text-lg font-poppins italic font-light">
         <span className="text-red-600 font-black text-sm md:text-lg">JKT48</span> is{" "}
-        <span className="text-pink-500 font-black text-sm md:text-lg">AKB48's</span> first
+        <span className="text-pink-500 font-black text-sm md:text-lg">AKB48&apos;s</span> first
         overseas sister group
       </h2>
     </>

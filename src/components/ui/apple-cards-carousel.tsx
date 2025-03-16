@@ -5,6 +5,7 @@ import React, {
   useState,
   createContext,
   useContext,
+  useCallback,
 } from "react";
 import {
   IconArrowNarrowLeft,
@@ -172,6 +173,17 @@ export const Card = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { onCardClose, currentIndex } = useContext(CarouselContext);
 
+  useOutsideClick(containerRef, () => handleClose());
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+    onCardClose(index);
+  }, [index, onCardClose]);
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -187,18 +199,7 @@ export const Card = ({
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
-
-  useOutsideClick(containerRef, () => handleClose());
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    onCardClose(index);
-  };
+  }, [open, handleClose]);
 
   return (
     <>
@@ -244,66 +245,80 @@ export const Card = ({
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-4xl mx-auto md:basis-2/3 relative">
                     {isMerch ? (
                       <div className="md:col-start-2">
-                        <img
+                        <Image
                           src={card.src}
                           alt={card.src}
                           className="w-full h-full object-cover rounded-xl"
+                          height={1000}
+                          width={1000}
                         />
                       </div>
                     ) : (
                       <>
                         <div className="row-span-1">
-                          <img
+                          <Image
                             src={`/product/tshirt/${card.title
                               .toLowerCase()
                               .replace(/ /g, "-")}-1.jpg`}
                             alt=""
                             className="w-full h-full object-cover rounded-xl"
+                            height={1000}
+                            width={1000}
                           />
                         </div>
                         <div className="md:row-span-2 md:col-span-2">
-                          <img
+                          <Image
                             src={`/product/tshirt/${card.title
                               .toLowerCase()
                               .replace(/ /g, "-")}-2.jpg`}
                             alt=""
                             className="w-full h-full object-cover rounded-xl"
+                            height={1000}
+                            width={1000}
                           />
                         </div>
                         <div className="row-span-1">
-                          <img
+                          <Image
                             src={`/product/tshirt/${card.title
                               .toLowerCase()
                               .replace(/ /g, "-")}-3.jpg`}
                             alt=""
                             className="w-full h-full object-cover rounded-xl"
+                            height={1000}
+                            width={1000}
                           />
                         </div>
                         <div className="row-span-1 col-span-1">
-                          <img
+                          <Image
                             src={`/product/tshirt/${card.title
                               .toLowerCase()
                               .replace(/ /g, "-")}-4.jpg`}
                             alt=""
                             className="w-full h-full object-cover rounded-xl"
+                            height={1000}
+                            width={1000}
                           />
                         </div>
                         <div className="row-span-1 col-span-1">
-                          <img
+                          <Image
                             src={`/product/tshirt/${card.title
                               .toLowerCase()
                               .replace(/ /g, "-")}-5.jpg`}
                             alt=""
                             className="w-full h-full object-cover rounded-xl"
+                            height={1000}
+                            width={1000}
                           />
                         </div>
                         <div className="row-span-1 col-span-1">
-                          <img
+                          <Image
                             src={`/product/tshirt/${card.title
                               .toLowerCase()
                               .replace(/ /g, "-")}-6.jpg`}
                             alt=""
                             className="w-full h-full object-cover rounded-xl"
+                            height={1000}
+                            width={1000}
                           />
                         </div>
                       </>

@@ -1,5 +1,6 @@
 import { theaterType } from "@/types/theaterType";
 import React from "react";
+import Image from "next/image";
 
 type TheaterCardProps = {
   theater: theaterType;
@@ -14,14 +15,16 @@ export default function SmallCard(props: TheaterCardProps) {
       data-aos-duration="1000"
       key={theater.id}
     >
-      <img
+      <Image
         className="md:w-1/3 md:rounded-3xl rounded-lg"
         src={
           "/setlistPoster/" +
           theater.setlist.toLowerCase().replace(/ /g, "_") +
           ".jpg"
         }
-        alt=""
+        alt={theater.setlist}
+        width={1000}
+        height={1000}
       />
       <div className="flex flex-col mt-1 md:mt-0">
         <h5 className="w-fit py-1 text-xl md:text-2xl rounded-3xl mb-1 md:mb-5 font-bold text-custom-green">

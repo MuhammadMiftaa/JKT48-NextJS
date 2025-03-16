@@ -1,5 +1,6 @@
 import SmallCard from "@/components/fragments/NewsCard/SmallCard";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function News() {
   const news = [
@@ -52,7 +53,7 @@ export default function News() {
             data-aos-duration="500"
             data-aos-easing="ease-out-cubic"
           >
-            <img src={news[3].image} className="rounded-xl" alt="" />
+            <Image src={news[3].image} className="rounded-xl" alt={news[3].judul} width={1000} height={1000} />
             <div className="flex justify-between items-center mt-3 px-1">
               <h1 className="text-sm font-medium text-custom-green bg-black px-2 py-1">
                 Event

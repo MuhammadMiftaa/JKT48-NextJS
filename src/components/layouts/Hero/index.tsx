@@ -33,7 +33,7 @@ export default function Hero() {
           <span className="tracking-[-2px]  text-custom-green">————</span>
           JKT48 is a captivating musical sensation that blends the allure of
           Japanese pop culture with Indonesian charm. Originating from the
-          renowned AKB48 concept, JKT48 has carved its own path as Indonesia's
+          renowned AKB48 concept, JKT48 has carved its own path as Indonesia&apos;s
           beloved idol group, enchanting audiences with its energetic
           performances and infectious melodies.
         </p>

@@ -1,4 +1,3 @@
-import About from "@/components/layouts/About";
 import Diskografi from "@/components/layouts/Discography";
 import Footer from "@/components/layouts/Footer";
 import Hero from "@/components/layouts/Hero";
@@ -10,13 +9,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-       {/* <About /> */}
-       <Theater />
+      <Theater />
       <Product />
       <News />
       <Member />
       <Diskografi />
-      <Footer /> 
+      <Footer />
     </>
   );
 }

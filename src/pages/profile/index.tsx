@@ -7,7 +7,7 @@ import useSWR from "swr";
 import { userType } from "@/types/userType.jsx";
 import { useRouter } from "next/router.js";
 
-export default function profilePage() {
+export default function ProfilePage() {
   const { data }: any = useSession();
 
   const userID = data ? data.user.id : "";

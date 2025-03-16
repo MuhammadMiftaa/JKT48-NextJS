@@ -7,7 +7,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import Loading from "@/components/elements/Loading";
 
-export default function loginPage() {
+export default function LoginPage() {
   const loginFormSchema = z.object({
     email: z.string(),
     password: z.string(),
@@ -115,7 +115,7 @@ export default function loginPage() {
                 className="bg-gradient-to-r w-full from-custom-green to-blue-600 rounded p-0.5"
               >
                 <h1 className="bg-black rounded p-2 m-0 w-full text-center font-urbanist text-xs">
-                  Don't have an account yet?
+                  Don&apos;t have an account yet?
                 </h1>
               </Link>
             </>

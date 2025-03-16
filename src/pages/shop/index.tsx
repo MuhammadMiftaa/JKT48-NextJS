@@ -111,7 +111,7 @@ export default function ShopPage() {
             <FloatingDock
               // mobileClassName="translate-y-20" // only for demo, remove for production
               items={links}
-              desktopClassName="bg-black"
+              desktopClassName="bg-custom-black"
             />
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function ShopPage() {
       <div className="px-8 md:px-20">
         <div className="w-full h-full pt-8" id="merch">
           <TextRevealCard
-            className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
+            className="p-0 pl-3 md:pl-0 m-0 bg-custom-black border-none w-fit"
             text="Exclusive Merch Just for You"
             revealText="Grab Yours Now"
           ></TextRevealCard>
@@ -135,7 +135,7 @@ export default function ShopPage() {
 
         <div className="w-full h-bull pt-8" id="tshirt">
           <TextRevealCard
-            className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
+            className="p-0 pl-3 md:pl-0 m-0 bg-custom-black border-none w-fit"
             text="Express Your Fandom in Style"
             revealText="Find Your Fit"
           ></TextRevealCard>
@@ -144,7 +144,7 @@ export default function ShopPage() {
 
         <div className="w-full h-bull pt-8" id="2shot-mng">
           <TextRevealCard
-            className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
+            className="p-0 pl-3 md:pl-0 m-0 bg-custom-black border-none w-fit"
             text="Meet Your Idols Face-to-Face"
             revealText="Reserve Your Spot"
           ></TextRevealCard>
@@ -208,9 +208,7 @@ export default function ShopPage() {
                           </div>
                         )}
                         <Image
-                          src={`/member/${member.nama
-                            .toLowerCase()
-                            .replace(" ", "_")}.png`}
+                          src={member.kabesha}
                           height="1000"
                           width="1000"
                           className="h-32 md:h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl z-10"
@@ -275,7 +273,7 @@ export default function ShopPage() {
         </div>
         <div className="w-full h-full pb-12 pt-8" id="videocall">
           <TextRevealCard
-            className="p-0 pl-3 md:pl-0 m-0 bg-black border-none w-fit"
+            className="p-0 pl-3 md:pl-0 m-0 bg-custom-black border-none w-fit"
             text="Connect with Your Idols Virtually"
             revealText="Schedule Your Call"
           ></TextRevealCard>
@@ -291,9 +289,7 @@ export default function ShopPage() {
                           rounded-t-xl relative overflow-hidden`}
                       >
                         <Image
-                          src={`/member/${member.nama
-                            .toLowerCase()
-                            .replace(" ", "_")}.png`}
+                          src={member.kabesha}
                           height="1000"
                           width="1000"
                           className="h-32 md:h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl z-10"
